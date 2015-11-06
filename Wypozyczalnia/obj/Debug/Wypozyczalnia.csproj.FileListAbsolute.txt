@@ -1,1 +1,2 @@
 c:\users\rafał\documents\visual studio 2012\Projects\Wypozyczalnia\Wypozyczalnia\bin\Debug\Wypozyczalnia.exe.config
+C:\Users\Rafał\Documents\repozytorium\Wypozyczalnia\bin\Debug\Wypozyczalnia.exe.config
