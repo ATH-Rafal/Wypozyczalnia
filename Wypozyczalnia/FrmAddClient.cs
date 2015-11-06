@@ -14,7 +14,9 @@ namespace Wypozyczalnia
     {
         public FrmAddKlient()
         {
+            
             InitializeComponent();
+
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -28,6 +30,16 @@ namespace Wypozyczalnia
         }
 
         private void TxbNoKlient_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmAddKlient_Load(object sender, EventArgs e)
         {
 
         }
