@@ -8,3 +8,12 @@ C:\Users\Rafał\Documents\repozytorium\Wypozyczalnia\obj\Debug\Wypozyczalnia.Pro
 C:\Users\Rafał\Documents\repozytorium\Wypozyczalnia\obj\Debug\Wypozyczalnia.csproj.GenerateResource.Cache
 C:\Users\Rafał\Documents\repozytorium\Wypozyczalnia\obj\Debug\Wypozyczalnia.exe
 C:\Users\Rafał\Documents\repozytorium\Wypozyczalnia\obj\Debug\Wypozyczalnia.pdb
+C:\Users\Marcin\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\bin\Debug\Wypozyczalnia.exe.config
+C:\Users\Marcin\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozyczalnia.exe
+C:\Users\Marcin\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozyczalnia.pdb
+C:\Users\Marcin\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\bin\Debug\Wypozyczalnia.exe
+C:\Users\Marcin\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\bin\Debug\Wypozyczalnia.pdb
+C:\Users\Marcin\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozyczalnia.csprojResolveAssemblyReference.cache
+C:\Users\Marcin\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozyczalnia.FrmAddKlient.resources
+C:\Users\Marcin\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozyczalnia.Properties.Resources.resources
+C:\Users\Marcin\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozyczalnia.csproj.GenerateResource.Cache
