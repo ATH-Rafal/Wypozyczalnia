@@ -30,12 +30,7 @@
         {
             this.txt_nr_domu = new System.Windows.Forms.TextBox();
             this.txt_ulica = new System.Windows.Forms.TextBox();
-            this.txt_kod_pocztowy = new System.Windows.Forms.TextBox();
             this.txt_miejscowosc = new System.Windows.Forms.TextBox();
-            this.txt_email = new System.Windows.Forms.TextBox();
-            this.txt_nr_telefonu = new System.Windows.Forms.TextBox();
-            this.txt_nr_dowodu = new System.Windows.Forms.TextBox();
-            this.txt_pesel = new System.Windows.Forms.TextBox();
             this.txt_nazwisko = new System.Windows.Forms.TextBox();
             this.txt_imie = new System.Windows.Forms.TextBox();
             this.btn_anuluj = new System.Windows.Forms.Button();
@@ -52,6 +47,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btn_dodaj = new System.Windows.Forms.Button();
+            this.txt_kod_pocztowy = new System.Windows.Forms.MaskedTextBox();
+            this.txt_nr_dowodu = new System.Windows.Forms.MaskedTextBox();
+            this.txt_pesel = new System.Windows.Forms.MaskedTextBox();
+            this.txt_email = new System.Windows.Forms.TextBox();
+            this.txt_nr_telefonu = new System.Windows.Forms.TextBox();
             this.PanelTekst.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,47 +69,12 @@
             this.txt_ulica.Size = new System.Drawing.Size(317, 20);
             this.txt_ulica.TabIndex = 56;
             // 
-            // txt_kod_pocztowy
-            // 
-            this.txt_kod_pocztowy.Location = new System.Drawing.Point(159, 220);
-            this.txt_kod_pocztowy.Name = "txt_kod_pocztowy";
-            this.txt_kod_pocztowy.Size = new System.Drawing.Size(317, 20);
-            this.txt_kod_pocztowy.TabIndex = 55;
-            // 
             // txt_miejscowosc
             // 
             this.txt_miejscowosc.Location = new System.Drawing.Point(159, 190);
             this.txt_miejscowosc.Name = "txt_miejscowosc";
             this.txt_miejscowosc.Size = new System.Drawing.Size(317, 20);
             this.txt_miejscowosc.TabIndex = 54;
-            // 
-            // txt_email
-            // 
-            this.txt_email.Location = new System.Drawing.Point(159, 160);
-            this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(317, 20);
-            this.txt_email.TabIndex = 53;
-            // 
-            // txt_nr_telefonu
-            // 
-            this.txt_nr_telefonu.Location = new System.Drawing.Point(159, 131);
-            this.txt_nr_telefonu.Name = "txt_nr_telefonu";
-            this.txt_nr_telefonu.Size = new System.Drawing.Size(317, 20);
-            this.txt_nr_telefonu.TabIndex = 52;
-            // 
-            // txt_nr_dowodu
-            // 
-            this.txt_nr_dowodu.Location = new System.Drawing.Point(159, 100);
-            this.txt_nr_dowodu.Name = "txt_nr_dowodu";
-            this.txt_nr_dowodu.Size = new System.Drawing.Size(317, 20);
-            this.txt_nr_dowodu.TabIndex = 51;
-            // 
-            // txt_pesel
-            // 
-            this.txt_pesel.Location = new System.Drawing.Point(159, 70);
-            this.txt_pesel.Name = "txt_pesel";
-            this.txt_pesel.Size = new System.Drawing.Size(317, 20);
-            this.txt_pesel.TabIndex = 50;
             // 
             // txt_nazwisko
             // 
@@ -287,6 +252,46 @@
             this.btn_dodaj.UseVisualStyleBackColor = true;
             this.btn_dodaj.Click += new System.EventHandler(this.btn_dodaj_Click);
             // 
+            // txt_kod_pocztowy
+            // 
+            this.txt_kod_pocztowy.Location = new System.Drawing.Point(159, 220);
+            this.txt_kod_pocztowy.Mask = "00-000";
+            this.txt_kod_pocztowy.Name = "txt_kod_pocztowy";
+            this.txt_kod_pocztowy.Size = new System.Drawing.Size(317, 20);
+            this.txt_kod_pocztowy.TabIndex = 59;
+            // 
+            // txt_nr_dowodu
+            // 
+            this.txt_nr_dowodu.Location = new System.Drawing.Point(159, 100);
+            this.txt_nr_dowodu.Mask = "???000000";
+            this.txt_nr_dowodu.Name = "txt_nr_dowodu";
+            this.txt_nr_dowodu.Size = new System.Drawing.Size(317, 20);
+            this.txt_nr_dowodu.TabIndex = 60;
+            this.txt_nr_dowodu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nr_dowodu_KeyPress);
+            // 
+            // txt_pesel
+            // 
+            this.txt_pesel.Location = new System.Drawing.Point(159, 70);
+            this.txt_pesel.Mask = "00000000000";
+            this.txt_pesel.Name = "txt_pesel";
+            this.txt_pesel.Size = new System.Drawing.Size(317, 20);
+            this.txt_pesel.TabIndex = 61;
+            // 
+            // txt_email
+            // 
+            this.txt_email.Location = new System.Drawing.Point(159, 160);
+            this.txt_email.Name = "txt_email";
+            this.txt_email.Size = new System.Drawing.Size(317, 20);
+            this.txt_email.TabIndex = 53;
+            // 
+            // txt_nr_telefonu
+            // 
+            this.txt_nr_telefonu.Location = new System.Drawing.Point(159, 131);
+            this.txt_nr_telefonu.Name = "txt_nr_telefonu";
+            this.txt_nr_telefonu.Size = new System.Drawing.Size(317, 20);
+            this.txt_nr_telefonu.TabIndex = 62;
+            this.txt_nr_telefonu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nr_telefonu_KeyPress);
+            // 
             // FrmDodajKlienta
             // 
             this.AcceptButton = this.btn_dodaj;
@@ -294,15 +299,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
             this.ClientSize = new System.Drawing.Size(488, 376);
+            this.Controls.Add(this.txt_nr_telefonu);
+            this.Controls.Add(this.txt_pesel);
+            this.Controls.Add(this.txt_nr_dowodu);
+            this.Controls.Add(this.txt_kod_pocztowy);
             this.Controls.Add(this.btn_dodaj);
             this.Controls.Add(this.txt_nr_domu);
             this.Controls.Add(this.txt_ulica);
-            this.Controls.Add(this.txt_kod_pocztowy);
             this.Controls.Add(this.txt_miejscowosc);
             this.Controls.Add(this.txt_email);
-            this.Controls.Add(this.txt_nr_telefonu);
-            this.Controls.Add(this.txt_nr_dowodu);
-            this.Controls.Add(this.txt_pesel);
             this.Controls.Add(this.txt_nazwisko);
             this.Controls.Add(this.txt_imie);
             this.Controls.Add(this.btn_anuluj);
@@ -323,12 +328,7 @@
 
         private System.Windows.Forms.TextBox txt_nr_domu;
         private System.Windows.Forms.TextBox txt_ulica;
-        private System.Windows.Forms.TextBox txt_kod_pocztowy;
         private System.Windows.Forms.TextBox txt_miejscowosc;
-        private System.Windows.Forms.TextBox txt_email;
-        private System.Windows.Forms.TextBox txt_nr_telefonu;
-        private System.Windows.Forms.TextBox txt_nr_dowodu;
-        private System.Windows.Forms.TextBox txt_pesel;
         private System.Windows.Forms.TextBox txt_nazwisko;
         private System.Windows.Forms.TextBox txt_imie;
         private System.Windows.Forms.Button btn_anuluj;
@@ -345,5 +345,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btn_dodaj;
+        private System.Windows.Forms.MaskedTextBox txt_kod_pocztowy;
+        private System.Windows.Forms.MaskedTextBox txt_nr_dowodu;
+        private System.Windows.Forms.MaskedTextBox txt_pesel;
+        private System.Windows.Forms.TextBox txt_email;
+        private System.Windows.Forms.TextBox txt_nr_telefonu;
     }
 }

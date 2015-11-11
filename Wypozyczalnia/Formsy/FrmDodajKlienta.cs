@@ -20,7 +20,7 @@ namespace Wypozyczalnia.Formsy
 
         private void btn_dodaj_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txt_imie.Text) || string.IsNullOrWhiteSpace(txt_nazwisko.Text) || string.IsNullOrWhiteSpace(txt_pesel.Text) || string.IsNullOrWhiteSpace(txt_miejscowosc.Text) || string.IsNullOrWhiteSpace(txt_kod_pocztowy.Text) || string.IsNullOrWhiteSpace(txt_nr_domu.Text))
+            if (txt_kod_pocztowy.Text.Length != 6 || txt_kod_pocztowy.Text.Contains(" ") || txt_pesel.Text.Length != 11 || txt_pesel.Text.Contains(" ") || string.IsNullOrWhiteSpace(txt_imie.Text) || string.IsNullOrWhiteSpace(txt_nazwisko.Text) || string.IsNullOrWhiteSpace(txt_pesel.Text) || string.IsNullOrWhiteSpace(txt_miejscowosc.Text) || string.IsNullOrWhiteSpace(txt_kod_pocztowy.Text) || string.IsNullOrWhiteSpace(txt_nr_domu.Text))
             {
                 MessageBox.Show("Uzupełnij wymagane pola", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
@@ -56,6 +56,19 @@ namespace Wypozyczalnia.Formsy
                     }
                 }
             }
+        }
+
+        private void txt_nr_telefonu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_nr_dowodu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
         }
     }
 }

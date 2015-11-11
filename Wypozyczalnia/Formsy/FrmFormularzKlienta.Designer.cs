@@ -44,14 +44,14 @@
             this.txt_id = new System.Windows.Forms.TextBox();
             this.txt_imie = new System.Windows.Forms.TextBox();
             this.txt_nazwisko = new System.Windows.Forms.TextBox();
-            this.txt_pesel = new System.Windows.Forms.TextBox();
-            this.txt_nr_dowodu = new System.Windows.Forms.TextBox();
-            this.txt_nr_telefonu = new System.Windows.Forms.TextBox();
             this.txt_email = new System.Windows.Forms.TextBox();
             this.txt_miejscowosc = new System.Windows.Forms.TextBox();
-            this.txt_kod_pocztowy = new System.Windows.Forms.TextBox();
             this.txt_ulica = new System.Windows.Forms.TextBox();
             this.txt_nr_domu = new System.Windows.Forms.TextBox();
+            this.txt_pesel = new System.Windows.Forms.MaskedTextBox();
+            this.txt_nr_dowodu = new System.Windows.Forms.MaskedTextBox();
+            this.txt_kod_pocztowy = new System.Windows.Forms.MaskedTextBox();
+            this.txt_nr_telefonu = new System.Windows.Forms.TextBox();
             this.PanelTekst.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -231,30 +231,6 @@
             this.txt_nazwisko.Size = new System.Drawing.Size(317, 20);
             this.txt_nazwisko.TabIndex = 34;
             // 
-            // txt_pesel
-            // 
-            this.txt_pesel.Location = new System.Drawing.Point(159, 111);
-            this.txt_pesel.Name = "txt_pesel";
-            this.txt_pesel.ReadOnly = true;
-            this.txt_pesel.Size = new System.Drawing.Size(317, 20);
-            this.txt_pesel.TabIndex = 35;
-            // 
-            // txt_nr_dowodu
-            // 
-            this.txt_nr_dowodu.Location = new System.Drawing.Point(159, 141);
-            this.txt_nr_dowodu.Name = "txt_nr_dowodu";
-            this.txt_nr_dowodu.ReadOnly = true;
-            this.txt_nr_dowodu.Size = new System.Drawing.Size(317, 20);
-            this.txt_nr_dowodu.TabIndex = 36;
-            // 
-            // txt_nr_telefonu
-            // 
-            this.txt_nr_telefonu.Location = new System.Drawing.Point(159, 172);
-            this.txt_nr_telefonu.Name = "txt_nr_telefonu";
-            this.txt_nr_telefonu.ReadOnly = true;
-            this.txt_nr_telefonu.Size = new System.Drawing.Size(317, 20);
-            this.txt_nr_telefonu.TabIndex = 37;
-            // 
             // txt_email
             // 
             this.txt_email.Location = new System.Drawing.Point(159, 201);
@@ -270,14 +246,6 @@
             this.txt_miejscowosc.ReadOnly = true;
             this.txt_miejscowosc.Size = new System.Drawing.Size(317, 20);
             this.txt_miejscowosc.TabIndex = 39;
-            // 
-            // txt_kod_pocztowy
-            // 
-            this.txt_kod_pocztowy.Location = new System.Drawing.Point(159, 261);
-            this.txt_kod_pocztowy.Name = "txt_kod_pocztowy";
-            this.txt_kod_pocztowy.ReadOnly = true;
-            this.txt_kod_pocztowy.Size = new System.Drawing.Size(317, 20);
-            this.txt_kod_pocztowy.TabIndex = 40;
             // 
             // txt_ulica
             // 
@@ -295,6 +263,41 @@
             this.txt_nr_domu.Size = new System.Drawing.Size(317, 20);
             this.txt_nr_domu.TabIndex = 42;
             // 
+            // txt_pesel
+            // 
+            this.txt_pesel.Location = new System.Drawing.Point(159, 111);
+            this.txt_pesel.Mask = "00000000000";
+            this.txt_pesel.Name = "txt_pesel";
+            this.txt_pesel.ReadOnly = true;
+            this.txt_pesel.Size = new System.Drawing.Size(317, 20);
+            this.txt_pesel.TabIndex = 64;
+            // 
+            // txt_nr_dowodu
+            // 
+            this.txt_nr_dowodu.Location = new System.Drawing.Point(159, 141);
+            this.txt_nr_dowodu.Mask = "AAA000000";
+            this.txt_nr_dowodu.Name = "txt_nr_dowodu";
+            this.txt_nr_dowodu.ReadOnly = true;
+            this.txt_nr_dowodu.Size = new System.Drawing.Size(317, 20);
+            this.txt_nr_dowodu.TabIndex = 63;
+            // 
+            // txt_kod_pocztowy
+            // 
+            this.txt_kod_pocztowy.Location = new System.Drawing.Point(159, 261);
+            this.txt_kod_pocztowy.Mask = "00-000";
+            this.txt_kod_pocztowy.Name = "txt_kod_pocztowy";
+            this.txt_kod_pocztowy.ReadOnly = true;
+            this.txt_kod_pocztowy.Size = new System.Drawing.Size(317, 20);
+            this.txt_kod_pocztowy.TabIndex = 66;
+            // 
+            // txt_nr_telefonu
+            // 
+            this.txt_nr_telefonu.Location = new System.Drawing.Point(159, 172);
+            this.txt_nr_telefonu.Name = "txt_nr_telefonu";
+            this.txt_nr_telefonu.ReadOnly = true;
+            this.txt_nr_telefonu.Size = new System.Drawing.Size(317, 20);
+            this.txt_nr_telefonu.TabIndex = 67;
+            // 
             // FrmFormularzKlienta
             // 
             this.AcceptButton = this.btn_wyjscie;
@@ -302,14 +305,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
             this.ClientSize = new System.Drawing.Size(488, 435);
+            this.Controls.Add(this.txt_nr_telefonu);
+            this.Controls.Add(this.txt_kod_pocztowy);
+            this.Controls.Add(this.txt_pesel);
+            this.Controls.Add(this.txt_nr_dowodu);
             this.Controls.Add(this.txt_nr_domu);
             this.Controls.Add(this.txt_ulica);
-            this.Controls.Add(this.txt_kod_pocztowy);
             this.Controls.Add(this.txt_miejscowosc);
             this.Controls.Add(this.txt_email);
-            this.Controls.Add(this.txt_nr_telefonu);
-            this.Controls.Add(this.txt_nr_dowodu);
-            this.Controls.Add(this.txt_pesel);
             this.Controls.Add(this.txt_nazwisko);
             this.Controls.Add(this.txt_imie);
             this.Controls.Add(this.txt_id);
@@ -345,14 +348,14 @@
         private System.Windows.Forms.TextBox txt_id;
         private System.Windows.Forms.TextBox txt_imie;
         private System.Windows.Forms.TextBox txt_nazwisko;
-        private System.Windows.Forms.TextBox txt_pesel;
-        private System.Windows.Forms.TextBox txt_nr_dowodu;
-        private System.Windows.Forms.TextBox txt_nr_telefonu;
         private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.TextBox txt_miejscowosc;
-        private System.Windows.Forms.TextBox txt_kod_pocztowy;
         private System.Windows.Forms.TextBox txt_ulica;
         private System.Windows.Forms.TextBox txt_nr_domu;
+        private System.Windows.Forms.MaskedTextBox txt_pesel;
+        private System.Windows.Forms.MaskedTextBox txt_nr_dowodu;
+        private System.Windows.Forms.MaskedTextBox txt_kod_pocztowy;
+        private System.Windows.Forms.TextBox txt_nr_telefonu;
     }
 }
 
