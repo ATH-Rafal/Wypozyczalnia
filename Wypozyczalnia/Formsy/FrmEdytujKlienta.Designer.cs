@@ -62,42 +62,42 @@
             this.txt_nr_domu.Location = new System.Drawing.Point(158, 321);
             this.txt_nr_domu.Name = "txt_nr_domu";
             this.txt_nr_domu.Size = new System.Drawing.Size(317, 20);
-            this.txt_nr_domu.TabIndex = 57;
+            this.txt_nr_domu.TabIndex = 10;
             // 
             // txt_ulica
             // 
             this.txt_ulica.Location = new System.Drawing.Point(158, 291);
             this.txt_ulica.Name = "txt_ulica";
             this.txt_ulica.Size = new System.Drawing.Size(317, 20);
-            this.txt_ulica.TabIndex = 56;
+            this.txt_ulica.TabIndex = 9;
             // 
             // txt_miejscowosc
             // 
             this.txt_miejscowosc.Location = new System.Drawing.Point(158, 231);
             this.txt_miejscowosc.Name = "txt_miejscowosc";
             this.txt_miejscowosc.Size = new System.Drawing.Size(317, 20);
-            this.txt_miejscowosc.TabIndex = 54;
+            this.txt_miejscowosc.TabIndex = 7;
             // 
             // txt_email
             // 
             this.txt_email.Location = new System.Drawing.Point(158, 201);
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(317, 20);
-            this.txt_email.TabIndex = 53;
+            this.txt_email.TabIndex = 6;
             // 
             // txt_nazwisko
             // 
             this.txt_nazwisko.Location = new System.Drawing.Point(158, 81);
             this.txt_nazwisko.Name = "txt_nazwisko";
             this.txt_nazwisko.Size = new System.Drawing.Size(317, 20);
-            this.txt_nazwisko.TabIndex = 49;
+            this.txt_nazwisko.TabIndex = 2;
             // 
             // txt_imie
             // 
             this.txt_imie.Location = new System.Drawing.Point(158, 51);
             this.txt_imie.Name = "txt_imie";
             this.txt_imie.Size = new System.Drawing.Size(317, 20);
-            this.txt_imie.TabIndex = 48;
+            this.txt_imie.TabIndex = 1;
             // 
             // txt_id
             // 
@@ -105,14 +105,14 @@
             this.txt_id.Name = "txt_id";
             this.txt_id.ReadOnly = true;
             this.txt_id.Size = new System.Drawing.Size(317, 20);
-            this.txt_id.TabIndex = 47;
+            this.txt_id.TabIndex = 0;
             // 
             // btn_zatwierdz
             // 
             this.btn_zatwierdz.Location = new System.Drawing.Point(293, 376);
             this.btn_zatwierdz.Name = "btn_zatwierdz";
             this.btn_zatwierdz.Size = new System.Drawing.Size(88, 47);
-            this.btn_zatwierdz.TabIndex = 45;
+            this.btn_zatwierdz.TabIndex = 11;
             this.btn_zatwierdz.Text = "ZATWIERDŹ ZMIANY";
             this.btn_zatwierdz.UseVisualStyleBackColor = true;
             this.btn_zatwierdz.Click += new System.EventHandler(this.btn_zatwierdz_Click);
@@ -123,7 +123,7 @@
             this.btn_anuluj.Name = "btn_anuluj";
             this.btn_anuluj.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_anuluj.Size = new System.Drawing.Size(88, 47);
-            this.btn_anuluj.TabIndex = 46;
+            this.btn_anuluj.TabIndex = 12;
             this.btn_anuluj.Text = "ANULUJ";
             this.btn_anuluj.UseVisualStyleBackColor = true;
             this.btn_anuluj.Click += new System.EventHandler(this.btn_anuluj_Click);
@@ -287,7 +287,7 @@
             this.txt_pesel.Mask = "00000000000";
             this.txt_pesel.Name = "txt_pesel";
             this.txt_pesel.Size = new System.Drawing.Size(317, 20);
-            this.txt_pesel.TabIndex = 64;
+            this.txt_pesel.TabIndex = 3;
             // 
             // txt_nr_dowodu
             // 
@@ -295,7 +295,7 @@
             this.txt_nr_dowodu.Mask = "AAA000000";
             this.txt_nr_dowodu.Name = "txt_nr_dowodu";
             this.txt_nr_dowodu.Size = new System.Drawing.Size(317, 20);
-            this.txt_nr_dowodu.TabIndex = 63;
+            this.txt_nr_dowodu.TabIndex = 4;
             this.txt_nr_dowodu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nr_dowodu_KeyPress);
             // 
             // txt_kod_pocztowy
@@ -304,14 +304,14 @@
             this.txt_kod_pocztowy.Mask = "00-000";
             this.txt_kod_pocztowy.Name = "txt_kod_pocztowy";
             this.txt_kod_pocztowy.Size = new System.Drawing.Size(317, 20);
-            this.txt_kod_pocztowy.TabIndex = 66;
+            this.txt_kod_pocztowy.TabIndex = 8;
             // 
             // txt_nr_telefonu
             // 
             this.txt_nr_telefonu.Location = new System.Drawing.Point(158, 172);
             this.txt_nr_telefonu.Name = "txt_nr_telefonu";
             this.txt_nr_telefonu.Size = new System.Drawing.Size(317, 20);
-            this.txt_nr_telefonu.TabIndex = 67;
+            this.txt_nr_telefonu.TabIndex = 5;
             this.txt_nr_telefonu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nr_telefonu_KeyPress);
             // 
             // FrmEdytujKlienta

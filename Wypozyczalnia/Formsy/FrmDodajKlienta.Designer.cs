@@ -60,35 +60,35 @@
             this.txt_nr_domu.Location = new System.Drawing.Point(159, 280);
             this.txt_nr_domu.Name = "txt_nr_domu";
             this.txt_nr_domu.Size = new System.Drawing.Size(317, 20);
-            this.txt_nr_domu.TabIndex = 57;
+            this.txt_nr_domu.TabIndex = 9;
             // 
             // txt_ulica
             // 
             this.txt_ulica.Location = new System.Drawing.Point(159, 250);
             this.txt_ulica.Name = "txt_ulica";
             this.txt_ulica.Size = new System.Drawing.Size(317, 20);
-            this.txt_ulica.TabIndex = 56;
+            this.txt_ulica.TabIndex = 8;
             // 
             // txt_miejscowosc
             // 
             this.txt_miejscowosc.Location = new System.Drawing.Point(159, 190);
             this.txt_miejscowosc.Name = "txt_miejscowosc";
             this.txt_miejscowosc.Size = new System.Drawing.Size(317, 20);
-            this.txt_miejscowosc.TabIndex = 54;
+            this.txt_miejscowosc.TabIndex = 6;
             // 
             // txt_nazwisko
             // 
             this.txt_nazwisko.Location = new System.Drawing.Point(159, 40);
             this.txt_nazwisko.Name = "txt_nazwisko";
             this.txt_nazwisko.Size = new System.Drawing.Size(317, 20);
-            this.txt_nazwisko.TabIndex = 49;
+            this.txt_nazwisko.TabIndex = 1;
             // 
             // txt_imie
             // 
             this.txt_imie.Location = new System.Drawing.Point(159, 10);
             this.txt_imie.Name = "txt_imie";
             this.txt_imie.Size = new System.Drawing.Size(317, 20);
-            this.txt_imie.TabIndex = 48;
+            this.txt_imie.TabIndex = 0;
             // 
             // btn_anuluj
             // 
@@ -96,7 +96,7 @@
             this.btn_anuluj.Name = "btn_anuluj";
             this.btn_anuluj.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_anuluj.Size = new System.Drawing.Size(88, 47);
-            this.btn_anuluj.TabIndex = 46;
+            this.btn_anuluj.TabIndex = 11;
             this.btn_anuluj.Text = "ANULUJ";
             this.btn_anuluj.UseVisualStyleBackColor = true;
             this.btn_anuluj.Click += new System.EventHandler(this.btn_anuluj_Click);
@@ -247,7 +247,7 @@
             this.btn_dodaj.Name = "btn_dodaj";
             this.btn_dodaj.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_dodaj.Size = new System.Drawing.Size(88, 47);
-            this.btn_dodaj.TabIndex = 58;
+            this.btn_dodaj.TabIndex = 10;
             this.btn_dodaj.Text = "DODAJ";
             this.btn_dodaj.UseVisualStyleBackColor = true;
             this.btn_dodaj.Click += new System.EventHandler(this.btn_dodaj_Click);
@@ -258,7 +258,7 @@
             this.txt_kod_pocztowy.Mask = "00-000";
             this.txt_kod_pocztowy.Name = "txt_kod_pocztowy";
             this.txt_kod_pocztowy.Size = new System.Drawing.Size(317, 20);
-            this.txt_kod_pocztowy.TabIndex = 59;
+            this.txt_kod_pocztowy.TabIndex = 7;
             // 
             // txt_nr_dowodu
             // 
@@ -266,7 +266,7 @@
             this.txt_nr_dowodu.Mask = "???000000";
             this.txt_nr_dowodu.Name = "txt_nr_dowodu";
             this.txt_nr_dowodu.Size = new System.Drawing.Size(317, 20);
-            this.txt_nr_dowodu.TabIndex = 60;
+            this.txt_nr_dowodu.TabIndex = 3;
             this.txt_nr_dowodu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nr_dowodu_KeyPress);
             // 
             // txt_pesel
@@ -275,21 +275,21 @@
             this.txt_pesel.Mask = "00000000000";
             this.txt_pesel.Name = "txt_pesel";
             this.txt_pesel.Size = new System.Drawing.Size(317, 20);
-            this.txt_pesel.TabIndex = 61;
+            this.txt_pesel.TabIndex = 2;
             // 
             // txt_email
             // 
             this.txt_email.Location = new System.Drawing.Point(159, 160);
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(317, 20);
-            this.txt_email.TabIndex = 53;
+            this.txt_email.TabIndex = 5;
             // 
             // txt_nr_telefonu
             // 
             this.txt_nr_telefonu.Location = new System.Drawing.Point(159, 131);
             this.txt_nr_telefonu.Name = "txt_nr_telefonu";
             this.txt_nr_telefonu.Size = new System.Drawing.Size(317, 20);
-            this.txt_nr_telefonu.TabIndex = 62;
+            this.txt_nr_telefonu.TabIndex = 4;
             this.txt_nr_telefonu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nr_telefonu_KeyPress);
             // 
             // FrmDodajKlienta

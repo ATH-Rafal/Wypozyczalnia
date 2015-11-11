@@ -202,7 +202,7 @@
             this.btn_wyjscie.Name = "btn_wyjscie";
             this.btn_wyjscie.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_wyjscie.Size = new System.Drawing.Size(88, 47);
-            this.btn_wyjscie.TabIndex = 31;
+            this.btn_wyjscie.TabIndex = 11;
             this.btn_wyjscie.Text = "WYJŚCIE";
             this.btn_wyjscie.UseVisualStyleBackColor = true;
             this.btn_wyjscie.Click += new System.EventHandler(this.btn_wyjscie_Click);
@@ -213,7 +213,7 @@
             this.txt_id.Name = "txt_id";
             this.txt_id.ReadOnly = true;
             this.txt_id.Size = new System.Drawing.Size(317, 20);
-            this.txt_id.TabIndex = 32;
+            this.txt_id.TabIndex = 0;
             // 
             // txt_imie
             // 
@@ -221,7 +221,7 @@
             this.txt_imie.Name = "txt_imie";
             this.txt_imie.ReadOnly = true;
             this.txt_imie.Size = new System.Drawing.Size(317, 20);
-            this.txt_imie.TabIndex = 33;
+            this.txt_imie.TabIndex = 1;
             // 
             // txt_nazwisko
             // 
@@ -229,7 +229,7 @@
             this.txt_nazwisko.Name = "txt_nazwisko";
             this.txt_nazwisko.ReadOnly = true;
             this.txt_nazwisko.Size = new System.Drawing.Size(317, 20);
-            this.txt_nazwisko.TabIndex = 34;
+            this.txt_nazwisko.TabIndex = 2;
             // 
             // txt_email
             // 
@@ -237,7 +237,7 @@
             this.txt_email.Name = "txt_email";
             this.txt_email.ReadOnly = true;
             this.txt_email.Size = new System.Drawing.Size(317, 20);
-            this.txt_email.TabIndex = 38;
+            this.txt_email.TabIndex = 6;
             // 
             // txt_miejscowosc
             // 
@@ -245,7 +245,7 @@
             this.txt_miejscowosc.Name = "txt_miejscowosc";
             this.txt_miejscowosc.ReadOnly = true;
             this.txt_miejscowosc.Size = new System.Drawing.Size(317, 20);
-            this.txt_miejscowosc.TabIndex = 39;
+            this.txt_miejscowosc.TabIndex = 7;
             // 
             // txt_ulica
             // 
@@ -253,7 +253,7 @@
             this.txt_ulica.Name = "txt_ulica";
             this.txt_ulica.ReadOnly = true;
             this.txt_ulica.Size = new System.Drawing.Size(317, 20);
-            this.txt_ulica.TabIndex = 41;
+            this.txt_ulica.TabIndex = 9;
             // 
             // txt_nr_domu
             // 
@@ -261,7 +261,7 @@
             this.txt_nr_domu.Name = "txt_nr_domu";
             this.txt_nr_domu.ReadOnly = true;
             this.txt_nr_domu.Size = new System.Drawing.Size(317, 20);
-            this.txt_nr_domu.TabIndex = 42;
+            this.txt_nr_domu.TabIndex = 10;
             // 
             // txt_pesel
             // 
@@ -270,7 +270,7 @@
             this.txt_pesel.Name = "txt_pesel";
             this.txt_pesel.ReadOnly = true;
             this.txt_pesel.Size = new System.Drawing.Size(317, 20);
-            this.txt_pesel.TabIndex = 64;
+            this.txt_pesel.TabIndex = 3;
             // 
             // txt_nr_dowodu
             // 
@@ -279,7 +279,7 @@
             this.txt_nr_dowodu.Name = "txt_nr_dowodu";
             this.txt_nr_dowodu.ReadOnly = true;
             this.txt_nr_dowodu.Size = new System.Drawing.Size(317, 20);
-            this.txt_nr_dowodu.TabIndex = 63;
+            this.txt_nr_dowodu.TabIndex = 4;
             // 
             // txt_kod_pocztowy
             // 
@@ -288,7 +288,7 @@
             this.txt_kod_pocztowy.Name = "txt_kod_pocztowy";
             this.txt_kod_pocztowy.ReadOnly = true;
             this.txt_kod_pocztowy.Size = new System.Drawing.Size(317, 20);
-            this.txt_kod_pocztowy.TabIndex = 66;
+            this.txt_kod_pocztowy.TabIndex = 8;
             // 
             // txt_nr_telefonu
             // 
@@ -296,7 +296,7 @@
             this.txt_nr_telefonu.Name = "txt_nr_telefonu";
             this.txt_nr_telefonu.ReadOnly = true;
             this.txt_nr_telefonu.Size = new System.Drawing.Size(317, 20);
-            this.txt_nr_telefonu.TabIndex = 67;
+            this.txt_nr_telefonu.TabIndex = 5;
             // 
             // FrmFormularzKlienta
             // 
