@@ -74,6 +74,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bazaDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Formsy\FrmDodajKlienta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\FrmDodajKlienta.Designer.cs">
+      <DependentUpon>FrmDodajKlienta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formsy\FrmEdytujKlienta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\FrmEdytujKlienta.Designer.cs">
+      <DependentUpon>FrmEdytujKlienta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formsy\FrmListaKlientow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +112,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formsy\FrmDodajKlienta.resx">
+      <DependentUpon>FrmDodajKlienta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\FrmEdytujKlienta.resx">
+      <DependentUpon>FrmEdytujKlienta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formsy\FrmFormularzKlienta.resx">
       <DependentUpon>FrmFormularzKlienta.cs</DependentUpon>
     </EmbeddedResource>
