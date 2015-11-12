@@ -51,9 +51,8 @@ namespace Wypozyczalnia.Formsy
             }
             else
             {
-                DialogResult result = MessageBox.Show("Czy zapisać zmiany?", "Pytanie", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (result == DialogResult.OK)
-                {
+                
+
                     using (SQLiteConnection conn = new SQLiteConnection(connString))
                     {
                         conn.Open();
@@ -91,7 +90,9 @@ namespace Wypozyczalnia.Formsy
 
                         this.Close();
                     }
-                }
+
+                
+
             }
         }
 

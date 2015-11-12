@@ -26,9 +26,7 @@ namespace Wypozyczalnia.Formsy
             }
             else
             {
-                DialogResult result = MessageBox.Show("Czy dodać klienta?", "Pytanie", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (result == DialogResult.OK)
-                {
+                
                     using (SQLiteConnection conn = new SQLiteConnection(connString))
                     {
                         conn.Open();
@@ -53,7 +51,7 @@ namespace Wypozyczalnia.Formsy
                         conn.Close();
 
                         this.Close();
-                    }
+                    
                 }
             }
         }
