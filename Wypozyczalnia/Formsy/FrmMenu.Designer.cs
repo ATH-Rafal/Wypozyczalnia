@@ -50,6 +50,7 @@
             this.Lista_Filmow.TabIndex = 1;
             this.Lista_Filmow.Text = "LISTA FILMÓW";
             this.Lista_Filmow.UseVisualStyleBackColor = true;
+            this.Lista_Filmow.Click += new System.EventHandler(this.Lista_Filmow_Click);
             // 
             // FrmMenu
             // 

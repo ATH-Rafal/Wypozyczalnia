@@ -52,3 +52,7 @@ C:\Users\Rafał\Documents\repozytorium\Wypozyczalnia\obj\Debug\Wypozyczalnia.For
 C:\Users\Rafał\Documents\repozytorium\Wypozyczalnia\obj\Debug\Wypozyczalnia.FrmMenu.resources
 C:\Users\Rafał\Documents\repozytorium\Wypozyczalnia\obj\Debug\Wypozyczalnia.Properties.Resources.resources
 C:\Users\Rafał\Documents\repozytorium\Wypozyczalnia\obj\Debug\Wypozyczalnia.csproj.GenerateResource.Cache
+C:\Users\Rafał\Documents\repozytorium\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmListaFilmow.resources
+C:\Users\Rafał\Documents\repozytorium\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmDodajFilm.resources
+C:\Users\Rafał\Documents\repozytorium\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmEdytujFilm.resources
+C:\Users\Rafał\Documents\repozytorium\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmWysFilmu.resources

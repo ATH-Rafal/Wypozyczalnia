@@ -74,17 +74,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bazaDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Formsy\FrmDodajFilm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\FrmDodajFilm.Designer.cs">
+      <DependentUpon>FrmDodajFilm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formsy\FrmDodajKlienta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formsy\FrmDodajKlienta.Designer.cs">
       <DependentUpon>FrmDodajKlienta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formsy\FrmEdytujFilm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\FrmEdytujFilm.Designer.cs">
+      <DependentUpon>FrmEdytujFilm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formsy\FrmEdytujKlienta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formsy\FrmEdytujKlienta.Designer.cs">
       <DependentUpon>FrmEdytujKlienta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formsy\FrmListaFilmow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\FrmListaFilmow.Designer.cs">
+      <DependentUpon>FrmListaFilmow.cs</DependentUpon>
     </Compile>
     <Compile Include="Formsy\FrmListaKlientow.cs">
       <SubType>Form</SubType>
@@ -110,6 +128,12 @@
     <Compile Include="Formsy\FrmMenu.Designer.cs">
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formsy\FrmWysFilmu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\FrmWysFilmu.Designer.cs">
+      <DependentUpon>FrmWysFilmu.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,14 +142,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formsy\FrmDodajFilm.resx">
+      <DependentUpon>FrmDodajFilm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formsy\FrmDodajKlienta.resx">
       <DependentUpon>FrmDodajKlienta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\FrmEdytujFilm.resx">
+      <DependentUpon>FrmEdytujFilm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formsy\FrmEdytujKlienta.resx">
       <DependentUpon>FrmEdytujKlienta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formsy\FrmFormularzKlienta.resx">
       <DependentUpon>FrmFormularzKlienta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\FrmListaFilmow.resx">
+      <DependentUpon>FrmListaFilmow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formsy\FrmUsuwanieklienta.resx">
       <DependentUpon>FrmUsuwanieklienta.cs</DependentUpon>
@@ -135,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formsy\FrmListaKlientow.resx">
       <DependentUpon>FrmListaKlientow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\FrmWysFilmu.resx">
+      <DependentUpon>FrmWysFilmu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>

@@ -20,5 +20,11 @@ namespace Wypozyczalnia.Formsy
             FrmListaKlientow frmListaKlientow = new FrmListaKlientow();
             frmListaKlientow.ShowDialog();
         }
+
+        private void Lista_Filmow_Click(object sender, EventArgs e)
+        {
+            FrmListaFilmow  frmListaFilmow = new FrmListaFilmow();
+            frmListaFilmow.ShowDialog();
+        }
     }
 }
