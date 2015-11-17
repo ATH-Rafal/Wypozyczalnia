@@ -34,7 +34,7 @@ namespace Wypozyczalnia.Formsy
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                FrmWysFilmu FrmWysFilmu = new FrmWysFilmu();
+                FrmWysFilmu FrmWysFilmu = new FrmWysFilmu(id);
                 FrmWysFilmu.ShowDialog();
             }
         }

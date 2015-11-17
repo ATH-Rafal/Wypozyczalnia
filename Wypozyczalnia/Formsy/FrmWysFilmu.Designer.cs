@@ -39,6 +39,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmWysFilmu";
             this.Text = "WYSWIETLANIE FILMU";
+            this.Load += new System.EventHandler(this.FrmWysFilmu_Load);
             this.ResumeLayout(false);
 
         }
