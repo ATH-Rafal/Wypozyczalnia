@@ -13,7 +13,7 @@ namespace Wypozyczalnia.Formsy
 {
     public partial class FrmListaFilmow : Form
     {
-        string connString = "Data Source = baza.db; Version = 3";       
+        string connString = "Data Source = baza.db; Version = 3";
         DataTable table = new DataTable(); // Bardzo pomocny obiekt do pracy na wynikach zapytania
         int id;
         int index;
@@ -25,7 +25,7 @@ namespace Wypozyczalnia.Formsy
             {
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter("SELECT * FROM Filmy;", conn);
                 adapter.Fill(table); // wypełniamy DataTabla danymi z wyniku zapytania
-            }            
+            }
             dataGridView1.DataSource = table; // Przypisujemy dane z DataTabla do naszego GridView            
         }
 
@@ -34,14 +34,14 @@ namespace Wypozyczalnia.Formsy
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                FrmWysFilmu FrmWysFilmu = new FrmWysFilmu(id);
+                FrmFormularzFilmu FrmWysFilmu = new FrmFormularzFilmu(id);
                 FrmWysFilmu.ShowDialog();
             }
         }
 
         public FrmListaFilmow()
-        {                        
-            InitializeComponent();            
+        {
+            InitializeComponent();
             odswiez();
         }
 
@@ -49,18 +49,43 @@ namespace Wypozyczalnia.Formsy
         {
             przejdzDoFilmu();
         }
-        private void FrmListaFilmow_Load(object sender, EventArgs e)
-        {
 
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            przejdzDoFilmu();
         }
 
         private void btn_dodaj_film_Click(object sender, EventArgs e)
         {
+            int liczba_wierszy = dataGridView1.RowCount;
+            if (dataGridView1.RowCount != 0) index = dataGridView1.SelectedRows[0].Index;
+
             FrmDodajFilm frmDodajFilm = new FrmDodajFilm();
             frmDodajFilm.ShowDialog();
+            odswiez();
+
+            if (dataGridView1.RowCount != 0)
+            {
+                if (dataGridView1.RowCount != liczba_wierszy)
+                    dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.RowCount - 1].Cells[0];
+                else dataGridView1.CurrentCell = dataGridView1.Rows[index].Cells[0];
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btn_edytuj_film_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                index = dataGridView1.SelectedRows[0].Index;
+                FrmEdytujFilm frmEdytujFilm = new FrmEdytujFilm(id);
+                frmEdytujFilm.ShowDialog();
+                odswiez();
+                dataGridView1.CurrentCell = dataGridView1.Rows[index].Cells[0];
+            }
+        }
+
+        private void btn_usun_film_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
@@ -86,13 +111,9 @@ namespace Wypozyczalnia.Formsy
             }
         }
 
-        private void btn_edytuj_film_Click(object sender, EventArgs e)
+        private void btn_zamknij_Click(object sender, EventArgs e)
         {
-            FrmEdytujFilm frmEdytujFilm = new FrmEdytujFilm();
-            frmEdytujFilm.ShowDialog();
-
+            this.Close();
         }
-
-
     }
 }

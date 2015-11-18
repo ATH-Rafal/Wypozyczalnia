@@ -7,7 +7,6 @@ namespace Wypozyczalnia.Formsy
     public partial class FrmFormularzKlienta : Form
     {
         int id;
-        string[] wartosciPrzedEdycja = new string[10];
         string connString = "Data Source = baza.db; Version = 3";
 
         public FrmFormularzKlienta(int id_)

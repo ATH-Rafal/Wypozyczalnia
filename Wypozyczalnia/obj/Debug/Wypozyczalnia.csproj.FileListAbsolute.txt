@@ -85,3 +85,7 @@ C:\Users\Marcin\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozycza
 C:\Users\Marcin\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozyczalnia.csproj.GenerateResource.Cache
 C:\Users\Marcin\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\bin\Debug\Wypozyczalnia.exe
 C:\Users\Marcin\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\bin\Debug\Wypozyczalnia.pdb
+C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmDodajFilm.resources
+C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmEdytujFilm.resources
+C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmListaFilmow.resources
+C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmFormularzFilmu.resources

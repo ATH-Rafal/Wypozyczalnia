@@ -40,7 +40,7 @@
             this.PanelTekst = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_wyjscie = new System.Windows.Forms.Button();
+            this.btn_zamknij = new System.Windows.Forms.Button();
             this.txt_id = new System.Windows.Forms.TextBox();
             this.txt_imie = new System.Windows.Forms.TextBox();
             this.txt_nazwisko = new System.Windows.Forms.TextBox();
@@ -196,16 +196,16 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Nr. klienta";
             // 
-            // btn_wyjscie
+            // btn_zamknij
             // 
-            this.btn_wyjscie.Location = new System.Drawing.Point(388, 376);
-            this.btn_wyjscie.Name = "btn_wyjscie";
-            this.btn_wyjscie.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_wyjscie.Size = new System.Drawing.Size(88, 47);
-            this.btn_wyjscie.TabIndex = 11;
-            this.btn_wyjscie.Text = "WYJŚCIE";
-            this.btn_wyjscie.UseVisualStyleBackColor = true;
-            this.btn_wyjscie.Click += new System.EventHandler(this.btn_wyjscie_Click);
+            this.btn_zamknij.Location = new System.Drawing.Point(388, 376);
+            this.btn_zamknij.Name = "btn_zamknij";
+            this.btn_zamknij.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_zamknij.Size = new System.Drawing.Size(88, 47);
+            this.btn_zamknij.TabIndex = 11;
+            this.btn_zamknij.Text = "ZAMKNIJ";
+            this.btn_zamknij.UseVisualStyleBackColor = true;
+            this.btn_zamknij.Click += new System.EventHandler(this.btn_wyjscie_Click);
             // 
             // txt_id
             // 
@@ -300,7 +300,7 @@
             // 
             // FrmFormularzKlienta
             // 
-            this.AcceptButton = this.btn_wyjscie;
+            this.AcceptButton = this.btn_zamknij;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
@@ -316,7 +316,7 @@
             this.Controls.Add(this.txt_nazwisko);
             this.Controls.Add(this.txt_imie);
             this.Controls.Add(this.txt_id);
-            this.Controls.Add(this.btn_wyjscie);
+            this.Controls.Add(this.btn_zamknij);
             this.Controls.Add(this.PanelTekst);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -343,7 +343,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel PanelTekst;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_wyjscie;
+        private System.Windows.Forms.Button btn_zamknij;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txt_id;
         private System.Windows.Forms.TextBox txt_imie;

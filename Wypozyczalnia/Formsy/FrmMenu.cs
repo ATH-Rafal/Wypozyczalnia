@@ -10,21 +10,21 @@ namespace Wypozyczalnia.Formsy
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Lista_Klientów_Click(object sender, EventArgs e)
         {
             FrmListaKlientow frmListaKlientow = new FrmListaKlientow();
+            this.Hide();
             frmListaKlientow.ShowDialog();
+            this.Show();
+
         }
 
         private void Lista_Filmow_Click(object sender, EventArgs e)
         {
             FrmListaFilmow  frmListaFilmow = new FrmListaFilmow();
+            this.Hide();
             frmListaFilmow.ShowDialog();
+            this.Show();
         }
     }
 }
