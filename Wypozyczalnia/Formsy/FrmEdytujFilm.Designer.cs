@@ -51,12 +51,16 @@
             this.txt_kraj = new System.Windows.Forms.TextBox();
             this.txt_tytul_pol = new System.Windows.Forms.TextBox();
             this.txt_tytul_org = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txt_uwagi = new System.Windows.Forms.TextBox();
             this.PanelTekst.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_anuluj
             // 
-            this.btn_anuluj.Location = new System.Drawing.Point(388, 327);
+            this.btn_anuluj.Location = new System.Drawing.Point(797, 327);
             this.btn_anuluj.Name = "btn_anuluj";
             this.btn_anuluj.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_anuluj.Size = new System.Drawing.Size(88, 47);
@@ -183,7 +187,7 @@
             // 
             // btn_zatwierz
             // 
-            this.btn_zatwierz.Location = new System.Drawing.Point(294, 327);
+            this.btn_zatwierz.Location = new System.Drawing.Point(703, 327);
             this.btn_zatwierz.Name = "btn_zatwierz";
             this.btn_zatwierz.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_zatwierz.Size = new System.Drawing.Size(88, 47);
@@ -287,12 +291,42 @@
             this.txt_tytul_org.Size = new System.Drawing.Size(317, 20);
             this.txt_tytul_org.TabIndex = 2;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Location = new System.Drawing.Point(482, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(153, 386);
+            this.panel1.TabIndex = 70;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
+            this.label11.Location = new System.Drawing.Point(12, 13);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(46, 16);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "Uwagi";
+            // 
+            // txt_uwagi
+            // 
+            this.txt_uwagi.Location = new System.Drawing.Point(641, 9);
+            this.txt_uwagi.Multiline = true;
+            this.txt_uwagi.Name = "txt_uwagi";
+            this.txt_uwagi.Size = new System.Drawing.Size(243, 84);
+            this.txt_uwagi.TabIndex = 59;
+            // 
             // FrmEdytujFilm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
-            this.ClientSize = new System.Drawing.Size(488, 386);
+            this.ClientSize = new System.Drawing.Size(897, 386);
+            this.Controls.Add(this.txt_uwagi);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.txt_cena);
             this.Controls.Add(this.cmb_nosnik);
             this.Controls.Add(this.txt_klas_wiekowa);
@@ -314,6 +348,8 @@
             this.Text = "EDYTUJ FILM";
             this.PanelTekst.ResumeLayout(false);
             this.PanelTekst.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,5 +379,8 @@
         private System.Windows.Forms.TextBox txt_kraj;
         private System.Windows.Forms.TextBox txt_tytul_pol;
         private System.Windows.Forms.TextBox txt_tytul_org;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txt_uwagi;
     }
 }

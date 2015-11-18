@@ -36,6 +36,7 @@ namespace Wypozyczalnia.Formsy
                             txt_nosnik.Text = rdr.GetValue(8).ToString();
                             cb_lektor.Checked = rdr.GetValue(9) as bool? ?? false;
                             cb_napisy.Checked = rdr.GetValue(10) as bool? ?? false;
+                            txt_uwagi.Text = rdr.GetValue(11).ToString();
                         }
                     }
                 }

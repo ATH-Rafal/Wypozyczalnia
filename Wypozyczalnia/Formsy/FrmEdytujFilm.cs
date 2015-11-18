@@ -36,6 +36,7 @@ namespace Wypozyczalnia.Formsy
                             cmb_nosnik.Text = rdr.GetValue(8).ToString();
                             cb_lektor.Checked = rdr.GetValue(9) as bool? ?? false;
                             cb_napisy.Checked = rdr.GetValue(10) as bool? ?? false;
+                            txt_uwagi.Text = rdr.GetValue(11).ToString().Replace("<n>", System.Environment.NewLine);
                         }
                     }
                 }
@@ -61,7 +62,8 @@ namespace Wypozyczalnia.Formsy
                                 cena = @cena, 
                                 nosnik = @nosnik, 
                                 lektor = @lektor, 
-                                napisy = @napisy
+                                napisy = @napisy,
+                                uwagi = @uwagi
                                 WHERE id = @id
                                 ";
 
@@ -78,6 +80,7 @@ namespace Wypozyczalnia.Formsy
                 else command.Parameters.Add(new SQLiteParameter("@lektor", 0));
                 if (cb_napisy.Checked) command.Parameters.Add(new SQLiteParameter("@napisy", 1));
                 else command.Parameters.Add(new SQLiteParameter("@napisy", 0));
+                command.Parameters.Add(new SQLiteParameter("@uwagi", txt_uwagi.Text.Replace(System.Environment.NewLine, "<n>")));
 
                 command.ExecuteNonQuery();
                 conn.Close();

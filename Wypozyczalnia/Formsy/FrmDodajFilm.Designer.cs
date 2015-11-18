@@ -49,7 +49,11 @@
             this.txt_klas_wiekowa = new System.Windows.Forms.TextBox();
             this.cmb_nosnik = new System.Windows.Forms.ComboBox();
             this.txt_cena = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txt_uwagi = new System.Windows.Forms.TextBox();
             this.PanelTekst.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_dlugosc
@@ -70,7 +74,7 @@
             // 
             // btn_dodaj
             // 
-            this.btn_dodaj.Location = new System.Drawing.Point(294, 282);
+            this.btn_dodaj.Location = new System.Drawing.Point(703, 282);
             this.btn_dodaj.Name = "btn_dodaj";
             this.btn_dodaj.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_dodaj.Size = new System.Drawing.Size(88, 47);
@@ -179,7 +183,7 @@
             // 
             // btn_anuluj
             // 
-            this.btn_anuluj.Location = new System.Drawing.Point(388, 282);
+            this.btn_anuluj.Location = new System.Drawing.Point(797, 282);
             this.btn_anuluj.Name = "btn_anuluj";
             this.btn_anuluj.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_anuluj.Size = new System.Drawing.Size(88, 47);
@@ -265,12 +269,42 @@
             this.txt_cena.TabIndex = 6;
             this.txt_cena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cena_KeyPress);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Location = new System.Drawing.Point(482, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(153, 341);
+            this.panel1.TabIndex = 57;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
+            this.label10.Location = new System.Drawing.Point(9, 11);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(46, 16);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Uwagi";
+            // 
+            // txt_uwagi
+            // 
+            this.txt_uwagi.Location = new System.Drawing.Point(642, 6);
+            this.txt_uwagi.Multiline = true;
+            this.txt_uwagi.Name = "txt_uwagi";
+            this.txt_uwagi.Size = new System.Drawing.Size(243, 84);
+            this.txt_uwagi.TabIndex = 58;
+            // 
             // FrmDodajFilm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
-            this.ClientSize = new System.Drawing.Size(487, 341);
+            this.ClientSize = new System.Drawing.Size(897, 341);
+            this.Controls.Add(this.txt_uwagi);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.txt_cena);
             this.Controls.Add(this.cmb_nosnik);
             this.Controls.Add(this.txt_klas_wiekowa);
@@ -291,6 +325,8 @@
             this.Text = "DODAJ FILM";
             this.PanelTekst.ResumeLayout(false);
             this.PanelTekst.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,5 +355,8 @@
         private System.Windows.Forms.ComboBox cmb_nosnik;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_cena;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txt_uwagi;
     }
 }

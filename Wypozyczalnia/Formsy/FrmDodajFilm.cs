@@ -21,8 +21,8 @@ namespace Wypozyczalnia.Formsy
                 conn.Open();
                 SQLiteCommand command = new SQLiteCommand(conn);
                 command.CommandText = @"
-                                INSERT INTO Filmy (tytul_pol, tytul_org, rok_produkcji, klas_wiekowa, dlugosc, kraj, cena, nosnik, lektor, napisy)
-                                VALUES (@tytul_pol, @tytul_org, @rok_produkcji, @klas_wiekowa, @dlugosc, @kraj, @cena, @nosnik, @lektor, @napisy)
+                                INSERT INTO Filmy (tytul_pol, tytul_org, rok_produkcji, klas_wiekowa, dlugosc, kraj, cena, nosnik, lektor, napisy, uwagi)
+                                VALUES (@tytul_pol, @tytul_org, @rok_produkcji, @klas_wiekowa, @dlugosc, @kraj, @cena, @nosnik, @lektor, @napisy, @uwagi)
                                 ";
 
                 command.Parameters.Add(new SQLiteParameter("@tytul_pol", txt_tytul_pol.Text));
@@ -37,6 +37,7 @@ namespace Wypozyczalnia.Formsy
                 else command.Parameters.Add(new SQLiteParameter("@lektor", 0));
                 if (cb_napisy.Checked) command.Parameters.Add(new SQLiteParameter("@napisy", 1));
                 else command.Parameters.Add(new SQLiteParameter("@napisy", 0));
+                command.Parameters.Add(new SQLiteParameter("@uwagi", txt_uwagi.Text.Replace(System.Environment.NewLine, "<n>")));
 
                 command.ExecuteNonQuery();
                 conn.Close();
