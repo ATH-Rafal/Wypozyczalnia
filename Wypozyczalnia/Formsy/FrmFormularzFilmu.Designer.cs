@@ -51,8 +51,10 @@
             this.PanelTekst = new System.Windows.Forms.Panel();
             this.txt_nosnik = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txt_uwagi = new System.Windows.Forms.TextBox();
+            this.lb_tagi = new System.Windows.Forms.ListBox();
             this.PanelTekst.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -249,7 +251,7 @@
             this.btn_zamknij.Name = "btn_zamknij";
             this.btn_zamknij.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_zamknij.Size = new System.Drawing.Size(88, 47);
-            this.btn_zamknij.TabIndex = 11;
+            this.btn_zamknij.TabIndex = 13;
             this.btn_zamknij.Text = "ZAMKNIJ";
             this.btn_zamknij.UseVisualStyleBackColor = true;
             this.btn_zamknij.Click += new System.EventHandler(this.btn_Wyjscie_Click);
@@ -282,11 +284,23 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Location = new System.Drawing.Point(482, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(153, 386);
             this.panel1.TabIndex = 87;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
+            this.label10.Location = new System.Drawing.Point(12, 98);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(36, 16);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "Tagi";
             // 
             // label11
             // 
@@ -306,7 +320,16 @@
             this.txt_uwagi.Name = "txt_uwagi";
             this.txt_uwagi.ReadOnly = true;
             this.txt_uwagi.Size = new System.Drawing.Size(243, 84);
-            this.txt_uwagi.TabIndex = 88;
+            this.txt_uwagi.TabIndex = 11;
+            // 
+            // lb_tagi
+            // 
+            this.lb_tagi.FormattingEnabled = true;
+            this.lb_tagi.Location = new System.Drawing.Point(642, 99);
+            this.lb_tagi.Name = "lb_tagi";
+            this.lb_tagi.Size = new System.Drawing.Size(243, 121);
+            this.lb_tagi.TabIndex = 12;
+            this.lb_tagi.DoubleClick += new System.EventHandler(this.lb_tagi_DoubleClick);
             // 
             // FrmFormularzFilmu
             // 
@@ -314,6 +337,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
             this.ClientSize = new System.Drawing.Size(897, 386);
+            this.Controls.Add(this.lb_tagi);
             this.Controls.Add(this.txt_uwagi);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txt_nosnik);
@@ -370,5 +394,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txt_uwagi;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ListBox lb_tagi;
     }
 }

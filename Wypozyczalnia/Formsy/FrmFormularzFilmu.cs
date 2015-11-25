@@ -16,12 +16,13 @@ namespace Wypozyczalnia.Formsy
             using (SQLiteConnection conn = new SQLiteConnection(connString))
             {
                 conn.Open();
-                SQLiteCommand command = new SQLiteCommand(conn);
-                command.CommandText = "SELECT * FROM Filmy WHERE id=@id";
-                command.Parameters.Add(new SQLiteParameter("@id", id));
-                using (command)
+
+                SQLiteCommand command1 = new SQLiteCommand(conn);
+                command1.CommandText = "SELECT * FROM Filmy WHERE id=@id";
+                command1.Parameters.Add(new SQLiteParameter("@id", id));
+                using (command1)
                 {
-                    using (SQLiteDataReader rdr = command.ExecuteReader())
+                    using (SQLiteDataReader rdr = command1.ExecuteReader())
                     {
                         while (rdr.Read())
                         {
@@ -40,6 +41,27 @@ namespace Wypozyczalnia.Formsy
                         }
                     }
                 }
+
+                SQLiteCommand command2 = new SQLiteCommand(conn);
+                command2.CommandText = @"
+                    SELECT Tagi.nazwa, Tagi.id 
+                    FROM Tagi
+                    INNER JOIN TagiFilmy ON Tagi.id = TagiFilmy.id_taga
+                    INNER JOIN Filmy ON TagiFilmy.id_filmu = Filmy.id
+                    WHERE Filmy.id = @id
+                    ";
+                command2.Parameters.Add(new SQLiteParameter("@id", id));
+                using (command2)
+                {
+                    using (SQLiteDataReader rdr = command2.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            lb_tagi.Items.Add(rdr.GetValue(0).ToString() + " [" + rdr.GetValue(1).ToString() + "]");
+                        }
+                    }
+                }
+
                 conn.Close();
             }
         }
@@ -47,6 +69,17 @@ namespace Wypozyczalnia.Formsy
         private void btn_Wyjscie_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void lb_tagi_DoubleClick(object sender, EventArgs e)
+        {
+            if (lb_tagi.SelectedItems.Count > 0)
+            {
+                string[] words = lb_tagi.SelectedItem.ToString().Split(' ');
+                string id_taga = words[words.Length - 1].Trim(new Char[] { '[', ']' });
+                FrmFormularzTaga frmFormularzTaga = new FrmFormularzTaga(Int32.Parse(id_taga));
+                frmFormularzTaga.ShowDialog();
+            }
         }
     }
 }

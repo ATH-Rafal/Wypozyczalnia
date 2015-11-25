@@ -52,8 +52,11 @@
             this.txt_tytul_pol = new System.Windows.Forms.TextBox();
             this.txt_tytul_org = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txt_uwagi = new System.Windows.Forms.TextBox();
+            this.lb_tagi = new System.Windows.Forms.ListBox();
+            this.btn_zarzadzanie_tagami = new System.Windows.Forms.Button();
             this.PanelTekst.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +67,7 @@
             this.btn_anuluj.Name = "btn_anuluj";
             this.btn_anuluj.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_anuluj.Size = new System.Drawing.Size(88, 47);
-            this.btn_anuluj.TabIndex = 12;
+            this.btn_anuluj.TabIndex = 15;
             this.btn_anuluj.Text = "ANULUJ";
             this.btn_anuluj.UseVisualStyleBackColor = true;
             this.btn_anuluj.Click += new System.EventHandler(this.btn_anuluj_Click);
@@ -191,7 +194,7 @@
             this.btn_zatwierz.Name = "btn_zatwierz";
             this.btn_zatwierz.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_zatwierz.Size = new System.Drawing.Size(88, 47);
-            this.btn_zatwierz.TabIndex = 11;
+            this.btn_zatwierz.TabIndex = 14;
             this.btn_zatwierz.Text = "ZATWIERDŹ ZMIANY";
             this.btn_zatwierz.UseVisualStyleBackColor = true;
             this.btn_zatwierz.Click += new System.EventHandler(this.btn_zatwierz_Click);
@@ -294,11 +297,23 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Location = new System.Drawing.Point(482, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(153, 386);
             this.panel1.TabIndex = 70;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
+            this.label10.Location = new System.Drawing.Point(12, 98);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(36, 16);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "Tagi";
             // 
             // label11
             // 
@@ -317,7 +332,27 @@
             this.txt_uwagi.Multiline = true;
             this.txt_uwagi.Name = "txt_uwagi";
             this.txt_uwagi.Size = new System.Drawing.Size(243, 84);
-            this.txt_uwagi.TabIndex = 59;
+            this.txt_uwagi.TabIndex = 11;
+            // 
+            // lb_tagi
+            // 
+            this.lb_tagi.FormattingEnabled = true;
+            this.lb_tagi.Location = new System.Drawing.Point(641, 99);
+            this.lb_tagi.Name = "lb_tagi";
+            this.lb_tagi.Size = new System.Drawing.Size(243, 121);
+            this.lb_tagi.TabIndex = 12;
+            this.lb_tagi.DoubleClick += new System.EventHandler(this.lb_tagi_DoubleClick);
+            // 
+            // btn_zarzadzanie_tagami
+            // 
+            this.btn_zarzadzanie_tagami.Location = new System.Drawing.Point(748, 226);
+            this.btn_zarzadzanie_tagami.Name = "btn_zarzadzanie_tagami";
+            this.btn_zarzadzanie_tagami.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_zarzadzanie_tagami.Size = new System.Drawing.Size(136, 23);
+            this.btn_zarzadzanie_tagami.TabIndex = 13;
+            this.btn_zarzadzanie_tagami.Text = "ZARZĄDZANIE TAGAMI";
+            this.btn_zarzadzanie_tagami.UseVisualStyleBackColor = true;
+            this.btn_zarzadzanie_tagami.Click += new System.EventHandler(this.btn_zarzadzanie_tagami_Click);
             // 
             // FrmEdytujFilm
             // 
@@ -325,6 +360,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
             this.ClientSize = new System.Drawing.Size(897, 386);
+            this.Controls.Add(this.btn_zarzadzanie_tagami);
+            this.Controls.Add(this.lb_tagi);
             this.Controls.Add(this.txt_uwagi);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txt_cena);
@@ -382,5 +419,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txt_uwagi;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ListBox lb_tagi;
+        private System.Windows.Forms.Button btn_zarzadzanie_tagami;
     }
 }

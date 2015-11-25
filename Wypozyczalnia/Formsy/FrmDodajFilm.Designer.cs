@@ -50,8 +50,11 @@
             this.cmb_nosnik = new System.Windows.Forms.ComboBox();
             this.txt_cena = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txt_uwagi = new System.Windows.Forms.TextBox();
+            this.btn_zarzadzanie_tagami = new System.Windows.Forms.Button();
+            this.lb_tagi = new System.Windows.Forms.ListBox();
             this.PanelTekst.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -78,7 +81,7 @@
             this.btn_dodaj.Name = "btn_dodaj";
             this.btn_dodaj.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_dodaj.Size = new System.Drawing.Size(88, 47);
-            this.btn_dodaj.TabIndex = 10;
+            this.btn_dodaj.TabIndex = 13;
             this.btn_dodaj.Text = "DODAJ";
             this.btn_dodaj.UseVisualStyleBackColor = true;
             this.btn_dodaj.Click += new System.EventHandler(this.btn_dodaj_Click);
@@ -187,7 +190,7 @@
             this.btn_anuluj.Name = "btn_anuluj";
             this.btn_anuluj.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_anuluj.Size = new System.Drawing.Size(88, 47);
-            this.btn_anuluj.TabIndex = 11;
+            this.btn_anuluj.TabIndex = 14;
             this.btn_anuluj.Text = "ANULUJ";
             this.btn_anuluj.UseVisualStyleBackColor = true;
             this.btn_anuluj.Click += new System.EventHandler(this.btn_anuluj_Click);
@@ -272,11 +275,23 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Location = new System.Drawing.Point(482, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(153, 341);
             this.panel1.TabIndex = 57;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
+            this.label9.Location = new System.Drawing.Point(9, 96);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(36, 16);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Tagi";
             // 
             // label10
             // 
@@ -295,7 +310,27 @@
             this.txt_uwagi.Multiline = true;
             this.txt_uwagi.Name = "txt_uwagi";
             this.txt_uwagi.Size = new System.Drawing.Size(243, 84);
-            this.txt_uwagi.TabIndex = 58;
+            this.txt_uwagi.TabIndex = 10;
+            // 
+            // btn_zarzadzanie_tagami
+            // 
+            this.btn_zarzadzanie_tagami.Location = new System.Drawing.Point(748, 223);
+            this.btn_zarzadzanie_tagami.Name = "btn_zarzadzanie_tagami";
+            this.btn_zarzadzanie_tagami.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_zarzadzanie_tagami.Size = new System.Drawing.Size(136, 23);
+            this.btn_zarzadzanie_tagami.TabIndex = 12;
+            this.btn_zarzadzanie_tagami.Text = "ZARZĄDZANIE TAGAMI";
+            this.btn_zarzadzanie_tagami.UseVisualStyleBackColor = true;
+            this.btn_zarzadzanie_tagami.Click += new System.EventHandler(this.btn_zarzadzanie_tagami_Click);
+            // 
+            // lb_tagi
+            // 
+            this.lb_tagi.FormattingEnabled = true;
+            this.lb_tagi.Location = new System.Drawing.Point(641, 96);
+            this.lb_tagi.Name = "lb_tagi";
+            this.lb_tagi.Size = new System.Drawing.Size(243, 121);
+            this.lb_tagi.TabIndex = 11;
+            this.lb_tagi.DoubleClick += new System.EventHandler(this.lb_tagi_DoubleClick);
             // 
             // FrmDodajFilm
             // 
@@ -303,6 +338,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
             this.ClientSize = new System.Drawing.Size(897, 341);
+            this.Controls.Add(this.btn_zarzadzanie_tagami);
+            this.Controls.Add(this.lb_tagi);
             this.Controls.Add(this.txt_uwagi);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txt_cena);
@@ -358,5 +395,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txt_uwagi;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btn_zarzadzanie_tagami;
+        private System.Windows.Forms.ListBox lb_tagi;
     }
 }

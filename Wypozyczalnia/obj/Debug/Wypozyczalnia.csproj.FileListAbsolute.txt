@@ -24,7 +24,6 @@ C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozycza
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmMenu.resources
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmListaKlientow.resources
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmEdytujKlienta.resources
-C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.FrmMenu.resources
 C:\Users\Rafał\Documents\repozytorium\Wypozyczalnia\bin\Debug\Wypozyczalnia.exe.config
 C:\Users\Rafał\Documents\repozytorium\Wypozyczalnia\obj\Debug\Wypozyczalnia.exe
 C:\Users\Rafał\Documents\repozytorium\Wypozyczalnia\obj\Debug\Wypozyczalnia.pdb
@@ -89,3 +88,6 @@ C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozycza
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmEdytujFilm.resources
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmListaFilmow.resources
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmFormularzFilmu.resources
+C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmListaTagow.resources
+C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmZarzadzanieTagami.resources
+C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmFormularzTaga.resources
