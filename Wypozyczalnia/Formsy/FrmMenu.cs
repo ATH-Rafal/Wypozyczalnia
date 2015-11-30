@@ -26,5 +26,26 @@ namespace Wypozyczalnia.Formsy
             frmListaFilmow.ShowDialog();
             this.Show();
         }
+
+        private void Zwrot_Filmow_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Lista_Tagow_Click(object sender, EventArgs e)
+        {
+            FrmListaTagow frmListaTagow = new FrmListaTagow();
+            this.Hide();
+            frmListaTagow.ShowDialog();
+            this.Show();
+        }
+
+        private void Lista_Wypozyczen_Click(object sender, EventArgs e)
+        {
+            FrmHistoriaWypozyczen frmHistoriaWypozyczen = new FrmHistoriaWypozyczen();
+            this.Hide();
+            frmHistoriaWypozyczen.ShowDialog();
+            this.Show();
+        }
     }
 }

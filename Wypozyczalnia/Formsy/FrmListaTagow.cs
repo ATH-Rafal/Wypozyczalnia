@@ -37,6 +37,11 @@ namespace Wypozyczalnia.Formsy
             odswiez();
         }
 
+        public FrmListaTagow()
+        {
+            // TODO: Complete member initialization
+        }
+
         private void btn_nowy_tag_Click(object sender, EventArgs e)
         {
             using (SQLiteConnection conn = new SQLiteConnection(connString))

@@ -99,6 +99,12 @@
     <Compile Include="Formsy\FrmFormularzTaga.Designer.cs">
       <DependentUpon>FrmFormularzTaga.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formsy\FrmHistoriaWypozyczen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\FrmHistoriaWypozyczen.Designer.cs">
+      <DependentUpon>FrmHistoriaWypozyczen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formsy\FrmListaFilmow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,12 @@
     <Compile Include="Formsy\FrmListaTagow.Designer.cs">
       <DependentUpon>FrmListaTagow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formsy\FrmProfilKlienta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\FrmProfilKlienta.Designer.cs">
+      <DependentUpon>FrmProfilKlienta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formsy\FrmUsuwanieklienta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +152,12 @@
     </Compile>
     <Compile Include="Formsy\FrmFormularzFilmu.Designer.cs">
       <DependentUpon>FrmFormularzFilmu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formsy\FrmWypozyczenieFilmu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\FrmWypozyczenieFilmu.Designer.cs">
+      <DependentUpon>FrmWypozyczenieFilmu.cs</DependentUpon>
     </Compile>
     <Compile Include="Formsy\FrmZarzadzanieTagami.cs">
       <SubType>Form</SubType>
@@ -167,11 +185,17 @@
     <EmbeddedResource Include="Formsy\FrmFormularzTaga.resx">
       <DependentUpon>FrmFormularzTaga.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\FrmHistoriaWypozyczen.resx">
+      <DependentUpon>FrmHistoriaWypozyczen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formsy\FrmListaFilmow.resx">
       <DependentUpon>FrmListaFilmow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formsy\FrmListaTagow.resx">
       <DependentUpon>FrmListaTagow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\FrmProfilKlienta.resx">
+      <DependentUpon>FrmProfilKlienta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formsy\FrmUsuwanieklienta.resx">
       <DependentUpon>FrmUsuwanieklienta.cs</DependentUpon>
@@ -184,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formsy\FrmFormularzFilmu.resx">
       <DependentUpon>FrmFormularzFilmu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\FrmWypozyczenieFilmu.resx">
+      <DependentUpon>FrmWypozyczenieFilmu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formsy\FrmZarzadzanieTagami.resx">
       <DependentUpon>FrmZarzadzanieTagami.cs</DependentUpon>
