@@ -17,6 +17,7 @@ namespace Wypozyczalnia.Formsy
         DataTable table = new DataTable(); // Bardzo pomocny obiekt do pracy na wynikach zapytania
         int id;
         int index;
+        string parent_form;
         ListBox.ObjectCollection obiekty;
 
         private void odswiez()
@@ -30,16 +31,26 @@ namespace Wypozyczalnia.Formsy
             dataGridView1.DataSource = table; // Przypisujemy dane z DataTabla do naszego GridView            
         }
 
-        public FrmListaTagow(ListBox.ObjectCollection _obiekty)
+        private void przejdzDoTaga()
+        {
+            id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+            FrmFormularzTaga frmFormularzTaga = new FrmFormularzTaga(id);
+            frmFormularzTaga.ShowDialog();
+        }
+
+        public FrmListaTagow(ListBox.ObjectCollection _obiekty, string _parent_form)
         {
             obiekty = _obiekty;
+            parent_form = _parent_form;
             InitializeComponent();
             odswiez();
         }
 
-        public FrmListaTagow()
+        public FrmListaTagow(string _parent_form)
         {
-            // TODO: Complete member initialization
+            InitializeComponent();           
+            btn_dodaj_tag.Text = "SZCZEGÓŁY TAGA";
+            odswiez();
         }
 
         private void btn_nowy_tag_Click(object sender, EventArgs e)
@@ -96,7 +107,8 @@ namespace Wypozyczalnia.Formsy
                 DialogResult result = MessageBox.Show("Czy na pewno chcesz usunąć tag numer " + id + "?\nTag zostanie również usunięty z powiązanych filmów.\n\nOperacji nie można cofnąć.", "Ważne", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
-                    obiekty.Remove(dataGridView1.SelectedRows[0].Cells[1].Value.ToString() + " [" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "]");
+                    if (parent_form == "FrmZarzadzanieTagami")
+                        obiekty.Remove(dataGridView1.SelectedRows[0].Cells[1].Value.ToString() + " [" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "]");
                     using (SQLiteConnection conn = new SQLiteConnection(connString))
                     {
                         conn.Open();
@@ -175,25 +187,30 @@ namespace Wypozyczalnia.Formsy
 
         private void btn_dodaj_tag_Click(object sender, EventArgs e)
         {
-            string nowy_obiekt = dataGridView1.SelectedRows[0].Cells[1].Value.ToString() + " [" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "]";
-            if (!obiekty.Contains(nowy_obiekt))
+            if (parent_form == "FrmZarzadzanieTagami")
             {
-                obiekty.Add(nowy_obiekt);             
+                string nowy_obiekt = dataGridView1.SelectedRows[0].Cells[1].Value.ToString() + " [" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "]";
+                if (!obiekty.Contains(nowy_obiekt))
+                {
+                    obiekty.Add(nowy_obiekt);
+                }
+                this.Close();
             }
-            this.Close();
+            else przejdzDoTaga();
         }
 
         private void FrmListaTagow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ((FrmZarzadzanieTagami)this.Owner).obiekty_prop.Clear();
-            ((FrmZarzadzanieTagami)this.Owner).obiekty_prop.AddRange(obiekty);
+            if (parent_form == "FrmZarzadzanieTagami")
+            {
+                ((FrmZarzadzanieTagami)this.Owner).obiekty_prop.Clear();
+                ((FrmZarzadzanieTagami)this.Owner).obiekty_prop.AddRange(obiekty);
+            }
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-            FrmFormularzTaga frmFormularzTaga = new FrmFormularzTaga(id);
-            frmFormularzTaga.ShowDialog();
+            przejdzDoTaga();
         }
     }
 }

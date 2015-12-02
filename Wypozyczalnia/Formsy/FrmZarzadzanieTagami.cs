@@ -48,7 +48,7 @@ namespace Wypozyczalnia.Formsy
         {
             obiekty.Clear();
             obiekty.AddRange(lb_tagi.Items);
-            FrmListaTagow frmListaTagow = new FrmListaTagow(lb_tagi.Items);
+            FrmListaTagow frmListaTagow = new FrmListaTagow(lb_tagi.Items, this.Name);
             frmListaTagow.ShowDialog(this);
             if (obiekty != lb_tagi.Items)
             {

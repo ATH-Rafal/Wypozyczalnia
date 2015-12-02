@@ -55,6 +55,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txt_uwagi = new System.Windows.Forms.TextBox();
             this.lb_tagi = new System.Windows.Forms.ListBox();
+            this.btn_wypozycz = new System.Windows.Forms.Button();
+            this.lb_status = new System.Windows.Forms.Label();
             this.PanelTekst.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -331,12 +333,33 @@
             this.lb_tagi.TabIndex = 12;
             this.lb_tagi.DoubleClick += new System.EventHandler(this.lb_tagi_DoubleClick);
             // 
+            // btn_wypozycz
+            // 
+            this.btn_wypozycz.Location = new System.Drawing.Point(797, 298);
+            this.btn_wypozycz.Name = "btn_wypozycz";
+            this.btn_wypozycz.Size = new System.Drawing.Size(88, 23);
+            this.btn_wypozycz.TabIndex = 88;
+            this.btn_wypozycz.Text = "WYPOŻYCZ";
+            this.btn_wypozycz.UseVisualStyleBackColor = true;
+            this.btn_wypozycz.Click += new System.EventHandler(this.btn_wypozycz_Click);
+            // 
+            // lb_status
+            // 
+            this.lb_status.Location = new System.Drawing.Point(642, 247);
+            this.lb_status.Name = "lb_status";
+            this.lb_status.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lb_status.Size = new System.Drawing.Size(243, 48);
+            this.lb_status.TabIndex = 89;
+            this.lb_status.Text = "Ten film nie jest aktualnie wypożyczony";
+            // 
             // FrmFormularzFilmu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
             this.ClientSize = new System.Drawing.Size(897, 386);
+            this.Controls.Add(this.lb_status);
+            this.Controls.Add(this.btn_wypozycz);
             this.Controls.Add(this.lb_tagi);
             this.Controls.Add(this.txt_uwagi);
             this.Controls.Add(this.panel1);
@@ -396,5 +419,7 @@
         private System.Windows.Forms.TextBox txt_uwagi;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ListBox lb_tagi;
+        private System.Windows.Forms.Button btn_wypozycz;
+        private System.Windows.Forms.Label lb_status;
     }
 }

@@ -17,6 +17,20 @@ namespace Wypozyczalnia.Formsy
         DataTable table = new DataTable(); // Bardzo pomocny obiekt do pracy na wynikach zapytania
         int id;
         int index;
+        string parent_form;
+        bool czy_wybrano = false;
+
+        public bool czy_wybrano_prop
+        {
+            get
+            {
+                return czy_wybrano;
+            }
+            set
+            {
+                czy_wybrano = value;
+            }
+        }
 
         private void odswiez()
         {
@@ -34,20 +48,59 @@ namespace Wypozyczalnia.Formsy
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                FrmFormularzFilmu FrmWysFilmu = new FrmFormularzFilmu(id);
-                FrmWysFilmu.ShowDialog();
+                FrmFormularzFilmu FrmWysFilmu = new FrmFormularzFilmu(id, parent_form);
+                FrmWysFilmu.ShowDialog(this);
+                if (parent_form == "FrmWypozyczenieFilmu")
+                    if (czy_wybrano == true) wybierzDoWypozyczenia();
             }
         }
 
-        public FrmListaFilmow()
+        private void wybierzDoWypozyczenia()
         {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                ((FrmWypozyczenieFilmu)this.Owner).txt_id_filmu_text = id.ToString();
+                this.Close();
+            }
+        }
+
+        public FrmListaFilmow(string _parent_form)
+        {
+            parent_form = _parent_form;
             InitializeComponent();
+            if (parent_form == "FrmWypozyczenieFilmu")
+            {
+                btn_pokaz_film.Text = "WYBIERZ";
+            }
             odswiez();
         }
 
         private void btn_pokaz_film_Click(object sender, EventArgs e)
         {
-            przejdzDoFilmu();
+            if (parent_form == "FrmWypozyczenieFilmu")
+            {
+                id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                string command_output;
+
+                using (SQLiteConnection conn = new SQLiteConnection(connString))
+                {
+                    conn.Open();
+                    SQLiteCommand command = new SQLiteCommand(conn);
+                    command.CommandText = @"
+                    SELECT (COUNT(id_filmu) = COUNT(data_zwrotu))
+                    FROM Wypozyczenia
+                    WHERE id_filmu = @id
+                    ";
+                    command.Parameters.Add(new SQLiteParameter("@id", id));
+                    command_output = command.ExecuteScalar().ToString();
+                    conn.Close();
+                }
+
+                if (command_output == "0") MessageBox.Show("Ten film jest aktualnie wypożyczony", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                else wybierzDoWypozyczenia();
+            }
+            else przejdzDoFilmu();
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

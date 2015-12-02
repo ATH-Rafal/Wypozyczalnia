@@ -11,6 +11,20 @@ namespace Wypozyczalnia.Formsy
         DataTable table = new DataTable(); // Bardzo pomocny obiekt do pracy na wynikach zapytania
         int id;
         int index;
+        string parent_form;
+        bool czy_wybrano = false;
+
+        public bool czy_wybrano_prop
+        {
+            get
+            {
+                return czy_wybrano;
+            }
+            set
+            {
+                czy_wybrano = value;
+            }
+        }
 
         private void odswiez()
         {
@@ -28,20 +42,38 @@ namespace Wypozyczalnia.Formsy
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                FrmFormularzKlienta FrmFormularzKlienta = new FrmFormularzKlienta(id);
-                FrmFormularzKlienta.ShowDialog();
+                FrmFormularzKlienta FrmFormularzKlienta = new FrmFormularzKlienta(id, parent_form);
+                FrmFormularzKlienta.ShowDialog(this);
+                if (parent_form == "FrmWypozyczenieFilmu")
+                    if (czy_wybrano == true) wybierzDoWypozyczenia();
             }
         }
 
-        public FrmListaKlientow()
-        {                        
-            InitializeComponent();            
+        private void wybierzDoWypozyczenia()
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                ((FrmWypozyczenieFilmu)this.Owner).txt_id_klienta_text = id.ToString();
+                this.Close();
+            }
+        }
+
+        public FrmListaKlientow(string _parent_form)
+        {
+            parent_form = _parent_form;                                 
+            InitializeComponent();
+            if (parent_form == "FrmWypozyczenieFilmu")
+            {
+                btn_pokaz_profil.Text = "WYBIERZ";
+            }           
             odswiez();
         }
 
         private void btn_pokaz_profil_Click(object sender, EventArgs e)
         {
-            przejdzDoKlienta();
+            if (parent_form == "FrmWypozyczenieFilmu") wybierzDoWypozyczenia();
+            else przejdzDoKlienta();
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

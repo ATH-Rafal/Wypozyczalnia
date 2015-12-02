@@ -127,3 +127,6 @@ C:\Users\Rafał\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozycza
 C:\Users\Rafał\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmProfilKlienta.resources
 C:\Users\Rafał\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmWypozyczenieFilmu.resources
 C:\Users\Rafał\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmHistoriaWypozyczen.resources
+C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmHistoriaWypozyczen.resources
+C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmProfilKlienta.resources
+C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmWypozyczenieFilmu.resources

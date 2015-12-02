@@ -31,14 +31,12 @@
             this.Lista_Klientów = new System.Windows.Forms.Button();
             this.Lista_Filmow = new System.Windows.Forms.Button();
             this.Lista_Tagow = new System.Windows.Forms.Button();
-            this.Zwrot_Filmow = new System.Windows.Forms.Button();
-            this.Lista_Zwroc = new System.Windows.Forms.Button();
             this.Lista_Wypozyczen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Lista_Klientów
             // 
-            this.Lista_Klientów.BackColor = System.Drawing.Color.Green;
+            this.Lista_Klientów.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
             this.Lista_Klientów.Location = new System.Drawing.Point(-1, 0);
             this.Lista_Klientów.Name = "Lista_Klientów";
             this.Lista_Klientów.Size = new System.Drawing.Size(144, 39);
@@ -49,7 +47,7 @@
             // 
             // Lista_Filmow
             // 
-            this.Lista_Filmow.BackColor = System.Drawing.Color.Green;
+            this.Lista_Filmow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
             this.Lista_Filmow.Location = new System.Drawing.Point(279, 0);
             this.Lista_Filmow.Name = "Lista_Filmow";
             this.Lista_Filmow.Size = new System.Drawing.Size(144, 39);
@@ -60,7 +58,7 @@
             // 
             // Lista_Tagow
             // 
-            this.Lista_Tagow.BackColor = System.Drawing.Color.Green;
+            this.Lista_Tagow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
             this.Lista_Tagow.Location = new System.Drawing.Point(140, 0);
             this.Lista_Tagow.Name = "Lista_Tagow";
             this.Lista_Tagow.Size = new System.Drawing.Size(144, 39);
@@ -68,27 +66,6 @@
             this.Lista_Tagow.Text = "TAGI";
             this.Lista_Tagow.UseVisualStyleBackColor = false;
             this.Lista_Tagow.Click += new System.EventHandler(this.Lista_Tagow_Click);
-            // 
-            // Zwrot_Filmow
-            // 
-            this.Zwrot_Filmow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
-            this.Zwrot_Filmow.Location = new System.Drawing.Point(-1, 281);
-            this.Zwrot_Filmow.Name = "Zwrot_Filmow";
-            this.Zwrot_Filmow.Size = new System.Drawing.Size(144, 39);
-            this.Zwrot_Filmow.TabIndex = 3;
-            this.Zwrot_Filmow.Text = "ZWROT FILMU";
-            this.Zwrot_Filmow.UseVisualStyleBackColor = false;
-            this.Zwrot_Filmow.Click += new System.EventHandler(this.Zwrot_Filmow_Click);
-            // 
-            // Lista_Zwroc
-            // 
-            this.Lista_Zwroc.BackColor = System.Drawing.Color.Green;
-            this.Lista_Zwroc.Location = new System.Drawing.Point(279, 281);
-            this.Lista_Zwroc.Name = "Lista_Zwroc";
-            this.Lista_Zwroc.Size = new System.Drawing.Size(144, 39);
-            this.Lista_Zwroc.TabIndex = 4;
-            this.Lista_Zwroc.Text = "ZWRÓĆ";
-            this.Lista_Zwroc.UseVisualStyleBackColor = false;
             // 
             // Lista_Wypozyczen
             // 
@@ -108,8 +85,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.ClientSize = new System.Drawing.Size(420, 319);
             this.Controls.Add(this.Lista_Wypozyczen);
-            this.Controls.Add(this.Lista_Zwroc);
-            this.Controls.Add(this.Zwrot_Filmow);
             this.Controls.Add(this.Lista_Tagow);
             this.Controls.Add(this.Lista_Filmow);
             this.Controls.Add(this.Lista_Klientów);
@@ -128,8 +103,6 @@
         private System.Windows.Forms.Button Lista_Klientów;
         private System.Windows.Forms.Button Lista_Filmow;
         private System.Windows.Forms.Button Lista_Tagow;
-        private System.Windows.Forms.Button Zwrot_Filmow;
-        private System.Windows.Forms.Button Lista_Zwroc;
         private System.Windows.Forms.Button Lista_Wypozyczen;
     }
 }

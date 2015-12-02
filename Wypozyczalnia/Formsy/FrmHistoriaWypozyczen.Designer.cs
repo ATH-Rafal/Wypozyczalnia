@@ -36,9 +36,15 @@
             // 
             // dtg_historia
             // 
+            this.dtg_historia.AllowUserToAddRows = false;
+            this.dtg_historia.AllowUserToDeleteRows = false;
+            this.dtg_historia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtg_historia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_historia.Location = new System.Drawing.Point(-3, -1);
+            this.dtg_historia.MultiSelect = false;
             this.dtg_historia.Name = "dtg_historia";
+            this.dtg_historia.ReadOnly = true;
+            this.dtg_historia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg_historia.Size = new System.Drawing.Size(655, 396);
             this.dtg_historia.TabIndex = 0;
             // 
