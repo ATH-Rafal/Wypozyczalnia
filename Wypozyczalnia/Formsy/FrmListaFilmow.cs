@@ -57,12 +57,9 @@ namespace Wypozyczalnia.Formsy
 
         private void wybierzDoWypozyczenia()
         {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                ((FrmWypozyczenieFilmu)this.Owner).txt_id_filmu_text = id.ToString();
-                this.Close();
-            }
+            id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+            ((FrmWypozyczenieFilmu)this.Owner).txt_id_filmu_text = id.ToString();
+            this.Close();
         }
 
         public FrmListaFilmow(string _parent_form)
@@ -80,25 +77,28 @@ namespace Wypozyczalnia.Formsy
         {
             if (parent_form == "FrmWypozyczenieFilmu")
             {
-                id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                string command_output;
-
-                using (SQLiteConnection conn = new SQLiteConnection(connString))
+                if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    conn.Open();
-                    SQLiteCommand command = new SQLiteCommand(conn);
-                    command.CommandText = @"
-                    SELECT (COUNT(id_filmu) = COUNT(data_zwrotu))
-                    FROM Wypozyczenia
-                    WHERE id_filmu = @id
-                    ";
-                    command.Parameters.Add(new SQLiteParameter("@id", id));
-                    command_output = command.ExecuteScalar().ToString();
-                    conn.Close();
-                }
+                    id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                    string command_output;
 
-                if (command_output == "0") MessageBox.Show("Ten film jest aktualnie wypożyczony", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                else wybierzDoWypozyczenia();
+                    using (SQLiteConnection conn = new SQLiteConnection(connString))
+                    {
+                        conn.Open();
+                        SQLiteCommand command = new SQLiteCommand(conn);
+                        command.CommandText = @"
+                            SELECT (COUNT(id_filmu) = COUNT(data_zwrotu))
+                            FROM Wypozyczenia
+                            WHERE id_filmu = @id
+                            ";
+                        command.Parameters.Add(new SQLiteParameter("@id", id));
+                        command_output = command.ExecuteScalar().ToString();
+                        conn.Close();
+                    }
+
+                    if (command_output == "0") MessageBox.Show("Ten film jest aktualnie wypożyczony", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    else wybierzDoWypozyczenia();
+                }
             }
             else przejdzDoFilmu();
         }
@@ -144,15 +144,19 @@ namespace Wypozyczalnia.Formsy
             {
                 id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
                 if (dataGridView1.RowCount != 0) index = dataGridView1.SelectedRows[0].Index;
-                DialogResult result = MessageBox.Show("Czy na pewno chcesz usunąć film numer " + id + "? \n\nOperacji nie można cofnąć.", "Ważne", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Czy na pewno chcesz usunąć film numer " + id + "?\nUsuniętę zostaną również niesfinalizowane wypożyczenia filmu.\n\nOperacji nie można cofnąć.", "Ważne", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                     using (SQLiteConnection conn = new SQLiteConnection(connString))
                     {
                         conn.Open();
-                        SQLiteCommand command = new SQLiteCommand(conn);
-                        command.CommandText = "DELETE FROM Filmy WHERE id = @id";
-                        command.Parameters.Add(new SQLiteParameter("@id", id));
-                        command.ExecuteNonQuery();
+                        SQLiteCommand command1 = new SQLiteCommand(conn);
+                        command1.CommandText = "DELETE FROM Filmy WHERE id = @id";
+                        command1.Parameters.Add(new SQLiteParameter("@id", id));
+                        command1.ExecuteNonQuery();
+                        SQLiteCommand command2 = new SQLiteCommand(conn);
+                        command2.CommandText = "DELETE FROM Wypozyczenia WHERE id_filmu = @id AND data_zwrotu IS NULL";
+                        command2.Parameters.Add(new SQLiteParameter("@id", id));
+                        command2.ExecuteNonQuery();
                         conn.Close();
                         odswiez();
                         if (dataGridView1.RowCount != 0)

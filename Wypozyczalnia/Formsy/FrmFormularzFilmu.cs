@@ -10,6 +10,49 @@ namespace Wypozyczalnia.Formsy
         string parent_of_parent;
         string connString = "Data Source = baza.db; Version = 3";
 
+        private void odswiezStatus()
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(connString))
+            {
+                conn.Open();
+
+                SQLiteCommand command1 = new SQLiteCommand(conn);
+                command1.CommandText = @"
+                    SELECT (COUNT(id_filmu) = COUNT(data_zwrotu))
+                    FROM Wypozyczenia
+                    WHERE id_filmu = @id
+                    ";
+                command1.Parameters.Add(new SQLiteParameter("@id", id));
+                string command1_output = command1.ExecuteScalar().ToString();
+
+                if (command1_output == "0")
+                {
+                    btn_wypozycz.Enabled = false;
+                    lb_status.Text = ":Ten film jest aktualnie wypożyczony klientowi\n";
+                    SQLiteCommand command2 = new SQLiteCommand(conn);
+                    command2.CommandText = @"
+                        SELECT Klienci.nazwisko, Klienci.imie, Wypozyczenia.id_klienta
+                        FROM Wypozyczenia
+                        INNER JOIN Klienci ON Wypozyczenia.id_klienta = Klienci.id
+                        WHERE Wypozyczenia.id_filmu=@id AND data_zwrotu IS NULL
+                        ";
+                    command2.Parameters.Add(new SQLiteParameter("@id", id));
+                    using (command2)
+                    {
+                        using (SQLiteDataReader rdr = command2.ExecuteReader())
+                        {
+                            while (rdr.Read())
+                            {
+                                lb_status.Text += "[" + rdr.GetValue(0).ToString() + " " + rdr.GetValue(1).ToString() + " [" + rdr.GetValue(2).ToString();
+                            }
+                        }
+                    }
+                }
+
+                conn.Close();
+            }
+        }
+
         public FrmFormularzFilmu(int _id, string _parent_of_parent)
         {
             id = _id;
@@ -64,42 +107,11 @@ namespace Wypozyczalnia.Formsy
                         }
                     }
                 }
-
-                SQLiteCommand command3 = new SQLiteCommand(conn);
-                command3.CommandText = @"
-                    SELECT (COUNT(id_filmu) = COUNT(data_zwrotu))
-                    FROM Wypozyczenia
-                    WHERE id_filmu = @id
-                    ";
-                command3.Parameters.Add(new SQLiteParameter("@id", id));
-                string command3_output = command3.ExecuteScalar().ToString();
-
-                if (command3_output == "0")
-                {
-                    btn_wypozycz.Enabled = false;
-                    lb_status.Text = ":Ten film jest aktualnie wypożyczony klientowi\n";
-                    SQLiteCommand command4 = new SQLiteCommand(conn);
-                    command4.CommandText = @"
-                        SELECT Klienci.nazwisko, Klienci.imie, Wypozyczenia.id_klienta
-                        FROM Wypozyczenia
-                        INNER JOIN Klienci ON Wypozyczenia.id_klienta = Klienci.id
-                        WHERE Wypozyczenia.id_filmu=@id AND data_zwrotu IS NULL
-                        ";
-                    command4.Parameters.Add(new SQLiteParameter("@id", id));
-                    using (command4)
-                    {
-                        using (SQLiteDataReader rdr = command4.ExecuteReader())
-                        {
-                            while (rdr.Read())
-                            {
-                                lb_status.Text += "[" + rdr.GetValue(0).ToString() + " " + rdr.GetValue(1).ToString() + " [" + rdr.GetValue(2).ToString();
-                            }
-                        }
-                    }
-                }
-
+                
                 conn.Close();
             }
+
+            odswiezStatus();
         }
 
         private void btn_Wyjscie_Click(object sender, EventArgs e)
@@ -129,6 +141,7 @@ namespace Wypozyczalnia.Formsy
             {
                 FrmWypozyczenieFilmu frmWypozyczenieFilmu = new FrmWypozyczenieFilmu(id, this.Name);
                 frmWypozyczenieFilmu.ShowDialog();
+                odswiezStatus();
             }
         }
     }
