@@ -58,6 +58,8 @@ namespace Wypozyczalnia.Formsy
             id = _id;
             parent_of_parent = _parent_of_parent;
             InitializeComponent();
+
+            if (parent_of_parent == "FrmWypozyczenieFilmu") btn_wypozycz.Text = "WYBIERZ";           
             
             using (SQLiteConnection conn = new SQLiteConnection(connString))
             {
