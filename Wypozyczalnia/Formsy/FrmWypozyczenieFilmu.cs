@@ -47,10 +47,16 @@ namespace Wypozyczalnia.Formsy
             if (parent_form == "FrmFormularzKlienta")
             {
                 txt_id_klienta.Text = _id.ToString();
+                txt_id_klienta.ReadOnly = true;
+                txt_id_klienta.BackColor = System.Drawing.SystemColors.Control;
+                btn_wybierz_klienta.Enabled = false;
             }
             if (parent_form == "FrmFormularzFilmu")
             {
                 txt_id_filmu.Text = _id.ToString();
+                txt_id_filmu.ReadOnly = true;
+                txt_id_filmu.BackColor = System.Drawing.SystemColors.Control;
+                btn_wybierz_film.Enabled = false;
             }
 
         }
