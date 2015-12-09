@@ -63,7 +63,7 @@ namespace Wypozyczalnia.Formsy
                 {
                     while (rdr.Read())
                     {
-                        cmb_taryfa.Items.Add(rdr.GetValue(1).ToString() + " - " + rdr.GetValue(2).ToString() + "zł za dzień [" + rdr.GetValue(0).ToString() + "]");
+                        cmb_taryfa.Items.Add(rdr.GetValue(1).ToString() + " - " + rdr.GetValue(2).ToString().Replace(',', '.') + "zł za dzień [" + rdr.GetValue(0).ToString() + "]");
                     }
                 }
 
