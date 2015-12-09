@@ -81,6 +81,18 @@
     <Compile Include="Formsy\FrmDodajKlienta.Designer.cs">
       <DependentUpon>FrmDodajKlienta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formsy\FrmDodajTaryfe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\FrmDodajTaryfe.Designer.cs">
+      <DependentUpon>FrmDodajTaryfe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formsy\FrmEdyfujTaryfe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\FrmEdyfujTaryfe.Designer.cs">
+      <DependentUpon>FrmEdyfujTaryfe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formsy\FrmEdytujFilm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +110,12 @@
     </Compile>
     <Compile Include="Formsy\FrmFormularzTaga.Designer.cs">
       <DependentUpon>FrmFormularzTaga.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formsy\FrmFormularzTaryfy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\FrmFormularzTaryfy.Designer.cs">
+      <DependentUpon>FrmFormularzTaryfy.cs</DependentUpon>
     </Compile>
     <Compile Include="Formsy\FrmHistoriaWypozyczen.cs">
       <SubType>Form</SubType>
@@ -128,6 +146,12 @@
     </Compile>
     <Compile Include="Formsy\FrmListaTagow.Designer.cs">
       <DependentUpon>FrmListaTagow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formsy\FrmListaTaryf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\FrmListaTaryf.Designer.cs">
+      <DependentUpon>FrmListaTaryf.cs</DependentUpon>
     </Compile>
     <Compile Include="Formsy\FrmProfilKlienta.cs">
       <SubType>Form</SubType>
@@ -173,6 +197,12 @@
     <EmbeddedResource Include="Formsy\FrmDodajKlienta.resx">
       <DependentUpon>FrmDodajKlienta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\FrmDodajTaryfe.resx">
+      <DependentUpon>FrmDodajTaryfe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\FrmEdyfujTaryfe.resx">
+      <DependentUpon>FrmEdyfujTaryfe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formsy\FrmEdytujFilm.resx">
       <DependentUpon>FrmEdytujFilm.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,6 +215,9 @@
     <EmbeddedResource Include="Formsy\FrmFormularzTaga.resx">
       <DependentUpon>FrmFormularzTaga.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\FrmFormularzTaryfy.resx">
+      <DependentUpon>FrmFormularzTaryfy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formsy\FrmHistoriaWypozyczen.resx">
       <DependentUpon>FrmHistoriaWypozyczen.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formsy\FrmListaTagow.resx">
       <DependentUpon>FrmListaTagow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\FrmListaTaryf.resx">
+      <DependentUpon>FrmListaTaryf.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formsy\FrmProfilKlienta.resx">
       <DependentUpon>FrmProfilKlienta.cs</DependentUpon>

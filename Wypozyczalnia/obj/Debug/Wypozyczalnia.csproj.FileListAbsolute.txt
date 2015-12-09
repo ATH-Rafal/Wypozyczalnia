@@ -130,3 +130,7 @@ C:\Users\Rafał\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozycza
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmHistoriaWypozyczen.resources
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmProfilKlienta.resources
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmWypozyczenieFilmu.resources
+C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmDodajTaryfe.resources
+C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmEdyfujTaryfe.resources
+C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmFormularzTaryfy.resources
+C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmListaTaryf.resources

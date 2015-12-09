@@ -49,20 +49,20 @@
             // 
             // btn_usun_film
             // 
-            this.btn_usun_film.Location = new System.Drawing.Point(340, 369);
+            this.btn_usun_film.Location = new System.Drawing.Point(482, 369);
             this.btn_usun_film.Name = "btn_usun_film";
             this.btn_usun_film.Size = new System.Drawing.Size(136, 49);
-            this.btn_usun_film.TabIndex = 3;
-            this.btn_usun_film.Text = "USUN FILM";
+            this.btn_usun_film.TabIndex = 4;
+            this.btn_usun_film.Text = "USUŃ FILM";
             this.btn_usun_film.UseVisualStyleBackColor = true;
             this.btn_usun_film.Click += new System.EventHandler(this.btn_usun_film_Click);
             // 
             // btn_edytuj_film
             // 
-            this.btn_edytuj_film.Location = new System.Drawing.Point(482, 369);
+            this.btn_edytuj_film.Location = new System.Drawing.Point(340, 369);
             this.btn_edytuj_film.Name = "btn_edytuj_film";
             this.btn_edytuj_film.Size = new System.Drawing.Size(136, 49);
-            this.btn_edytuj_film.TabIndex = 4;
+            this.btn_edytuj_film.TabIndex = 3;
             this.btn_edytuj_film.Text = "EDYTUJ FILM";
             this.btn_edytuj_film.UseVisualStyleBackColor = true;
             this.btn_edytuj_film.Click += new System.EventHandler(this.btn_edytuj_film_Click);

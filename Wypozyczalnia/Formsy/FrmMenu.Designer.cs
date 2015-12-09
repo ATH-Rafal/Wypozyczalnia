@@ -32,6 +32,7 @@
             this.Lista_Filmow = new System.Windows.Forms.Button();
             this.Lista_Tagow = new System.Windows.Forms.Button();
             this.Lista_Wypozyczen = new System.Windows.Forms.Button();
+            this.Lista_Taryf = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Lista_Klientów
@@ -78,12 +79,24 @@
             this.Lista_Wypozyczen.UseVisualStyleBackColor = false;
             this.Lista_Wypozyczen.Click += new System.EventHandler(this.Lista_Wypozyczen_Click);
             // 
+            // Lista_Taryf
+            // 
+            this.Lista_Taryf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
+            this.Lista_Taryf.Location = new System.Drawing.Point(-1, 281);
+            this.Lista_Taryf.Name = "Lista_Taryf";
+            this.Lista_Taryf.Size = new System.Drawing.Size(144, 39);
+            this.Lista_Taryf.TabIndex = 6;
+            this.Lista_Taryf.Text = "TARYFY";
+            this.Lista_Taryf.UseVisualStyleBackColor = false;
+            this.Lista_Taryf.Click += new System.EventHandler(this.Lista_Taryf_Click);
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.ClientSize = new System.Drawing.Size(420, 319);
+            this.Controls.Add(this.Lista_Taryf);
             this.Controls.Add(this.Lista_Wypozyczen);
             this.Controls.Add(this.Lista_Tagow);
             this.Controls.Add(this.Lista_Filmow);
@@ -104,5 +117,6 @@
         private System.Windows.Forms.Button Lista_Filmow;
         private System.Windows.Forms.Button Lista_Tagow;
         private System.Windows.Forms.Button Lista_Wypozyczen;
+        private System.Windows.Forms.Button Lista_Taryf;
     }
 }

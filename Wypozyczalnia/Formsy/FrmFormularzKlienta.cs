@@ -20,7 +20,7 @@ namespace Wypozyczalnia.Formsy
             {
 
                 SQLiteCommand command = new SQLiteCommand(conn);
-                command.CommandText = @"SELECT Wypozyczenia.id, Wypozyczenia.id_filmu, Filmy.tytul_pol, Wypozyczenia.data_wypozyczenia, Wypozyczenia.dni
+                command.CommandText = @"SELECT Wypozyczenia.id, Wypozyczenia.id_filmu, Filmy.tytul_pol, Wypozyczenia.data_wypozyczenia, Wypozyczenia.dni, Wypozyczenia.cena
                                         FROM Wypozyczenia
                                         INNER JOIN Filmy ON Wypozyczenia.id_filmu = Filmy.id
                                         WHERE id_klienta=@id AND data_zwrotu IS NULL";
@@ -38,7 +38,7 @@ namespace Wypozyczalnia.Formsy
             parent_of_parent = _parent_of_parent;
             InitializeComponent();
             odswiez();
-            if (parent_of_parent == "FrmWypozyczenieFilmu") btn_wypozycz.Text = "WYBIERZ";           
+            if (parent_of_parent == "FrmWypozyczenieFilmu") { btn_wypozycz.Text = "WYBIERZ"; btn_zwroc.Enabled = false; }     
             using (SQLiteConnection conn = new SQLiteConnection(connString))
             {
                 conn.Open();

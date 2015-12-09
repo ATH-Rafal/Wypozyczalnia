@@ -22,7 +22,13 @@ namespace Wypozyczalnia.Formsy
             table.Clear();
             using (SQLiteConnection conn = new SQLiteConnection(connString))
             {
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter("SELECT * FROM Wypozyczenia;", conn);
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(@"
+                                                            SELECT Wypozyczenia.id, Wypozyczenia.id_klienta, Klienci.nazwisko, Klienci.imie, Wypozyczenia.id_filmu, Filmy.tytul_pol, Wypozyczenia.dni, Wypozyczenia.cena, Wypozyczenia.data_wypozyczenia, Wypozyczenia.data_zwrotu
+                                                            FROM Klienci
+                                                            INNER JOIN Wypozyczenia ON Klienci.id = Wypozyczenia.id_klienta
+                                                            INNER JOIN Filmy ON Wypozyczenia.id_filmu = Filmy.id                                                            
+                                                            ",
+                                                            conn);
                 adapter.Fill(table); // wypełniamy DataTabla danymi z wyniku zapytania
             }
             dtg_historia.DataSource = table; // Przypisujemy dane z DataTabla do naszego GridView 

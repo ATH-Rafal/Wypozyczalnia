@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.PanelLista = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_zatwierdz = new System.Windows.Forms.Button();
@@ -39,8 +40,8 @@
             this.txt_film = new System.Windows.Forms.TextBox();
             this.btn_wybierz_klienta = new System.Windows.Forms.Button();
             this.btn_wybierz_film = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.txt_dni = new System.Windows.Forms.NumericUpDown();
+            this.label_cena = new System.Windows.Forms.Label();
             this.PanelLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_dni)).BeginInit();
             this.SuspendLayout();
@@ -55,6 +56,17 @@
             this.PanelLista.Name = "PanelLista";
             this.PanelLista.Size = new System.Drawing.Size(152, 299);
             this.PanelLista.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
+            this.label1.Location = new System.Drawing.Point(11, 164);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 16);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Ile dni";
             // 
             // label4
             // 
@@ -159,17 +171,6 @@
             this.btn_wybierz_film.UseVisualStyleBackColor = true;
             this.btn_wybierz_film.Click += new System.EventHandler(this.btn_wybierz_film_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
-            this.label1.Location = new System.Drawing.Point(11, 164);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 16);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Ile dni";
-            // 
             // txt_dni
             // 
             this.txt_dni.Location = new System.Drawing.Point(159, 164);
@@ -181,8 +182,18 @@
             0,
             0,
             0});
-            this.txt_dni.ValueChanged += new System.EventHandler(this.txt_dni_ValueChanged);
+            this.txt_dni.TextChanged += new System.EventHandler(this.txt_dni_TextChanged);
             this.txt_dni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_dni_KeyPress);
+            // 
+            // label_cena
+            // 
+            this.label_cena.AutoSize = true;
+            this.label_cena.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_cena.Location = new System.Drawing.Point(158, 200);
+            this.label_cena.Name = "label_cena";
+            this.label_cena.Size = new System.Drawing.Size(73, 20);
+            this.label_cena.TabIndex = 11;
+            this.label_cena.Text = "CENA: ...";
             // 
             // FrmWypozyczenieFilmu
             // 
@@ -190,6 +201,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
             this.ClientSize = new System.Drawing.Size(435, 298);
+            this.Controls.Add(this.label_cena);
             this.Controls.Add(this.txt_dni);
             this.Controls.Add(this.btn_wybierz_film);
             this.Controls.Add(this.btn_wybierz_klienta);
@@ -228,5 +240,6 @@
         private System.Windows.Forms.Button btn_wybierz_film;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown txt_dni;
+        private System.Windows.Forms.Label label_cena;
     }
 }

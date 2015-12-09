@@ -59,12 +59,12 @@ namespace Wypozyczalnia.Formsy
             parent_of_parent = _parent_of_parent;
             InitializeComponent();
 
-            if (parent_of_parent == "FrmWypozyczenieFilmu") btn_wypozycz.Text = "WYBIERZ";           
-            
+            if (parent_of_parent == "FrmWypozyczenieFilmu") btn_wypozycz.Text = "WYBIERZ";
+
             using (SQLiteConnection conn = new SQLiteConnection(connString))
             {
                 conn.Open();
-
+                int id_taryfy = 0;
                 SQLiteCommand command1 = new SQLiteCommand(conn);
                 command1.CommandText = "SELECT * FROM Filmy WHERE id=@id";
                 command1.Parameters.Add(new SQLiteParameter("@id", id));
@@ -78,38 +78,49 @@ namespace Wypozyczalnia.Formsy
                             txt_tytul_pol.Text = rdr.GetValue(1).ToString();
                             txt_tytul_org.Text = rdr.GetValue(2).ToString();
                             txt_rok_produkcji.Text = rdr.GetValue(3).ToString();
-                            txt_klas_wiekowa.Text = rdr.GetValue(4).ToString();
-                            txt_dlugosc.Text = rdr.GetValue(5).ToString();
-                            txt_kraj.Text = rdr.GetValue(6).ToString();
-                            txt_cena.Text = rdr.GetValue(7).ToString();
-                            txt_nosnik.Text = rdr.GetValue(8).ToString();
-                            cb_lektor.Checked = rdr.GetValue(9) as bool? ?? false;
-                            cb_napisy.Checked = rdr.GetValue(10) as bool? ?? false;
-                            txt_uwagi.Text = rdr.GetValue(11).ToString();
+                            txt_gatunek.Text = rdr.GetValue(4).ToString();
+                            txt_gatunek2.Text = rdr.GetValue(5).ToString();
+                            txt_dystrybutor.Text = rdr.GetValue(6).ToString();
+                            txt_kraj.Text = rdr.GetValue(7).ToString();
+                            txt_dlugosc.Text = rdr.GetValue(8).ToString();
+                            txt_nosnik.Text = rdr.GetValue(9).ToString();
+                            id_taryfy = rdr.GetInt32(10);
+                            cb_lektor.Checked = rdr.GetValue(11) as bool? ?? false;
+                            cb_napisy.Checked = rdr.GetValue(12) as bool? ?? false;
+                            txt_uwagi.Text = rdr.GetValue(13).ToString().Replace("<n>", System.Environment.NewLine);
                         }
                     }
                 }
 
                 SQLiteCommand command2 = new SQLiteCommand(conn);
-                command2.CommandText = @"
+                command2.CommandText = "SELECT * FROM Taryfy WHERE id = @id";
+                command2.Parameters.Add(new SQLiteParameter("@id", id_taryfy));
+                using (SQLiteDataReader rdr = command2.ExecuteReader())
+                {
+                    while (rdr.Read())
+                    {
+                        txt_taryfa.Text = rdr.GetValue(1).ToString() + " - " + rdr.GetValue(2).ToString() + "zł za dzień [" + rdr.GetValue(0).ToString() + "]";
+                    }
+                }
+
+                SQLiteCommand command3 = new SQLiteCommand(conn);
+                command3.CommandText = @"
                     SELECT Tagi.nazwa, Tagi.id 
                     FROM Tagi
                     INNER JOIN TagiFilmy ON Tagi.id = TagiFilmy.id_taga
                     INNER JOIN Filmy ON TagiFilmy.id_filmu = Filmy.id
                     WHERE Filmy.id = @id
                     ";
-                command2.Parameters.Add(new SQLiteParameter("@id", id));
-                using (command2)
+                command3.Parameters.Add(new SQLiteParameter("@id", id));
+                using (SQLiteDataReader rdr = command3.ExecuteReader())
                 {
-                    using (SQLiteDataReader rdr = command2.ExecuteReader())
+                    while (rdr.Read())
                     {
-                        while (rdr.Read())
-                        {
-                            lb_tagi.Items.Add(rdr.GetValue(0).ToString() + " [" + rdr.GetValue(1).ToString() + "]");
-                        }
+                        lb_tagi.Items.Add(rdr.GetValue(0).ToString() + " [" + rdr.GetValue(1).ToString() + "]");
                     }
                 }
-                
+
+
                 conn.Close();
             }
 

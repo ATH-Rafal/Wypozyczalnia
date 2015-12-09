@@ -29,7 +29,7 @@ namespace Wypozyczalnia.Formsy
             using (SQLiteConnection conn = new SQLiteConnection(connString))
             {
                 conn.Open();
-
+                int id_taryfy = 0;
                 SQLiteCommand command1 = new SQLiteCommand(conn);
                 command1.CommandText = "SELECT * FROM Filmy WHERE id=@id";
                 command1.Parameters.Add(new SQLiteParameter("@id", id));
@@ -43,30 +43,54 @@ namespace Wypozyczalnia.Formsy
                             txt_tytul_pol.Text = rdr.GetValue(1).ToString();
                             txt_tytul_org.Text = rdr.GetValue(2).ToString();
                             txt_rok_produkcji.Text = rdr.GetValue(3).ToString();
-                            txt_klas_wiekowa.Text = rdr.GetValue(4).ToString();
-                            txt_dlugosc.Text = rdr.GetValue(5).ToString();
-                            txt_kraj.Text = rdr.GetValue(6).ToString();
-                            txt_cena.Text = rdr.GetValue(7).ToString();
-                            cmb_nosnik.Text = rdr.GetValue(8).ToString();
-                            cb_lektor.Checked = rdr.GetValue(9) as bool? ?? false;
-                            cb_napisy.Checked = rdr.GetValue(10) as bool? ?? false;
-                            txt_uwagi.Text = rdr.GetValue(11).ToString().Replace("<n>", System.Environment.NewLine);
+                            txt_gatunek.Text = rdr.GetValue(4).ToString();
+                            txt_gatunek2.Text = rdr.GetValue(5).ToString();
+                            txt_dystrybutor.Text = rdr.GetValue(6).ToString();
+                            txt_kraj.Text = rdr.GetValue(7).ToString();
+                            txt_dlugosc.Text = rdr.GetValue(8).ToString();
+                            cmb_nosnik.Text = rdr.GetValue(9).ToString();
+                            id_taryfy = rdr.GetInt32(10);
+                            cb_lektor.Checked = rdr.GetValue(11) as bool? ?? false;
+                            cb_napisy.Checked = rdr.GetValue(12) as bool? ?? false;
+                            txt_uwagi.Text = rdr.GetValue(13).ToString().Replace("<n>", System.Environment.NewLine);
                         }
                     }
                 }
 
                 SQLiteCommand command2 = new SQLiteCommand(conn);
-                command2.CommandText = @"
+                command2.CommandText = "SELECT * FROM Taryfy";
+                using (SQLiteDataReader rdr = command2.ExecuteReader())
+                {
+                    while (rdr.Read())
+                    {
+                        cmb_taryfa.Items.Add(rdr.GetValue(1).ToString() + " - " + rdr.GetValue(2).ToString() + "zł za dzień [" + rdr.GetValue(0).ToString() + "]");
+                    }
+                }
+
+                SQLiteCommand command3 = new SQLiteCommand(conn);
+                command3.CommandText = "SELECT * FROM Taryfy WHERE id = @id";
+                command3.Parameters.Add(new SQLiteParameter("@id", id_taryfy));
+                using (SQLiteDataReader rdr = command3.ExecuteReader())
+                {
+                    while (rdr.Read())
+                    {
+                        cmb_taryfa.Text = rdr.GetValue(1).ToString() + " - " + rdr.GetValue(2).ToString() + "zł za dzień [" + rdr.GetValue(0).ToString() + "]";
+                    }
+                }
+
+
+                SQLiteCommand command4 = new SQLiteCommand(conn);
+                command4.CommandText = @"
                     SELECT Tagi.nazwa, Tagi.id 
                     FROM Tagi
                     INNER JOIN TagiFilmy ON Tagi.id = TagiFilmy.id_taga
                     INNER JOIN Filmy ON TagiFilmy.id_filmu = Filmy.id
                     WHERE Filmy.id = @id
                     ";
-                command2.Parameters.Add(new SQLiteParameter("@id", id));
-                using (command2)
+                command4.Parameters.Add(new SQLiteParameter("@id", id));
+                using (command4)
                 {
-                    using (SQLiteDataReader rdr = command2.ExecuteReader())
+                    using (SQLiteDataReader rdr = command4.ExecuteReader())
                     {
                         while (rdr.Read())
                         {
@@ -81,93 +105,80 @@ namespace Wypozyczalnia.Formsy
 
         private void btn_zatwierz_Click(object sender, EventArgs e)
         {
-            using (SQLiteConnection conn = new SQLiteConnection(connString))
+            if (txt_rok_produkcji.Text.Length != 4 || string.IsNullOrWhiteSpace(txt_tytul_pol.Text) || string.IsNullOrWhiteSpace(txt_gatunek.Text) || string.IsNullOrWhiteSpace(cmb_taryfa.Text))
             {
-                conn.Open();
-
-                SQLiteCommand command1 = new SQLiteCommand(conn);
-                command1.CommandText = @"
+                MessageBox.Show("Uzupełnij wymagane pola", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            else
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(connString))
+                {
+                    conn.Open();
+                    string[] words1 = cmb_taryfa.Text.Split(' ');
+                    SQLiteCommand command1 = new SQLiteCommand(conn);
+                    command1.CommandText = @"
                                 UPDATE Filmy
                                 SET
                                 tytul_pol = @tytul_pol,
                                 tytul_org = @tytul_org,
                                 rok_produkcji = @rok_produkcji, 
-                                klas_wiekowa = @klas_wiekowa, 
-                                dlugosc = @dlugosc, 
+                                gatunek = @gatunek,
+                                gatunek2 = @gatunek2, 
+                                dystrybutor = @dystrybutor, 
                                 kraj = @kraj, 
-                                cena = @cena, 
-                                nosnik = @nosnik, 
-                                lektor = @lektor, 
+                                dlugosc = @dlugosc, 
+                                nosnik = @nosnik,
+                                id_taryfy = @id_taryfy,
+                                lektor = @lektor,                                 
                                 napisy = @napisy,
                                 uwagi = @uwagi
                                 WHERE id = @id
                                 ";
-                command1.Parameters.Add(new SQLiteParameter("@id", id));
-                command1.Parameters.Add(new SQLiteParameter("@tytul_pol", txt_tytul_pol.Text));
-                command1.Parameters.Add(new SQLiteParameter("@tytul_org", txt_tytul_org.Text));
-                command1.Parameters.Add(new SQLiteParameter("@rok_produkcji", txt_rok_produkcji.Text));
-                command1.Parameters.Add(new SQLiteParameter("@klas_wiekowa", txt_klas_wiekowa.Text));
-                command1.Parameters.Add(new SQLiteParameter("@dlugosc", txt_dlugosc.Text));
-                command1.Parameters.Add(new SQLiteParameter("@kraj", txt_kraj.Text));
-                command1.Parameters.Add(new SQLiteParameter("@cena", txt_cena.Text));
-                command1.Parameters.Add(new SQLiteParameter("@nosnik", cmb_nosnik.Text));
-                if (cb_lektor.Checked) command1.Parameters.Add(new SQLiteParameter("@lektor", 1));
-                else command1.Parameters.Add(new SQLiteParameter("@lektor", 0));
-                if (cb_napisy.Checked) command1.Parameters.Add(new SQLiteParameter("@napisy", 1));
-                else command1.Parameters.Add(new SQLiteParameter("@napisy", 0));
-                command1.Parameters.Add(new SQLiteParameter("@uwagi", txt_uwagi.Text.Replace(System.Environment.NewLine, "<n>")));
-                command1.ExecuteNonQuery();
+                    command1.Parameters.Add(new SQLiteParameter("@id", id));
+                    command1.Parameters.Add(new SQLiteParameter("@tytul_pol", txt_tytul_pol.Text));
+                    command1.Parameters.Add(new SQLiteParameter("@tytul_org", txt_tytul_org.Text));
+                    command1.Parameters.Add(new SQLiteParameter("@rok_produkcji", txt_rok_produkcji.Text));
+                    command1.Parameters.Add(new SQLiteParameter("@gatunek", txt_gatunek.Text));
+                    command1.Parameters.Add(new SQLiteParameter("@gatunek2", txt_gatunek2.Text));
+                    command1.Parameters.Add(new SQLiteParameter("@dystrybutor", txt_dystrybutor.Text));
+                    command1.Parameters.Add(new SQLiteParameter("@kraj", txt_kraj.Text));
+                    command1.Parameters.Add(new SQLiteParameter("@dlugosc", txt_dlugosc.Text));
+                    command1.Parameters.Add(new SQLiteParameter("@nosnik", cmb_nosnik.Text));
+                    command1.Parameters.Add(new SQLiteParameter("@id_taryfy", words1[words1.Length - 1].Trim(new Char[] { '[', ']' })));
+                    if (cb_lektor.Checked) command1.Parameters.Add(new SQLiteParameter("@lektor", 1));
+                    else command1.Parameters.Add(new SQLiteParameter("@lektor", 0));
+                    if (cb_napisy.Checked) command1.Parameters.Add(new SQLiteParameter("@napisy", 1));
+                    else command1.Parameters.Add(new SQLiteParameter("@napisy", 0));
+                    command1.Parameters.Add(new SQLiteParameter("@uwagi", txt_uwagi.Text.Replace(System.Environment.NewLine, "<n>")));
+                    command1.ExecuteNonQuery();
 
-                SQLiteCommand command2 = new SQLiteCommand(conn);
-                command2.CommandText = "DELETE FROM TagiFilmy WHERE id_filmu = @id";
-                command2.Parameters.Add(new SQLiteParameter("@id", id));
-                command2.ExecuteNonQuery();
+                    SQLiteCommand command2 = new SQLiteCommand(conn);
+                    command2.CommandText = "DELETE FROM TagiFilmy WHERE id_filmu = @id";
+                    command2.Parameters.Add(new SQLiteParameter("@id", id));
+                    command2.ExecuteNonQuery();
 
-                foreach (string o in lb_tagi.Items)
-                {
-                    string[] words = o.Split(' ');
-                    SQLiteCommand command3 = new SQLiteCommand(conn);
-                    command3.CommandText = @"
+                    foreach (string o in lb_tagi.Items)
+                    {
+                        string[] words3 = o.Split(' ');
+                        SQLiteCommand command3 = new SQLiteCommand(conn);
+                        command3.CommandText = @"
                                 INSERT INTO TagiFilmy (id_filmu, id_taga)
                                 VALUES (@id_filmu, @id_taga)
                                 ";
-                    command3.Parameters.Add(new SQLiteParameter("@id_filmu", id));
-                    command3.Parameters.Add(new SQLiteParameter("@id_taga", words[words.Length - 1].Trim(new Char[] { '[', ']' })));
-                    command3.ExecuteNonQuery();
-                }
+                        command3.Parameters.Add(new SQLiteParameter("@id_filmu", id));
+                        command3.Parameters.Add(new SQLiteParameter("@id_taga", words3[words3.Length - 1].Trim(new Char[] { '[', ']' })));
+                        command3.ExecuteNonQuery();
+                    }
 
-                conn.Close();
-                this.Close();
+                    conn.Close();
+                    this.Close();
+                }
             }
         }
 
         private void btn_anuluj_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void txt_klas_wiekowa_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txt_dlugosc_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txt_cena_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar) && e.KeyChar != '.')
-            {
-                e.Handled = true;
-            }
         }
 
         private void btn_zarzadzanie_tagami_Click(object sender, EventArgs e)
@@ -189,6 +200,14 @@ namespace Wypozyczalnia.Formsy
                 string id_taga = words[words.Length - 1].Trim(new Char[] { '[', ']' });
                 FrmFormularzTaga frmFormularzTaga = new FrmFormularzTaga(Int32.Parse(id_taga));
                 frmFormularzTaga.ShowDialog();
+            }
+        }
+
+        private void txt_dlugosc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

@@ -109,7 +109,7 @@ namespace Wypozyczalnia.Formsy
             {
                 id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
                 if (dataGridView1.RowCount != 0) index = dataGridView1.SelectedRows[0].Index;
-                DialogResult result = MessageBox.Show("Czy na pewno chcesz usunąć klienta numer " + id + "?\nUsuniętę zostaną również niesfinalizowane wypożyczenia klienta.\n\nOperacji nie można cofnąć.", "Ważne", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Czy na pewno chcesz usunąć klienta numer " + id + "?\nUsuniętę zostaną również wypożyczenia klienta.\n\nOperacji nie można cofnąć.", "Ważne", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                     using (SQLiteConnection conn = new SQLiteConnection(connString))
                     {
@@ -119,7 +119,7 @@ namespace Wypozyczalnia.Formsy
                         command1.Parameters.Add(new SQLiteParameter("@id", id));
                         command1.ExecuteNonQuery();                
                         SQLiteCommand command2 = new SQLiteCommand(conn);
-                        command2.CommandText = "DELETE FROM Wypozyczenia WHERE id_klienta = @id AND data_zwrotu IS NULL";
+                        command2.CommandText = "DELETE FROM Wypozyczenia WHERE id_klienta = @id";
                         command2.Parameters.Add(new SQLiteParameter("@id", id));
                         command2.ExecuteNonQuery();
                         conn.Close();

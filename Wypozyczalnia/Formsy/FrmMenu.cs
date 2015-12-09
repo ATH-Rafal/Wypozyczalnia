@@ -33,5 +33,11 @@ namespace Wypozyczalnia.Formsy
             FrmHistoriaWypozyczen frmHistoriaWypozyczen = new FrmHistoriaWypozyczen();
             frmHistoriaWypozyczen.ShowDialog();
         }
+
+        private void Lista_Taryf_Click(object sender, EventArgs e)
+        {
+            FrmListaTaryf frmListaTaryf = new FrmListaTaryf();
+            frmListaTaryf.ShowDialog();
+        }
     }
 }

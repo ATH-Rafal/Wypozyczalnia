@@ -13,6 +13,7 @@ namespace Wypozyczalnia.Formsy
 {
     public partial class FrmWypozyczenieFilmu : Form
     {
+        int? id_taryfy = null;
         string parent_form;
         string connString = "Data Source = baza.db; Version = 3";
 
@@ -37,6 +38,57 @@ namespace Wypozyczalnia.Formsy
             set
             {
                 txt_id_filmu.Text = value;
+            }
+        }
+
+        private void odswiezCene()
+        {
+            if (id_taryfy == null)
+            {
+                label_cena.Text = "Cena: ...";
+            }
+            else
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(connString))
+                {                   
+                    float cena_za_dzien;
+                    float cena_promocji;
+                    int? promocja_dni = null;
+
+                    conn.Open();
+                    
+                    SQLiteCommand command1 = new SQLiteCommand(conn);
+                    command1.CommandText = "SELECT cena_za_dzien FROM Taryfy WHERE id=@id";
+                    command1.Parameters.Add(new SQLiteParameter("@id", id_taryfy));
+                    cena_za_dzien = float.Parse(command1.ExecuteScalar().ToString());
+
+                    for (int i = Int32.Parse(txt_dni.Text); i > 1; i--)
+                    {
+                        SQLiteCommand command2 = new SQLiteCommand(conn);
+                        command2.CommandText = "SELECT Count(*) FROM TaryfyZasady WHERE id=@id AND dni=@dni";
+                        command2.Parameters.Add(new SQLiteParameter("@id", id_taryfy));
+                        command2.Parameters.Add(new SQLiteParameter("@dni", i));
+                        if (command2.ExecuteScalar().ToString() != "0")
+                        {
+                            promocja_dni = i;
+                            break;
+                        }
+                    }
+
+                    if (promocja_dni != null)
+                    {
+                        SQLiteCommand command3 = new SQLiteCommand(conn);
+                        command3.CommandText = "SELECT cena FROM TaryfyZasady WHERE id=@id AND dni=@dni";
+                        command3.Parameters.Add(new SQLiteParameter("@id", id_taryfy));
+                        command3.Parameters.Add(new SQLiteParameter("@dni", promocja_dni));
+                        cena_promocji = float.Parse(command3.ExecuteScalar().ToString());
+
+                        label_cena.Text = "CENA: " + (cena_promocji + (Int32.Parse(txt_dni.Text) - promocja_dni) * cena_za_dzien) + "zł";
+                    }
+                    else label_cena.Text = "CENA: " + Int32.Parse(txt_dni.Text) * cena_za_dzien + "zł";
+
+                    conn.Close();
+                }
             }
         }
 
@@ -118,15 +170,17 @@ namespace Wypozyczalnia.Formsy
 
                         if (czy_kontynuowac == true)
                         {
+                            string[] words4 = label_cena.Text.Split(' ');
                             SQLiteCommand command4 = new SQLiteCommand(conn);
                             command4.CommandText = @"
-                                        INSERT INTO Wypozyczenia (id_klienta, id_filmu, dni, data_wypozyczenia)
-                                        VALUES (@id_klienta, @id_filmu, @dni, date('now'))
+                                        INSERT INTO Wypozyczenia (id_klienta, id_filmu, dni, cena, data_wypozyczenia)
+                                        VALUES (@id_klienta, @id_filmu, @dni, @cena, date('now'))
                                         ";
 
                             command4.Parameters.Add(new SQLiteParameter("@id_klienta", txt_id_klienta.Text));
                             command4.Parameters.Add(new SQLiteParameter("@id_filmu", txt_id_filmu.Text));
                             command4.Parameters.Add(new SQLiteParameter("@dni", txt_dni.Text));
+                            command4.Parameters.Add(new SQLiteParameter("@cena", words4[words4.Length - 1].Trim(new Char[] { 'z', 'ł' }).Replace(',', '.')));
 
                             command4.ExecuteNonQuery();
 
@@ -164,18 +218,15 @@ namespace Wypozyczalnia.Formsy
                 SQLiteCommand command = new SQLiteCommand(conn);
                 command.CommandText = "SELECT Nazwisko, Imie, id, Count(*) FROM Klienci WHERE id=@id";
                 command.Parameters.Add(new SQLiteParameter("@id", txt_id_klienta.Text));
-                using (command)
+                using (SQLiteDataReader rdr = command.ExecuteReader())
                 {
-                    using (SQLiteDataReader rdr = command.ExecuteReader())
+                    while (rdr.Read())
                     {
-                        while (rdr.Read())
-                        {
-                            if (rdr.GetInt32(3) == 0) txt_klient.Text = "";
-                            else txt_klient.Text = rdr.GetValue(0).ToString() + " " + rdr.GetValue(1).ToString() + " [" + rdr.GetValue(2).ToString() + "]";
-
-                        }
+                        if (rdr.GetInt32(3) == 0) txt_klient.Text = "";
+                        else txt_klient.Text = rdr.GetValue(0).ToString() + " " + rdr.GetValue(1).ToString() + " [" + rdr.GetValue(2).ToString() + "]";
                     }
                 }
+                conn.Close();
             }
         }
 
@@ -184,20 +235,24 @@ namespace Wypozyczalnia.Formsy
             using (SQLiteConnection conn = new SQLiteConnection(connString))
             {
                 conn.Open();
-                SQLiteCommand command = new SQLiteCommand(conn);
-                command.CommandText = "SELECT tytul_pol, id, Count(*) FROM Filmy WHERE id=@id";
-                command.Parameters.Add(new SQLiteParameter("@id", txt_id_filmu.Text));
-                using (command)
+                
+                SQLiteCommand command1 = new SQLiteCommand(conn);
+                command1.CommandText = "SELECT tytul_pol, id, Count(*), id_taryfy FROM Filmy WHERE id=@id";
+                command1.Parameters.Add(new SQLiteParameter("@id", txt_id_filmu.Text));
+                using (SQLiteDataReader rdr = command1.ExecuteReader())
                 {
-                    using (SQLiteDataReader rdr = command.ExecuteReader())
+                    while (rdr.Read())
                     {
-                        while (rdr.Read())
+                        if (rdr.GetInt32(2) == 0) { txt_film.Text = ""; id_taryfy = null; }
+                        else
                         {
-                            if (rdr.GetInt32(2) == 0) txt_film.Text = "";
-                            else txt_film.Text = rdr.GetValue(0).ToString() + " [" + rdr.GetValue(1).ToString() + "]";
+                            txt_film.Text = rdr.GetValue(0).ToString() + " [" + rdr.GetValue(1).ToString() + "]";
+                            id_taryfy = rdr.GetInt32(3);
                         }
                     }
                 }
+                conn.Close();
+                odswiezCene();
             }
         }
 
@@ -209,9 +264,10 @@ namespace Wypozyczalnia.Formsy
             }
         }
 
-        private void txt_dni_ValueChanged(object sender, EventArgs e)
+        private void txt_dni_TextChanged(object sender, EventArgs e)
         {
             if (txt_dni.Value == 0) txt_dni.Value = 1;
+            odswiezCene();
         }
     }
 }

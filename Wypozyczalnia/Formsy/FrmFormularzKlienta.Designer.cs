@@ -307,7 +307,7 @@
             // 
             // btn_zwroc
             // 
-            this.btn_zwroc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btn_zwroc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
             this.btn_zwroc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btn_zwroc.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btn_zwroc.Location = new System.Drawing.Point(571, 186);

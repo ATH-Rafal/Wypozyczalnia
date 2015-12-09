@@ -49,10 +49,10 @@
             // 
             // btn_edytuj_klienta
             // 
-            this.btn_edytuj_klienta.Location = new System.Drawing.Point(482, 369);
+            this.btn_edytuj_klienta.Location = new System.Drawing.Point(340, 369);
             this.btn_edytuj_klienta.Name = "btn_edytuj_klienta";
             this.btn_edytuj_klienta.Size = new System.Drawing.Size(136, 49);
-            this.btn_edytuj_klienta.TabIndex = 4;
+            this.btn_edytuj_klienta.TabIndex = 3;
             this.btn_edytuj_klienta.Text = "EDYTUJ KLIENTA";
             this.btn_edytuj_klienta.UseVisualStyleBackColor = true;
             this.btn_edytuj_klienta.Click += new System.EventHandler(this.btn_edytuj_klienta_Click);
@@ -94,10 +94,10 @@
             // 
             // btn_usun_klienta
             // 
-            this.btn_usun_klienta.Location = new System.Drawing.Point(340, 369);
+            this.btn_usun_klienta.Location = new System.Drawing.Point(482, 369);
             this.btn_usun_klienta.Name = "btn_usun_klienta";
             this.btn_usun_klienta.Size = new System.Drawing.Size(136, 49);
-            this.btn_usun_klienta.TabIndex = 3;
+            this.btn_usun_klienta.TabIndex = 4;
             this.btn_usun_klienta.Text = "USUŃ KLIENTA";
             this.btn_usun_klienta.UseVisualStyleBackColor = true;
             this.btn_usun_klienta.Click += new System.EventHandler(this.btn_usun_klienta_Click);
