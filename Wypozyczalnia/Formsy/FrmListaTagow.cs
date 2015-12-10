@@ -73,6 +73,7 @@ namespace Wypozyczalnia.Formsy
 
             dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.RowCount - 1].Cells[0];
             txt_nowy.Text = "";
+            txt_nowy.Focus();
         }
 
         private void btn_edytuj_tag_Click(object sender, EventArgs e)

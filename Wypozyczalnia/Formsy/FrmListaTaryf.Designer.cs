@@ -43,7 +43,7 @@
             this.btn_pokaz_taryfe.Name = "btn_pokaz_taryfe";
             this.btn_pokaz_taryfe.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_pokaz_taryfe.Size = new System.Drawing.Size(108, 70);
-            this.btn_pokaz_taryfe.TabIndex = 16;
+            this.btn_pokaz_taryfe.TabIndex = 1;
             this.btn_pokaz_taryfe.Text = "POKAŻ TARYFĘ";
             this.btn_pokaz_taryfe.UseVisualStyleBackColor = true;
             this.btn_pokaz_taryfe.Click += new System.EventHandler(this.btn_pokaz_taryfe_Click);
@@ -60,7 +60,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(381, 375);
-            this.dataGridView1.TabIndex = 17;
+            this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // btn_dodaj
@@ -69,7 +69,7 @@
             this.btn_dodaj.Name = "btn_dodaj";
             this.btn_dodaj.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_dodaj.Size = new System.Drawing.Size(108, 50);
-            this.btn_dodaj.TabIndex = 18;
+            this.btn_dodaj.TabIndex = 2;
             this.btn_dodaj.Text = "DODAJ TARYFĘ";
             this.btn_dodaj.UseVisualStyleBackColor = true;
             this.btn_dodaj.Click += new System.EventHandler(this.btn_dodaj_Click);
@@ -80,7 +80,7 @@
             this.btn_edytuj.Name = "btn_edytuj";
             this.btn_edytuj.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_edytuj.Size = new System.Drawing.Size(108, 50);
-            this.btn_edytuj.TabIndex = 19;
+            this.btn_edytuj.TabIndex = 3;
             this.btn_edytuj.Text = "EDYTUJ TARYFĘ";
             this.btn_edytuj.UseVisualStyleBackColor = true;
             this.btn_edytuj.Click += new System.EventHandler(this.btn_edytuj_Click);
@@ -91,7 +91,7 @@
             this.btn_usun.Name = "btn_usun";
             this.btn_usun.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_usun.Size = new System.Drawing.Size(108, 50);
-            this.btn_usun.TabIndex = 20;
+            this.btn_usun.TabIndex = 4;
             this.btn_usun.Text = "USUŃ TARYFĘ";
             this.btn_usun.UseVisualStyleBackColor = true;
             this.btn_usun.Click += new System.EventHandler(this.btn_usun_Click);
@@ -102,7 +102,7 @@
             this.btn_zamknij.Name = "btn_zamknij";
             this.btn_zamknij.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_zamknij.Size = new System.Drawing.Size(108, 50);
-            this.btn_zamknij.TabIndex = 21;
+            this.btn_zamknij.TabIndex = 5;
             this.btn_zamknij.Text = "ZAMKNIJ";
             this.btn_zamknij.UseVisualStyleBackColor = true;
             this.btn_zamknij.Click += new System.EventHandler(this.btn_zamknij_Click);

@@ -88,7 +88,7 @@ namespace Wypozyczalnia.Formsy
                     command1.Parameters.Add(new SQLiteParameter("@id", id));                    
                     if (command1.ExecuteScalar().ToString() != "0")
                     {
-                        MessageBox.Show("Dana taryfa jest przypisana do przynajmniej jednego filmu", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Dana taryfa jest przypisana do przynajmniej jednego filmu!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         conn.Close();
                         return;
                     }

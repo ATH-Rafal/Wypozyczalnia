@@ -54,7 +54,7 @@
             this.btn_anuluj.Location = new System.Drawing.Point(384, 366);
             this.btn_anuluj.Name = "btn_anuluj";
             this.btn_anuluj.Size = new System.Drawing.Size(88, 47);
-            this.btn_anuluj.TabIndex = 99;
+            this.btn_anuluj.TabIndex = 9;
             this.btn_anuluj.Text = "ANULUJ";
             this.btn_anuluj.UseVisualStyleBackColor = true;
             this.btn_anuluj.Click += new System.EventHandler(this.btn_anuluj_Click);
@@ -66,7 +66,7 @@
             this.lb_zasady.Name = "lb_zasady";
             this.lb_zasady.Size = new System.Drawing.Size(313, 173);
             this.lb_zasady.Sorted = true;
-            this.lb_zasady.TabIndex = 90;
+            this.lb_zasady.TabIndex = 3;
             this.lb_zasady.SelectedIndexChanged += new System.EventHandler(this.lb_zasady_SelectedIndexChanged);
             // 
             // txt_nazwa
@@ -74,7 +74,7 @@
             this.txt_nazwa.Location = new System.Drawing.Point(159, 43);
             this.txt_nazwa.Name = "txt_nazwa";
             this.txt_nazwa.Size = new System.Drawing.Size(313, 20);
-            this.txt_nazwa.TabIndex = 88;
+            this.txt_nazwa.TabIndex = 1;
             this.txt_nazwa.TextChanged += new System.EventHandler(this.txt_nazwa_TextChanged);
             // 
             // label4
@@ -116,7 +116,7 @@
             this.txt_id.Name = "txt_id";
             this.txt_id.ReadOnly = true;
             this.txt_id.Size = new System.Drawing.Size(313, 20);
-            this.txt_id.TabIndex = 87;
+            this.txt_id.TabIndex = 0;
             // 
             // label1
             // 
@@ -134,7 +134,7 @@
             this.txt_cena_za_dzien.Location = new System.Drawing.Point(159, 73);
             this.txt_cena_za_dzien.Name = "txt_cena_za_dzien";
             this.txt_cena_za_dzien.Size = new System.Drawing.Size(313, 20);
-            this.txt_cena_za_dzien.TabIndex = 89;
+            this.txt_cena_za_dzien.TabIndex = 2;
             this.txt_cena_za_dzien.TextChanged += new System.EventHandler(this.txt_cena_za_dzien_TextChanged);
             this.txt_cena_za_dzien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cena_za_dzien_KeyPress);
             // 
@@ -155,7 +155,7 @@
             this.btn_zatwierdz.Location = new System.Drawing.Point(290, 366);
             this.btn_zatwierdz.Name = "btn_zatwierdz";
             this.btn_zatwierdz.Size = new System.Drawing.Size(88, 47);
-            this.btn_zatwierdz.TabIndex = 100;
+            this.btn_zatwierdz.TabIndex = 8;
             this.btn_zatwierdz.Text = "ZATWIERDŹ ZMIANY";
             this.btn_zatwierdz.UseVisualStyleBackColor = true;
             this.btn_zatwierdz.Click += new System.EventHandler(this.btn_zatwierdz_Click);
@@ -166,7 +166,7 @@
             this.btn_usun.Location = new System.Drawing.Point(373, 334);
             this.btn_usun.Name = "btn_usun";
             this.btn_usun.Size = new System.Drawing.Size(99, 23);
-            this.btn_usun.TabIndex = 104;
+            this.btn_usun.TabIndex = 7;
             this.btn_usun.Text = "USUŃ ZASADĘ";
             this.btn_usun.UseVisualStyleBackColor = true;
             this.btn_usun.Click += new System.EventHandler(this.btn_usun_Click);
@@ -186,7 +186,7 @@
             this.btn_dodaj.Location = new System.Drawing.Point(373, 279);
             this.btn_dodaj.Name = "btn_dodaj";
             this.btn_dodaj.Size = new System.Drawing.Size(99, 49);
-            this.btn_dodaj.TabIndex = 103;
+            this.btn_dodaj.TabIndex = 6;
             this.btn_dodaj.Text = "DODAJ ZASADĘ";
             this.btn_dodaj.UseVisualStyleBackColor = true;
             this.btn_dodaj.Click += new System.EventHandler(this.btn_dodaj_Click);
@@ -196,7 +196,7 @@
             this.txt_cena.Location = new System.Drawing.Point(212, 308);
             this.txt_cena.Name = "txt_cena";
             this.txt_cena.Size = new System.Drawing.Size(155, 20);
-            this.txt_cena.TabIndex = 102;
+            this.txt_cena.TabIndex = 5;
             this.txt_cena.TextChanged += new System.EventHandler(this.txt_cena_TextChanged);
             this.txt_cena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cena_KeyPress);
             // 
@@ -205,7 +205,7 @@
             this.txt_dni.Location = new System.Drawing.Point(212, 282);
             this.txt_dni.Name = "txt_dni";
             this.txt_dni.Size = new System.Drawing.Size(155, 20);
-            this.txt_dni.TabIndex = 101;
+            this.txt_dni.TabIndex = 4;
             this.txt_dni.Value = new decimal(new int[] {
             1,
             0,

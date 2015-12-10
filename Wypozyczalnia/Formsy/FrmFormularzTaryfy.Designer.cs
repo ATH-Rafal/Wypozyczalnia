@@ -103,7 +103,7 @@
             this.txt_id.Name = "txt_id";
             this.txt_id.ReadOnly = true;
             this.txt_id.Size = new System.Drawing.Size(313, 20);
-            this.txt_id.TabIndex = 72;
+            this.txt_id.TabIndex = 0;
             // 
             // txt_nazwa
             // 
@@ -111,7 +111,7 @@
             this.txt_nazwa.Name = "txt_nazwa";
             this.txt_nazwa.ReadOnly = true;
             this.txt_nazwa.Size = new System.Drawing.Size(313, 20);
-            this.txt_nazwa.TabIndex = 74;
+            this.txt_nazwa.TabIndex = 1;
             // 
             // txt_cena_za_dzien
             // 
@@ -119,7 +119,7 @@
             this.txt_cena_za_dzien.Name = "txt_cena_za_dzien";
             this.txt_cena_za_dzien.ReadOnly = true;
             this.txt_cena_za_dzien.Size = new System.Drawing.Size(313, 20);
-            this.txt_cena_za_dzien.TabIndex = 75;
+            this.txt_cena_za_dzien.TabIndex = 2;
             // 
             // lb_zasady
             // 
@@ -127,14 +127,14 @@
             this.lb_zasady.Location = new System.Drawing.Point(159, 103);
             this.lb_zasady.Name = "lb_zasady";
             this.lb_zasady.Size = new System.Drawing.Size(313, 173);
-            this.lb_zasady.TabIndex = 76;
+            this.lb_zasady.TabIndex = 3;
             // 
             // btn_zamknij
             // 
             this.btn_zamknij.Location = new System.Drawing.Point(384, 285);
             this.btn_zamknij.Name = "btn_zamknij";
             this.btn_zamknij.Size = new System.Drawing.Size(88, 47);
-            this.btn_zamknij.TabIndex = 85;
+            this.btn_zamknij.TabIndex = 4;
             this.btn_zamknij.Text = "ZAMKNIJ";
             this.btn_zamknij.UseVisualStyleBackColor = true;
             this.btn_zamknij.Click += new System.EventHandler(this.btn_zamknij_Click);

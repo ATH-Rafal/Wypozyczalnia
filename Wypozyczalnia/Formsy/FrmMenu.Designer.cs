@@ -52,7 +52,7 @@
             this.Lista_Filmow.Location = new System.Drawing.Point(279, 0);
             this.Lista_Filmow.Name = "Lista_Filmow";
             this.Lista_Filmow.Size = new System.Drawing.Size(144, 39);
-            this.Lista_Filmow.TabIndex = 1;
+            this.Lista_Filmow.TabIndex = 2;
             this.Lista_Filmow.Text = "FILMY";
             this.Lista_Filmow.UseVisualStyleBackColor = false;
             this.Lista_Filmow.Click += new System.EventHandler(this.Lista_Filmow_Click);
@@ -63,7 +63,7 @@
             this.Lista_Tagow.Location = new System.Drawing.Point(140, 0);
             this.Lista_Tagow.Name = "Lista_Tagow";
             this.Lista_Tagow.Size = new System.Drawing.Size(144, 39);
-            this.Lista_Tagow.TabIndex = 2;
+            this.Lista_Tagow.TabIndex = 1;
             this.Lista_Tagow.Text = "TAGI";
             this.Lista_Tagow.UseVisualStyleBackColor = false;
             this.Lista_Tagow.Click += new System.EventHandler(this.Lista_Tagow_Click);
@@ -74,7 +74,7 @@
             this.Lista_Wypozyczen.Location = new System.Drawing.Point(140, 281);
             this.Lista_Wypozyczen.Name = "Lista_Wypozyczen";
             this.Lista_Wypozyczen.Size = new System.Drawing.Size(144, 39);
-            this.Lista_Wypozyczen.TabIndex = 5;
+            this.Lista_Wypozyczen.TabIndex = 4;
             this.Lista_Wypozyczen.Text = "HISTORIA WYPOŻYCZEŃ";
             this.Lista_Wypozyczen.UseVisualStyleBackColor = false;
             this.Lista_Wypozyczen.Click += new System.EventHandler(this.Lista_Wypozyczen_Click);
@@ -85,7 +85,7 @@
             this.Lista_Taryf.Location = new System.Drawing.Point(-1, 281);
             this.Lista_Taryf.Name = "Lista_Taryf";
             this.Lista_Taryf.Size = new System.Drawing.Size(144, 39);
-            this.Lista_Taryf.TabIndex = 6;
+            this.Lista_Taryf.TabIndex = 3;
             this.Lista_Taryf.Text = "TARYFY";
             this.Lista_Taryf.UseVisualStyleBackColor = false;
             this.Lista_Taryf.Click += new System.EventHandler(this.Lista_Taryf_Click);
