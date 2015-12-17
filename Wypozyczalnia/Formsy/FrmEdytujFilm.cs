@@ -105,7 +105,7 @@ namespace Wypozyczalnia.Formsy
 
         private void btn_zatwierz_Click(object sender, EventArgs e)
         {
-            if (txt_rok_produkcji.Text.Length != 4 || string.IsNullOrWhiteSpace(txt_tytul_pol.Text) || string.IsNullOrWhiteSpace(txt_gatunek.Text) || string.IsNullOrWhiteSpace(cmb_taryfa.Text))
+            if (txt_rok_produkcji.Text.Length != 4 || txt_rok_produkcji.Text.Contains(" ") || string.IsNullOrWhiteSpace(txt_tytul_pol.Text) || string.IsNullOrWhiteSpace(txt_gatunek.Text) || string.IsNullOrWhiteSpace(cmb_taryfa.Text))
             {
                 MessageBox.Show("Uzupełnij wymagane pola", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }

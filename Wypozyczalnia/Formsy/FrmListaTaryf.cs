@@ -39,10 +39,26 @@ namespace Wypozyczalnia.Formsy
             }
         }
 
+        private void filtruj()
+        {
+            switch (cmb_kolumna.Text)
+            {
+                case "ID": table.DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%'", "Convert([id], System.String)", txt_filtr.Text); break;
+                case "Nazwa": table.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "nazwa", txt_filtr.Text); break;
+                case "Cena za dzień":
+                    if (!string.IsNullOrWhiteSpace(txt_filtr.Text))
+                        table.DefaultView.RowFilter = "cena_za_dzien " + cmb_porownanie.Text + " " + txt_filtr.Text;
+                    else table.DefaultView.RowFilter = null;
+                    break;
+            }
+        }
+
         public FrmListaTaryf()
         {
-            InitializeComponent();
+            InitializeComponent();           
             odswiez();
+            cmb_kolumna.SelectedIndex = 0;
+            cmb_porownanie.SelectedIndex = 0;
         }
 
         private void btn_dodaj_Click(object sender, EventArgs e)
@@ -134,6 +150,41 @@ namespace Wypozyczalnia.Formsy
         private void btn_pokaz_taryfe_Click(object sender, EventArgs e)
         {
             przejdzDoTaryfy();
+        }
+
+        private void txt_filtr_TextChanged(object sender, EventArgs e)
+        {
+            filtruj();
+        }
+
+        private void cmb_kolumna_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txt_filtr.Text = "";
+            if (cmb_kolumna.Text == "Cena za dzień") cmb_porownanie.Enabled = true;
+            else cmb_porownanie.Enabled = false;
+        }
+
+        private void cmb_porownanie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            filtruj();
+        }
+
+        private void txt_filtr_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (cmb_kolumna.Text == "ID")
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            }
+            if (cmb_kolumna.Text == "Cena za dzień")
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar) && e.KeyChar != '.')
+                {
+                    e.Handled = true;
+                }
+            }
         }
     }
 }

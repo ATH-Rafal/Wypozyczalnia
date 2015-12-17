@@ -51,6 +51,7 @@ namespace Wypozyczalnia.Formsy
             InitializeComponent();           
             btn_dodaj_tag.Text = "SZCZEGÓŁY TAGA";
             odswiez();
+            cmb_kolumna.SelectedIndex = 0;
         }
 
         private void btn_nowy_tag_Click(object sender, EventArgs e)
@@ -212,6 +213,31 @@ namespace Wypozyczalnia.Formsy
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             przejdzDoTaga();
+        }
+
+        private void txt_filtr_TextChanged(object sender, EventArgs e)
+        {
+            switch (cmb_kolumna.Text)
+            {
+                case "ID": table.DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%'", "Convert([id], System.String)", txt_filtr.Text); break;
+                case "Nazwa": table.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "nazwa", txt_filtr.Text); break;                
+            }
+        }
+
+        private void cmb_kolumna_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txt_filtr.Text = "";
+        }
+
+        private void txt_filtr_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (cmb_kolumna.Text == "ID")
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            }
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Wypozyczalnia.Formsy
 {
     public partial class FrmListaKlientow : Form
     {
-        string connString = "Data Source = baza.db; Version = 3";       
+        string connString = "Data Source = baza.db; Version = 3";
         DataTable table = new DataTable(); // Bardzo pomocny obiekt do pracy na wynikach zapytania
         int id;
         int index;
@@ -33,7 +33,7 @@ namespace Wypozyczalnia.Formsy
             {
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter("SELECT * FROM Klienci;", conn);
                 adapter.Fill(table); // wypełniamy DataTabla danymi z wyniku zapytania
-            }            
+            }
             dataGridView1.DataSource = table; // Przypisujemy dane z DataTabla do naszego GridView            
         }
 
@@ -61,13 +61,14 @@ namespace Wypozyczalnia.Formsy
 
         public FrmListaKlientow(string _parent_form)
         {
-            parent_form = _parent_form;                                 
-            InitializeComponent();
+            parent_form = _parent_form;
+            InitializeComponent();            
             if (parent_form == "FrmWypozyczenieFilmu")
             {
                 btn_pokaz_profil.Text = "WYBIERZ";
-            }           
+            }
             odswiez();
+            cmb_kolumna.SelectedIndex = 0;
         }
 
         private void btn_pokaz_profil_Click(object sender, EventArgs e)
@@ -117,7 +118,7 @@ namespace Wypozyczalnia.Formsy
                         SQLiteCommand command1 = new SQLiteCommand(conn);
                         command1.CommandText = "DELETE FROM Klienci WHERE id = @id";
                         command1.Parameters.Add(new SQLiteParameter("@id", id));
-                        command1.ExecuteNonQuery();                
+                        command1.ExecuteNonQuery();
                         SQLiteCommand command2 = new SQLiteCommand(conn);
                         command2.CommandText = "DELETE FROM Wypozyczenia WHERE id_klienta = @id";
                         command2.Parameters.Add(new SQLiteParameter("@id", id));
@@ -143,6 +144,56 @@ namespace Wypozyczalnia.Formsy
                 FrmEdytujKlienta.ShowDialog();
                 odswiez();
                 dataGridView1.CurrentCell = dataGridView1.Rows[index].Cells[0];
+            }
+        }
+
+        private void txt_filtr_TextChanged(object sender, EventArgs e)
+        {
+            switch (cmb_kolumna.Text)
+            {
+                case "ID": table.DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%'", "Convert([id], System.String)", txt_filtr.Text); break;
+                case "Imię": table.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "imie", txt_filtr.Text); break;
+                case "Nazwisko": table.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "nazwisko", txt_filtr.Text); break;
+                case "PESEL": table.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "pesel", txt_filtr.Text); break;
+                case "Nr. dowodu": table.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "nr_dowodu", txt_filtr.Text); break;
+                case "Nr. telefonu": table.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "nr_telefonu", txt_filtr.Text); break;
+                case "E-Mail": table.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "email", txt_filtr.Text); break;
+                case "Miejscowość": table.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "miejscowosc", txt_filtr.Text); break;
+                case "Kod pocztowy": table.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "kod_pocztowy", txt_filtr.Text); break;
+                case "Ulica": table.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "ulica", txt_filtr.Text); break;
+                case "Nr. domu": table.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "nr_domu", txt_filtr.Text); break;
+            }
+
+        }
+
+        private void cmb_kolumna_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txt_filtr.Text = "";
+        }
+
+        private void txt_filtr_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (cmb_kolumna.Text == "ID" || cmb_kolumna.Text == "PESEL" || cmb_kolumna.Text == "Nr. telefonu")
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            }
+            if (cmb_kolumna.Text == "Nr. dowodu")
+            {
+                e.KeyChar = Char.ToUpper(e.KeyChar);
+                if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            }
+            if (cmb_kolumna.Text == "Kod pocztowy")
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar) && e.KeyChar != '-')
+                {
+                    e.Handled = true;
+                }
             }
         }
     }
