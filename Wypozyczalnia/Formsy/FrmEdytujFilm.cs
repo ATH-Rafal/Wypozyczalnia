@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Windows.Forms;
 
@@ -8,6 +9,7 @@ namespace Wypozyczalnia.Formsy
     {
         int id;
         ListBox.ObjectCollection obiekty;
+        List<osoba> osoby = new List<osoba>();
         string connString = "Data Source = baza.db; Version = 3";
 
         public ListBox.ObjectCollection obiekty_prop
@@ -19,6 +21,18 @@ namespace Wypozyczalnia.Formsy
             set
             {
                 obiekty = value;
+            }
+        }
+
+        public List<osoba> osoby_prop
+        {
+            get
+            {
+                return osoby;
+            }
+            set
+            {
+                osoby = value;
             }
         }
 
@@ -98,6 +112,24 @@ namespace Wypozyczalnia.Formsy
                         }
                     }
                 }
+
+                SQLiteCommand command5 = new SQLiteCommand(conn);
+                command5.CommandText = @"
+                    SELECT id_osoby, id_roli
+                    FROM Obsada
+                    WHERE id_filmu = @id
+                    ";
+                command5.Parameters.Add(new SQLiteParameter("@id", id));
+                using (command5)
+                {
+                    using (SQLiteDataReader rdr = command5.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            osoby.Add(new osoba(rdr.GetInt32(0), rdr.GetInt32(1)));
+                        }
+                    }
+                }
                 conn.Close();
             }
 
@@ -170,6 +202,24 @@ namespace Wypozyczalnia.Formsy
                         command3.ExecuteNonQuery();
                     }
 
+                    SQLiteCommand command4 = new SQLiteCommand(conn);
+                    command4.CommandText = "DELETE FROM Obsada WHERE id_filmu = @id";
+                    command4.Parameters.Add(new SQLiteParameter("@id", id));
+                    command4.ExecuteNonQuery();
+
+                    foreach (osoba o in osoby)
+                    {
+                        SQLiteCommand command5 = new SQLiteCommand(conn);
+                        command5.CommandText = @"
+                                INSERT INTO Obsada (id_filmu, id_osoby, id_roli)
+                                VALUES (@id_filmu, @id_osoby, @id_roli)
+                                ";
+                        command5.Parameters.Add(new SQLiteParameter("@id_filmu", id));
+                        command5.Parameters.Add(new SQLiteParameter("@id_osoby", o._id_osoby));
+                        command5.Parameters.Add(new SQLiteParameter("@id_roli", o._id_roli));
+                        command5.ExecuteNonQuery();
+                    }
+
                     conn.Close();
                     this.Close();
                 }
@@ -209,6 +259,25 @@ namespace Wypozyczalnia.Formsy
             {
                 e.Handled = true;
             }
+        }
+
+        private void btn_obsada_Click(object sender, EventArgs e)
+        {
+            FrmZarzadzanieObsada frmZarzadzanieObsada = new FrmZarzadzanieObsada(osoby, this.Name);
+            frmZarzadzanieObsada.ShowDialog(this);
+        }
+
+        private void txt_dlugosc_TextChanged(object sender, EventArgs e)
+        {
+            string temp = null;
+            foreach (char c in txt_dlugosc.Text)
+            {
+                if (char.IsControl(c) || char.IsNumber(c))
+                {
+                    temp += c;
+                }
+            }
+            txt_dlugosc.Text = temp;
         }
     }
 }

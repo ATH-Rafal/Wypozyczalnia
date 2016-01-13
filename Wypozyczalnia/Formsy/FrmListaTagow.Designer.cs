@@ -48,7 +48,7 @@
             this.btn_dodaj_tag.Name = "btn_dodaj_tag";
             this.btn_dodaj_tag.Size = new System.Drawing.Size(180, 49);
             this.btn_dodaj_tag.TabIndex = 7;
-            this.btn_dodaj_tag.Text = "DODAJ TAG";
+            this.btn_dodaj_tag.Text = "DODAJ DO FILMU";
             this.btn_dodaj_tag.UseVisualStyleBackColor = true;
             this.btn_dodaj_tag.Click += new System.EventHandler(this.btn_dodaj_tag_Click);
             // 
@@ -76,11 +76,12 @@
             // 
             // btn_usun_tag
             // 
+            this.btn_usun_tag.Enabled = false;
             this.btn_usun_tag.Location = new System.Drawing.Point(198, 355);
             this.btn_usun_tag.Name = "btn_usun_tag";
             this.btn_usun_tag.Size = new System.Drawing.Size(136, 49);
             this.btn_usun_tag.TabIndex = 8;
-            this.btn_usun_tag.Text = "USUŃ TAG";
+            this.btn_usun_tag.Text = "USUŃ Z BAZY";
             this.btn_usun_tag.UseVisualStyleBackColor = true;
             this.btn_usun_tag.Click += new System.EventHandler(this.btn_usun_tag_Click);
             // 

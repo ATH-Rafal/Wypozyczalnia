@@ -105,6 +105,12 @@
     <Compile Include="Formsy\FrmEdytujKlienta.Designer.cs">
       <DependentUpon>FrmEdytujKlienta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formsy\FrmFormularzOsoby.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\FrmFormularzOsoby.Designer.cs">
+      <DependentUpon>FrmFormularzOsoby.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formsy\FrmFormularzTaga.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,12 @@
     </Compile>
     <Compile Include="Formsy\FrmFormularzKlienta.Designer.cs">
       <DependentUpon>FrmFormularzKlienta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formsy\FrmListaOsob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\FrmListaOsob.Designer.cs">
+      <DependentUpon>FrmListaOsob.cs</DependentUpon>
     </Compile>
     <Compile Include="Formsy\FrmListaTagow.cs">
       <SubType>Form</SubType>
@@ -183,12 +195,25 @@
     <Compile Include="Formsy\FrmWypozyczenieFilmu.Designer.cs">
       <DependentUpon>FrmWypozyczenieFilmu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formsy\FrmZarzadzanieObsada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\FrmZarzadzanieObsada.Designer.cs">
+      <DependentUpon>FrmZarzadzanieObsada.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formsy\FrmZarzadzanieTagami.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formsy\FrmZarzadzanieTagami.Designer.cs">
       <DependentUpon>FrmZarzadzanieTagami.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formsy\FrmZwrotFilmu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\FrmZwrotFilmu.Designer.cs">
+      <DependentUpon>FrmZwrotFilmu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formsy\osoba.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formsy\FrmDodajFilm.resx">
@@ -212,6 +237,9 @@
     <EmbeddedResource Include="Formsy\FrmFormularzKlienta.resx">
       <DependentUpon>FrmFormularzKlienta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\FrmFormularzOsoby.resx">
+      <DependentUpon>FrmFormularzOsoby.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formsy\FrmFormularzTaga.resx">
       <DependentUpon>FrmFormularzTaga.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formsy\FrmListaFilmow.resx">
       <DependentUpon>FrmListaFilmow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\FrmListaOsob.resx">
+      <DependentUpon>FrmListaOsob.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formsy\FrmListaTagow.resx">
       <DependentUpon>FrmListaTagow.cs</DependentUpon>
@@ -248,8 +279,14 @@
     <EmbeddedResource Include="Formsy\FrmWypozyczenieFilmu.resx">
       <DependentUpon>FrmWypozyczenieFilmu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\FrmZarzadzanieObsada.resx">
+      <DependentUpon>FrmZarzadzanieObsada.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formsy\FrmZarzadzanieTagami.resx">
       <DependentUpon>FrmZarzadzanieTagami.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\FrmZwrotFilmu.resx">
+      <DependentUpon>FrmZwrotFilmu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

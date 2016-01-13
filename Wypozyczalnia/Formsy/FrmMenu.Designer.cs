@@ -33,6 +33,7 @@
             this.Lista_Tagow = new System.Windows.Forms.Button();
             this.Lista_Wypozyczen = new System.Windows.Forms.Button();
             this.Lista_Taryf = new System.Windows.Forms.Button();
+            this.btn_osoby = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Lista_Klientów
@@ -90,12 +91,24 @@
             this.Lista_Taryf.UseVisualStyleBackColor = false;
             this.Lista_Taryf.Click += new System.EventHandler(this.Lista_Taryf_Click);
             // 
+            // btn_osoby
+            // 
+            this.btn_osoby.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
+            this.btn_osoby.Location = new System.Drawing.Point(279, 281);
+            this.btn_osoby.Name = "btn_osoby";
+            this.btn_osoby.Size = new System.Drawing.Size(144, 39);
+            this.btn_osoby.TabIndex = 5;
+            this.btn_osoby.Text = "FILMOWCY";
+            this.btn_osoby.UseVisualStyleBackColor = false;
+            this.btn_osoby.Click += new System.EventHandler(this.btn_osoby_Click);
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.ClientSize = new System.Drawing.Size(420, 319);
+            this.Controls.Add(this.btn_osoby);
             this.Controls.Add(this.Lista_Taryf);
             this.Controls.Add(this.Lista_Wypozyczen);
             this.Controls.Add(this.Lista_Tagow);
@@ -118,5 +131,6 @@
         private System.Windows.Forms.Button Lista_Tagow;
         private System.Windows.Forms.Button Lista_Wypozyczen;
         private System.Windows.Forms.Button Lista_Taryf;
+        private System.Windows.Forms.Button btn_osoby;
     }
 }

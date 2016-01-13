@@ -228,6 +228,16 @@ namespace Wypozyczalnia.Formsy
                 }
                 conn.Close();
             }
+
+            string temp = null;
+            foreach (char c in txt_id_klienta.Text)
+            {
+                if (char.IsControl(c) || char.IsNumber(c))
+                {
+                    temp += c;
+                }
+            }
+            txt_id_klienta.Text = temp;
         }
 
         private void txt_id_filmu_TextChanged(object sender, EventArgs e)
@@ -254,6 +264,16 @@ namespace Wypozyczalnia.Formsy
                 conn.Close();
                 odswiezCene();
             }
+
+            string temp = null;
+            foreach (char c in txt_id_filmu.Text)
+            {
+                if (char.IsControl(c) || char.IsNumber(c))
+                {
+                    temp += c;
+                }
+            }
+            txt_id_filmu.Text = temp;
         }
 
         private void txt_dni_KeyPress(object sender, KeyPressEventArgs e)
@@ -268,6 +288,22 @@ namespace Wypozyczalnia.Formsy
         {
             if (txt_dni.Value == 0) txt_dni.Value = 1;
             odswiezCene();
+        }
+
+        private void txt_id_klienta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_id_filmu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

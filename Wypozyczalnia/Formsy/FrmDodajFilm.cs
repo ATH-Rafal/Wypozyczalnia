@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Windows.Forms;
 
@@ -7,6 +8,7 @@ namespace Wypozyczalnia.Formsy
     public partial class FrmDodajFilm : Form
     {
         ListBox.ObjectCollection obiekty;
+        List<osoba> osoby = new List<osoba>();
         string connString = "Data Source = baza.db; Version = 3";
 
         public ListBox.ObjectCollection obiekty_prop
@@ -18,6 +20,18 @@ namespace Wypozyczalnia.Formsy
             set
             {
                 obiekty = value;
+            }
+        }
+
+        public List<osoba> osoby_prop
+        {
+            get
+            {
+                return osoby;
+            }
+            set
+            {
+                osoby = value;
             }
         }
 
@@ -92,6 +106,19 @@ namespace Wypozyczalnia.Formsy
                         command2.ExecuteNonQuery();
                     }
 
+                    foreach (osoba o in osoby)
+                    {
+                        SQLiteCommand command3 = new SQLiteCommand(conn);
+                        command3.CommandText = @"
+                                INSERT INTO Obsada (id_filmu, id_osoby, id_roli)
+                                VALUES (@id_filmu, @id_osoby, @id_roli)
+                                ";
+                        command3.Parameters.Add(new SQLiteParameter("@id_filmu", id));
+                        command3.Parameters.Add(new SQLiteParameter("@id_osoby", o._id_osoby));
+                        command3.Parameters.Add(new SQLiteParameter("@id_roli", o._id_roli));
+                        command3.ExecuteNonQuery();
+                    }
+
                     conn.Close();
                     this.Close();
 
@@ -106,7 +133,6 @@ namespace Wypozyczalnia.Formsy
         }
         
         
-
         private void btn_zarzadzanie_tagami_Click(object sender, EventArgs e)
         {
             FrmZarzadzanieTagami frmZarzadzanieTagami = new FrmZarzadzanieTagami(lb_tagi.Items, this.Name);
@@ -135,6 +161,25 @@ namespace Wypozyczalnia.Formsy
             {
                 e.Handled = true;
             }
+        }
+
+        private void btn_obsada_Click(object sender, EventArgs e)
+        {
+            FrmZarzadzanieObsada frmZarzadzanieObsada = new FrmZarzadzanieObsada(osoby, this.Name);
+            frmZarzadzanieObsada.ShowDialog(this);
+        }
+
+        private void txt_dlugosc_TextChanged(object sender, EventArgs e)
+        {
+            string temp = null;
+            foreach (char c in txt_dlugosc.Text)
+            {
+                if (char.IsControl(c) || char.IsNumber(c))
+                {
+                    temp += c;
+                }
+            }
+            txt_dlugosc.Text = temp;
         }
     }
 }

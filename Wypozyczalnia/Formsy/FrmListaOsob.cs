@@ -11,62 +11,64 @@ using System.Windows.Forms;
 
 namespace Wypozyczalnia.Formsy
 {
-    public partial class FrmListaTagow : Form
+    public partial class FrmListaOsob : Form
     {
         string connString = "Data Source = baza.db; Version = 3";
         DataTable table = new DataTable(); // Bardzo pomocny obiekt do pracy na wynikach zapytania
         int id;
         int index;
+        int rola;
         string parent_form;
-        ListBox.ObjectCollection obiekty;
+        List<osoba> osoby = new List<osoba>();
 
         private void odswiez()
         {
             table.Clear();
             using (SQLiteConnection conn = new SQLiteConnection(connString))
             {
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter("SELECT * FROM Tagi;", conn);
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter("SELECT * FROM Osoby;", conn);
                 adapter.Fill(table); // wypełniamy DataTabla danymi z wyniku zapytania
             }
             dataGridView1.DataSource = table; // Przypisujemy dane z DataTabla do naszego GridView            
         }
 
-        private void przejdzDoTaga()
+        private void przejdzDoOsoby()
         {
             id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-            FrmFormularzTaga frmFormularzTaga = new FrmFormularzTaga(id);
-            frmFormularzTaga.ShowDialog();
+            FrmFormularzOsoby frmFormularzOsoby = new FrmFormularzOsoby(id);
+            frmFormularzOsoby.ShowDialog();
         }
 
-        public FrmListaTagow(ListBox.ObjectCollection _obiekty, string _parent_form)
+        public FrmListaOsob(List<osoba> _osoby, string _parent_form, int _rola)
         {
-            obiekty = _obiekty;
+            osoby = _osoby;
             parent_form = _parent_form;
+            rola = _rola;
             InitializeComponent();
             cmb_kolumna.SelectedIndex = 0;
             odswiez();
         }
 
-        public FrmListaTagow(string _parent_form)
+        public FrmListaOsob(string _parent_form)
         {
             InitializeComponent();
-            btn_dodaj_tag.Text = "SZCZEGÓŁY OSOBY";
+            btn_dodaj_osobe.Text = "SZCZEGÓŁY TAGA";
             odswiez();
             cmb_kolumna.SelectedIndex = 0;
         }
 
-        private void btn_nowy_tag_Click(object sender, EventArgs e)
+        private void btn_nowa_osoba_Click(object sender, EventArgs e)
         {
             using (SQLiteConnection conn = new SQLiteConnection(connString))
             {
                 conn.Open();
                 SQLiteCommand command = new SQLiteCommand(conn);
                 command.CommandText = @"
-                                INSERT INTO Tagi (nazwa)
-                                VALUES (@nazwa)
+                                INSERT INTO Osoby (imie_nazwisko)
+                                VALUES (@imie_nazwisko)
                                 ";
 
-                command.Parameters.Add(new SQLiteParameter("@nazwa", txt_nowy.Text));
+                command.Parameters.Add(new SQLiteParameter("@imie_nazwisko", txt_nowy.Text));
 
                 command.ExecuteNonQuery();
                 conn.Close();
@@ -78,29 +80,51 @@ namespace Wypozyczalnia.Formsy
             txt_nowy.Focus();
         }
 
-        private void btn_edytuj_tag_Click(object sender, EventArgs e)
+        private void btn_edytuj_osobe_Click(object sender, EventArgs e)
         {
             index = dataGridView1.SelectedRows[0].Index;
 
-            if (parent_form == "FrmZarzadzanieTagami")
-                if (obiekty.Contains(dataGridView1.SelectedRows[0].Cells[1].Value.ToString() + " [" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "]"))
+            if (parent_form == "FrmZarzadzanieObsada")
+            {
+                if (osoby.Contains(new osoba(Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), 1)))
                 {
-                    obiekty.Remove(dataGridView1.SelectedRows[0].Cells[1].Value.ToString() + " [" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "]");
-                    obiekty.Add(txt_edytuj.Text + " [" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "]");
+                    osoby.Remove(new osoba(Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), 1));
+                    osoby.Add(new osoba(Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), 1));
                 }
+                if (osoby.Contains(new osoba(Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), 2)))
+                {
+                    osoby.Remove(new osoba(Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), 2));
+                    osoby.Add(new osoba(Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), 2));
+                }
+                if (osoby.Contains(new osoba(Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), 3)))
+                {
+                    osoby.Remove(new osoba(Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), 3));
+                    osoby.Add(new osoba(Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), 3));
+                }
+                if (osoby.Contains(new osoba(Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), 4)))
+                {
+                    osoby.Remove(new osoba(Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), 4));
+                    osoby.Add(new osoba(Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), 4));
+                }
+                if (osoby.Contains(new osoba(Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), 5)))
+                {
+                    osoby.Remove(new osoba(Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), 5));
+                    osoby.Add(new osoba(Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), 5));
+                }
+            }
 
             using (SQLiteConnection conn = new SQLiteConnection(connString))
             {
                 conn.Open();
                 SQLiteCommand command = new SQLiteCommand(conn);
                 command.CommandText = @"
-                                UPDATE Tagi
+                                UPDATE Osoby
                                 SET
-                                nazwa = @nazwa
+                                imie_nazwisko = @imie_nazwisko
                                 WHERE id = @id
                                 ";
 
-                command.Parameters.Add(new SQLiteParameter("@nazwa", txt_edytuj.Text));
+                command.Parameters.Add(new SQLiteParameter("@imie_nazwisko", txt_edytuj.Text));
                 command.Parameters.Add(new SQLiteParameter("@id", Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString())));
                 command.ExecuteNonQuery();
                 conn.Close();
@@ -110,26 +134,33 @@ namespace Wypozyczalnia.Formsy
             dataGridView1.CurrentCell = dataGridView1.Rows[index].Cells[0];
         }
 
-        private void btn_usun_tag_Click(object sender, EventArgs e)
+        private void btn_usun_osobe_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
                 if (dataGridView1.RowCount != 0) index = dataGridView1.SelectedRows[0].Index;
-                DialogResult result = MessageBox.Show("Czy na pewno chcesz usunąć tag numer " + id + "?\nTag zostanie również usunięty z powiązanych filmów.\n\nOperacji nie można cofnąć.", "Ważne", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Czy na pewno chcesz usunąć osobę numer " + id + " z bazy?\nOsoba zostanie również usunięta z powiązanych filmów.\n\nOperacji nie można cofnąć.", "Ważne", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
-                    if (parent_form == "FrmZarzadzanieTagami")
-                        obiekty.Remove(dataGridView1.SelectedRows[0].Cells[1].Value.ToString() + " [" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "]");
+                    if (parent_form == "FrmZarzadzanieObsada")
+                    {
+                            osoby.Remove(new osoba(Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), 1));
+                            osoby.Remove(new osoba(Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), 2));
+                            osoby.Remove(new osoba(Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), 3));
+                            osoby.Remove(new osoba(Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), 4));
+                            osoby.Remove(new osoba(Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), 5));
+                    }
+
                     using (SQLiteConnection conn = new SQLiteConnection(connString))
                     {
                         conn.Open();
                         SQLiteCommand command1 = new SQLiteCommand(conn);
-                        command1.CommandText = "DELETE FROM Tagi WHERE id = @id";
+                        command1.CommandText = "DELETE FROM Osoby WHERE id = @id";
                         command1.Parameters.Add(new SQLiteParameter("@id", id));
                         command1.ExecuteNonQuery();
                         SQLiteCommand command2 = new SQLiteCommand(conn);
-                        command2.CommandText = "DELETE FROM TagiFilmy WHERE id_taga = @id";
+                        command2.CommandText = "DELETE FROM Obsada WHERE id_osoby = @id";
                         command2.Parameters.Add(new SQLiteParameter("@id", id));
                         command2.ExecuteNonQuery();
                         conn.Close();
@@ -151,22 +182,22 @@ namespace Wypozyczalnia.Formsy
 
         private void txt_nowy_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txt_nowy.Text)) btn_nowy_tag.Enabled = false;
-            else btn_nowy_tag.Enabled = true;
+            if (string.IsNullOrWhiteSpace(txt_nowy.Text)) btn_nowa_osoba.Enabled = false;
+            else btn_nowa_osoba.Enabled = true;
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                btn_dodaj_tag.Enabled = true;
-                btn_usun_tag.Enabled = true;
+                btn_dodaj_osobe.Enabled = true;
+                btn_usun_osobe.Enabled = true;
                 id = Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
                 using (SQLiteConnection conn = new SQLiteConnection(connString))
                 {
                     conn.Open();
                     SQLiteCommand command = new SQLiteCommand(conn);
-                    command.CommandText = "SELECT * FROM Tagi WHERE id=@id";
+                    command.CommandText = "SELECT * FROM Osoby WHERE id=@id";
                     command.Parameters.Add(new SQLiteParameter("@id", id));
                     using (command)
                     {
@@ -183,9 +214,8 @@ namespace Wypozyczalnia.Formsy
             }
             else
             {
-                btn_dodaj_tag.Enabled = false;
-                btn_usun_tag.Enabled = false;
-
+                btn_dodaj_osobe.Enabled = false;
+                btn_usun_osobe.Enabled = false;
                 txt_edytuj.Text = "";
             }
         }
@@ -194,38 +224,37 @@ namespace Wypozyczalnia.Formsy
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                if (string.IsNullOrWhiteSpace(txt_edytuj.Text) || txt_edytuj.Text == dataGridView1.SelectedRows[0].Cells[1].Value.ToString()) btn_edytuj_tag.Enabled = false;
-                else btn_edytuj_tag.Enabled = true;
+                if (string.IsNullOrWhiteSpace(txt_edytuj.Text) || txt_edytuj.Text == dataGridView1.SelectedRows[0].Cells[1].Value.ToString()) btn_edytuj_osobe.Enabled = false;
+                else btn_edytuj_osobe.Enabled = true;
             }
-            else btn_edytuj_tag.Enabled = false;
+            else btn_edytuj_osobe.Enabled = false;
         }
 
-        private void btn_dodaj_tag_Click(object sender, EventArgs e)
+        private void btn_dodaj_osobe_Click(object sender, EventArgs e)
         {
-            if (parent_form == "FrmZarzadzanieTagami")
+            if (parent_form == "FrmZarzadzanieObsada")
             {
-                string nowy_obiekt = dataGridView1.SelectedRows[0].Cells[1].Value.ToString() + " [" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "]";
-                if (!obiekty.Contains(nowy_obiekt))
+                osoba nowa_osoba = new osoba(Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), rola);
+                if (!osoby.Contains(nowa_osoba))
                 {
-                    obiekty.Add(nowy_obiekt);
+                    osoby.Add(nowa_osoba);
                 }
                 this.Close();
             }
-            else przejdzDoTaga();
+            else przejdzDoOsoby();
         }
 
-        private void FrmListaTagow_FormClosing(object sender, FormClosingEventArgs e)
+        private void FrmListaOsob_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (parent_form == "FrmZarzadzanieTagami")
+            if (parent_form == "FrmZarzadzanieObsada")
             {
-                ((FrmZarzadzanieTagami)this.Owner).obiekty_prop.Clear();
-                ((FrmZarzadzanieTagami)this.Owner).obiekty_prop.AddRange(obiekty);
+                ((FrmZarzadzanieObsada)this.Owner).osoby_prop = osoby;
             }
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            przejdzDoTaga();
+            przejdzDoOsoby();
         }
 
         private void txt_filtr_TextChanged(object sender, EventArgs e)
@@ -245,7 +274,7 @@ namespace Wypozyczalnia.Formsy
             switch (cmb_kolumna.Text)
             {
                 case "ID": table.DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%'", "Convert([id], System.String)", txt_filtr.Text); break;
-                case "Nazwa": table.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "nazwa", txt_filtr.Text); break;
+                case "Imię i nazwisko": table.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "imie_nazwisko", txt_filtr.Text); break;
             }
         }
 

@@ -149,6 +149,19 @@ namespace Wypozyczalnia.Formsy
 
         private void txt_filtr_TextChanged(object sender, EventArgs e)
         {
+            if (cmb_kolumna.Text == "ID" || cmb_kolumna.Text == "PESEL" || cmb_kolumna.Text == "Nr. telefonu")
+            {
+                string temp = null;
+                foreach (char c in txt_filtr.Text)
+                {
+                    if (char.IsControl(c) || char.IsNumber(c))
+                    {
+                        temp += c;
+                    }
+                }
+                txt_filtr.Text = temp;
+            }
+
             switch (cmb_kolumna.Text)
             {
                 case "ID": table.DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%'", "Convert([id], System.String)", txt_filtr.Text); break;

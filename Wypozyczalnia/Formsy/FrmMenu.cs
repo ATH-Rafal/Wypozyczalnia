@@ -39,5 +39,11 @@ namespace Wypozyczalnia.Formsy
             FrmListaTaryf frmListaTaryf = new FrmListaTaryf();
             frmListaTaryf.ShowDialog();
         }
+
+        private void btn_osoby_Click(object sender, EventArgs e)
+        {
+            FrmListaOsob frmListaOsob = new FrmListaOsob(this.Name);
+            frmListaOsob.ShowDialog();
+        }
     }
 }

@@ -7,6 +7,7 @@ namespace Wypozyczalnia.Formsy
     public partial class FrmFormularzFilmu : Form
     {
         int id;
+        bool zwrot = false;
         string parent_of_parent;
         string connString = "Data Source = baza.db; Version = 3";
 
@@ -27,7 +28,9 @@ namespace Wypozyczalnia.Formsy
 
                 if (command1_output == "0")
                 {
-                    btn_wypozycz.Enabled = false;
+                    if (parent_of_parent != "FrmWypozyczenieFilmu") btn_wypozycz.Text = "ZWRÓĆ";
+                    else btn_wypozycz.Enabled = false;
+                    zwrot = true;
                     lb_status.Text = ":Ten film jest aktualnie wypożyczony klientowi\n";
                     SQLiteCommand command2 = new SQLiteCommand(conn);
                     command2.CommandText = @"
@@ -48,6 +51,13 @@ namespace Wypozyczalnia.Formsy
                         }
                     }
                 }
+                else
+                {
+                    btn_wypozycz.Text = "WYPOŻYCZ";
+                    lb_status.Text = "Ten film nie jest aktualnie wypożyczony";
+                    zwrot = false;
+                }
+
 
                 conn.Close();
             }
@@ -152,9 +162,18 @@ namespace Wypozyczalnia.Formsy
             }
             else
             {
-                FrmWypozyczenieFilmu frmWypozyczenieFilmu = new FrmWypozyczenieFilmu(id, this.Name);
-                frmWypozyczenieFilmu.ShowDialog();
-                odswiezStatus();
+                if (zwrot == false)
+                {
+                    FrmWypozyczenieFilmu frmWypozyczenieFilmu = new FrmWypozyczenieFilmu(id, this.Name);
+                    frmWypozyczenieFilmu.ShowDialog();
+                    odswiezStatus();
+                }
+                else
+                {
+                    FrmZwrotFilmu frmZwrotFilmu = new FrmZwrotFilmu(id, this.Name);
+                    frmZwrotFilmu.ShowDialog();
+                    odswiezStatus();
+                }
             }
         }
     }

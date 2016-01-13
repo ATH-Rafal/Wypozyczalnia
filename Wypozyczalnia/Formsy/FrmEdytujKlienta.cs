@@ -51,13 +51,13 @@ namespace Wypozyczalnia.Formsy
             }
             else
             {
-                
 
-                    using (SQLiteConnection conn = new SQLiteConnection(connString))
-                    {
-                        conn.Open();
-                        SQLiteCommand command = new SQLiteCommand(conn);
-                        command.CommandText = @"
+
+                using (SQLiteConnection conn = new SQLiteConnection(connString))
+                {
+                    conn.Open();
+                    SQLiteCommand command = new SQLiteCommand(conn);
+                    command.CommandText = @"
                                 UPDATE Klienci
                                 SET
                                 imie = @imie,
@@ -73,25 +73,25 @@ namespace Wypozyczalnia.Formsy
                                 WHERE id = @id
                                 ";
 
-                        command.Parameters.Add(new SQLiteParameter("@id", id));
-                        command.Parameters.Add(new SQLiteParameter("@imie", txt_imie.Text));
-                        command.Parameters.Add(new SQLiteParameter("@nazwisko", txt_nazwisko.Text));
-                        command.Parameters.Add(new SQLiteParameter("@pesel", txt_pesel.Text));
-                        command.Parameters.Add(new SQLiteParameter("@nr_dowodu", txt_nr_dowodu.Text));
-                        command.Parameters.Add(new SQLiteParameter("@nr_telefonu", txt_nr_telefonu.Text));
-                        command.Parameters.Add(new SQLiteParameter("@email", txt_email.Text));
-                        command.Parameters.Add(new SQLiteParameter("@miejscowosc", txt_miejscowosc.Text));
-                        command.Parameters.Add(new SQLiteParameter("@kod_pocztowy", txt_kod_pocztowy.Text));
-                        command.Parameters.Add(new SQLiteParameter("@ulica", txt_ulica.Text));
-                        command.Parameters.Add(new SQLiteParameter("@nr_domu", txt_nr_domu.Text));
+                    command.Parameters.Add(new SQLiteParameter("@id", id));
+                    command.Parameters.Add(new SQLiteParameter("@imie", txt_imie.Text));
+                    command.Parameters.Add(new SQLiteParameter("@nazwisko", txt_nazwisko.Text));
+                    command.Parameters.Add(new SQLiteParameter("@pesel", txt_pesel.Text));
+                    command.Parameters.Add(new SQLiteParameter("@nr_dowodu", txt_nr_dowodu.Text));
+                    command.Parameters.Add(new SQLiteParameter("@nr_telefonu", txt_nr_telefonu.Text));
+                    command.Parameters.Add(new SQLiteParameter("@email", txt_email.Text));
+                    command.Parameters.Add(new SQLiteParameter("@miejscowosc", txt_miejscowosc.Text));
+                    command.Parameters.Add(new SQLiteParameter("@kod_pocztowy", txt_kod_pocztowy.Text));
+                    command.Parameters.Add(new SQLiteParameter("@ulica", txt_ulica.Text));
+                    command.Parameters.Add(new SQLiteParameter("@nr_domu", txt_nr_domu.Text));
 
-                        command.ExecuteNonQuery();
-                        conn.Close();
+                    command.ExecuteNonQuery();
+                    conn.Close();
 
-                        this.Close();
-                    }
+                    this.Close();
+                }
 
-                
+
 
             }
         }
@@ -112,6 +112,19 @@ namespace Wypozyczalnia.Formsy
         private void txt_nr_dowodu_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+        private void txt_nr_telefonu_TextChanged(object sender, EventArgs e)
+        {
+            string temp = null;
+            foreach (char c in txt_nr_telefonu.Text)
+            {
+                if (char.IsControl(c) || char.IsNumber(c))
+                {
+                    temp += c;
+                }
+            }
+            txt_nr_telefonu.Text = temp;
         }
     }
 }

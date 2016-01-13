@@ -138,3 +138,7 @@ C:\Users\Rafał\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozycza
 C:\Users\Rafał\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmEdyfujTaryfe.resources
 C:\Users\Rafał\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmFormularzTaryfy.resources
 C:\Users\Rafał\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmListaTaryf.resources
+C:\Users\Wojciech\Documents\Wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmZarzadzanieObsada.resources
+C:\Users\Wojciech\Documents\Wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmListaOsob.resources
+C:\Users\Wojciech\Documents\Wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmFormularzOsoby.resources
+C:\Users\Wojciech\Documents\Wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmZwrotFilmu.resources

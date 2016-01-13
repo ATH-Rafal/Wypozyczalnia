@@ -154,6 +154,30 @@ namespace Wypozyczalnia.Formsy
 
         private void txt_filtr_TextChanged(object sender, EventArgs e)
         {
+            if (cmb_kolumna.Text == "ID")
+            {
+                string temp = null;
+                foreach (char c in txt_filtr.Text)
+                {
+                    if (char.IsControl(c) || char.IsNumber(c))
+                    {
+                        temp += c;
+                    }
+                }
+                txt_filtr.Text = temp;
+            }
+            if (cmb_kolumna.Text == "Cena za dzień")
+            {
+                string temp = null;
+                foreach (char c in txt_filtr.Text)
+                {
+                    if (char.IsControl(c) || char.IsNumber(c) || c == '.')
+                    {
+                        temp += c;
+                    }
+                }
+                txt_filtr.Text = temp;
+            }
             filtruj();
         }
 

@@ -105,30 +105,9 @@ namespace Wypozyczalnia.Formsy
         {
             if (dth_dane_wypozyczenia.SelectedRows.Count > 0)
             {
-                int id_wypozyczenia = Int32.Parse(dth_dane_wypozyczenia.SelectedRows[0].Cells[0].Value.ToString());
-                if (dth_dane_wypozyczenia.RowCount != 0) index = dth_dane_wypozyczenia.SelectedRows[0].Index;
-                DialogResult result = MessageBox.Show("Czy na pewno chcesz sfinalizować wypożyczenie o numerze " + id_wypozyczenia + "? \n\nOperacji nie można cofnąć.", "Ważne", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
-                    using (SQLiteConnection conn = new SQLiteConnection(connString))
-                    {
-                        conn.Open();
-                        SQLiteCommand command = new SQLiteCommand(conn);
-                        command.CommandText = @"
-                                UPDATE Wypozyczenia
-                                SET
-                                data_zwrotu = date('now')
-                                WHERE id = @id
-                                ";
-                        command.Parameters.Add(new SQLiteParameter("@id", id_wypozyczenia));
-                        command.ExecuteNonQuery();
-                        conn.Close();
-                        odswiez();
-                        if (dth_dane_wypozyczenia.RowCount != 0)
-                        {
-                            if (index == dth_dane_wypozyczenia.RowCount) dth_dane_wypozyczenia.CurrentCell = dth_dane_wypozyczenia.Rows[index - 1].Cells[0];
-                            else dth_dane_wypozyczenia.CurrentCell = dth_dane_wypozyczenia.Rows[index].Cells[0];
-                        }
-                    }
+                FrmZwrotFilmu frmZwrotFilmu = new FrmZwrotFilmu(Int32.Parse(dth_dane_wypozyczenia.SelectedRows[0].Cells[0].Value.ToString()), this.Name);
+                frmZwrotFilmu.ShowDialog();
+                odswiez();
             }
         }
     }
