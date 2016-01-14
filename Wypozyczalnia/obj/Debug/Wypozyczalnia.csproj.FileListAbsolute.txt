@@ -142,6 +142,7 @@ C:\Users\Wojciech\Documents\Wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozycza
 C:\Users\Wojciech\Documents\Wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmListaOsob.resources
 C:\Users\Wojciech\Documents\Wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmFormularzOsoby.resources
 C:\Users\Wojciech\Documents\Wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmZwrotFilmu.resources
+<<<<<<< HEAD
 C:\Users\Rafał\Desktop\Wypozyczalnia-master\Wypozyczalnia-master\Wypozyczalnia\bin\Debug\Wypozyczalnia.exe.config
 C:\Users\Rafał\Desktop\Wypozyczalnia-master\Wypozyczalnia-master\Wypozyczalnia\obj\Debug\Wypozyczalnia.exe
 C:\Users\Rafał\Desktop\Wypozyczalnia-master\Wypozyczalnia-master\Wypozyczalnia\obj\Debug\Wypozyczalnia.pdb
@@ -187,3 +188,5 @@ C:\Users\Rafał\Desktop\Wypozyczalnia-master\Wypozyczalnia-master\Wypozyczalnia\
 C:\Users\Rafał\Desktop\Wypozyczalnia-master\Wypozyczalnia-master\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmZwrotFilmu.resources
 C:\Users\Rafał\Desktop\Wypozyczalnia-master\Wypozyczalnia-master\Wypozyczalnia\obj\Debug\Wypozyczalnia.Properties.Resources.resources
 C:\Users\Rafał\Desktop\Wypozyczalnia-master\Wypozyczalnia-master\Wypozyczalnia\obj\Debug\Wypozyczalnia.csproj.GenerateResource.Cache
+=======
+>>>>>>> origin/master

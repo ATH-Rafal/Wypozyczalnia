@@ -80,10 +80,13 @@ namespace Wypozyczalnia.Formsy
                 conn.Close();
             }
         }
+<<<<<<< HEAD
 
         private void btn_zamknij_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+=======
+>>>>>>> origin/master
     }
 }

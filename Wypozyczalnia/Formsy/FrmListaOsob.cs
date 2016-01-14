@@ -59,6 +59,7 @@ namespace Wypozyczalnia.Formsy
 
         private void btn_nowa_osoba_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
 
             using (SQLiteConnection conn = new SQLiteConnection(connString))
             {
@@ -88,10 +89,18 @@ namespace Wypozyczalnia.Formsy
                 {
                     SQLiteCommand command2 = new SQLiteCommand(conn);
                     command2.CommandText = @"
+=======
+            using (SQLiteConnection conn = new SQLiteConnection(connString))
+            {
+                conn.Open();
+                SQLiteCommand command = new SQLiteCommand(conn);
+                command.CommandText = @"
+>>>>>>> origin/master
                                 INSERT INTO Osoby (imie_nazwisko)
                                 VALUES (@imie_nazwisko)
                                 ";
 
+<<<<<<< HEAD
                     command2.Parameters.Add(new SQLiteParameter("@imie_nazwisko", txt_nowy.Text));
                     command2.ExecuteNonQuery();
                     odswiez();
@@ -102,6 +111,18 @@ namespace Wypozyczalnia.Formsy
             }          
             txt_nowy.Text = "";
             txt_nowy.Focus();           
+=======
+                command.Parameters.Add(new SQLiteParameter("@imie_nazwisko", txt_nowy.Text));
+
+                command.ExecuteNonQuery();
+                conn.Close();
+            }
+            odswiez();
+
+            dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.RowCount - 1].Cells[0];
+            txt_nowy.Text = "";
+            txt_nowy.Focus();
+>>>>>>> origin/master
         }
 
         private void btn_edytuj_osobe_Click(object sender, EventArgs e)
