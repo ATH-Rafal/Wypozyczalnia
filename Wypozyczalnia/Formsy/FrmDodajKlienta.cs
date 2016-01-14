@@ -68,5 +68,19 @@ namespace Wypozyczalnia.Formsy
         {
             e.KeyChar = Char.ToUpper(e.KeyChar);
         }
+
+        private void txt_nr_telefonu_TextChanged(object sender, EventArgs e)
+        {
+            string temp = null;
+            foreach (char c in txt_nr_telefonu.Text)
+            {
+                if (char.IsControl(c) || char.IsNumber(c))
+                {
+                    temp += c;
+                }
+            }
+            txt_nr_telefonu.Text = temp;
+        }
+
     }
 }

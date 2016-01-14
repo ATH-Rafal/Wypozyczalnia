@@ -28,6 +28,23 @@ namespace Wypozyczalnia.Formsy
             }
         }
 
+        public void przesunTag(int kierunek)
+        {
+            if (lb_tagi.SelectedItem == null || lb_tagi.SelectedIndex < 0)
+                return;
+
+            int nowy_index = lb_tagi.SelectedIndex + kierunek;
+
+            if (nowy_index < 0 || nowy_index >= lb_tagi.Items.Count)
+                return;
+
+            object wybrany_obiekt = lb_tagi.SelectedItem;
+
+            lb_tagi.Items.Remove(wybrany_obiekt);
+            lb_tagi.Items.Insert(nowy_index, wybrany_obiekt);
+            lb_tagi.SetSelected(nowy_index, true);
+        }
+
         public FrmZarzadzanieTagami(ListBox.ObjectCollection _obiekty, string _parent_form)
         {
             obiekty = _obiekty;
@@ -83,6 +100,16 @@ namespace Wypozyczalnia.Formsy
                 FrmFormularzTaga frmFormularzTaga = new FrmFormularzTaga(Int32.Parse(id_taga));
                 frmFormularzTaga.ShowDialog();
             }
+        }
+
+        private void btn_gora_Click(object sender, EventArgs e)
+        {
+            przesunTag(-1);
+        }
+
+        private void btn_dol_Click(object sender, EventArgs e)
+        {
+            przesunTag(1);
         }
     }
 }

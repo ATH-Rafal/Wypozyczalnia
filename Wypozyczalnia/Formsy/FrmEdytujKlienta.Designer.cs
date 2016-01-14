@@ -312,6 +312,7 @@
             this.txt_nr_telefonu.Name = "txt_nr_telefonu";
             this.txt_nr_telefonu.Size = new System.Drawing.Size(317, 20);
             this.txt_nr_telefonu.TabIndex = 5;
+            this.txt_nr_telefonu.TextChanged += new System.EventHandler(this.txt_nr_telefonu_TextChanged);
             this.txt_nr_telefonu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nr_telefonu_KeyPress);
             // 
             // FrmEdytujKlienta

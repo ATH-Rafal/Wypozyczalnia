@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Windows.Forms;
 
@@ -7,8 +8,10 @@ namespace Wypozyczalnia.Formsy
     public partial class FrmFormularzFilmu : Form
     {
         int id;
+        bool zwrot = false;
         string parent_of_parent;
         string connString = "Data Source = baza.db; Version = 3";
+        List<osoba> osoby = new List<osoba>();
 
         private void odswiezStatus()
         {
@@ -27,7 +30,9 @@ namespace Wypozyczalnia.Formsy
 
                 if (command1_output == "0")
                 {
-                    btn_wypozycz.Enabled = false;
+                    if (parent_of_parent != "FrmWypozyczenieFilmu") btn_wypozycz.Text = "ZWRÓĆ";
+                    else btn_wypozycz.Enabled = false;
+                    zwrot = true;
                     lb_status.Text = ":Ten film jest aktualnie wypożyczony klientowi\n";
                     SQLiteCommand command2 = new SQLiteCommand(conn);
                     command2.CommandText = @"
@@ -48,6 +53,13 @@ namespace Wypozyczalnia.Formsy
                         }
                     }
                 }
+                else
+                {
+                    btn_wypozycz.Text = "WYPOŻYCZ";
+                    lb_status.Text = "Ten film nie jest aktualnie wypożyczony";
+                    zwrot = false;
+                }
+
 
                 conn.Close();
             }
@@ -120,6 +132,24 @@ namespace Wypozyczalnia.Formsy
                     }
                 }
 
+                SQLiteCommand command4 = new SQLiteCommand(conn);
+                command4.CommandText = @"
+                    SELECT id_osoby, id_roli
+                    FROM Obsada
+                    WHERE id_filmu = @id
+                    ";
+                command4.Parameters.Add(new SQLiteParameter("@id", id));
+                using (command4)
+                {
+                    using (SQLiteDataReader rdr = command4.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            osoby.Add(new osoba(rdr.GetInt32(0), rdr.GetInt32(1)));
+                        }
+                    }
+                }
+                conn.Close();
 
                 conn.Close();
             }
@@ -152,10 +182,25 @@ namespace Wypozyczalnia.Formsy
             }
             else
             {
-                FrmWypozyczenieFilmu frmWypozyczenieFilmu = new FrmWypozyczenieFilmu(id, this.Name);
-                frmWypozyczenieFilmu.ShowDialog();
-                odswiezStatus();
+                if (zwrot == false)
+                {
+                    FrmWypozyczenieFilmu frmWypozyczenieFilmu = new FrmWypozyczenieFilmu(id, this.Name);
+                    frmWypozyczenieFilmu.ShowDialog();
+                    odswiezStatus();
+                }
+                else
+                {
+                    FrmZwrotFilmu frmZwrotFilmu = new FrmZwrotFilmu(id, this.Name);
+                    frmZwrotFilmu.ShowDialog();
+                    odswiezStatus();
+                }
             }
+        }
+
+        private void btn_obsada_Click(object sender, EventArgs e)
+        {
+            FrmWyswietlanieObsady frmWyswietlanieObsady = new FrmWyswietlanieObsady(osoby);
+            frmWyswietlanieObsady.ShowDialog(this);
         }
     }
 }

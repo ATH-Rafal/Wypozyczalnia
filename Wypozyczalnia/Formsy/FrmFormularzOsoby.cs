@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Wypozyczalnia.Formsy
-{   
-    public partial class FrmFormularzTaga : Form
+{
+    public partial class FrmFormularzOsoby : Form
     {
         string connString = "Data Source = baza.db; Version = 3";
         int id;
-        public FrmFormularzTaga(int _id)
+        public FrmFormularzOsoby(int _id)
         {
             id = _id;
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace Wypozyczalnia.Formsy
                 conn.Open();
 
                 SQLiteCommand command1 = new SQLiteCommand(conn);
-                command1.CommandText = "SELECT * FROM Tagi WHERE id=@id";
+                command1.CommandText = "SELECT * FROM Osoby WHERE id=@id";
                 command1.Parameters.Add(new SQLiteParameter("@id", id));
                 using (command1)
                 {
@@ -40,20 +40,39 @@ namespace Wypozyczalnia.Formsy
 
                 SQLiteCommand command2 = new SQLiteCommand(conn);
                 command2.CommandText = @"
-                        SELECT Filmy.tytul_pol, Filmy.id 
+                        SELECT Filmy.tytul_pol, Filmy.id, Obsada.id_roli
                         FROM Filmy
-                        INNER JOIN TagiFilmy ON Filmy.id = TagiFilmy.id_filmu
-                        INNER JOIN Tagi ON TagiFilmy.id_taga = Tagi.id
-                        WHERE Tagi.id = @id
+                        INNER JOIN Obsada ON Filmy.id = Obsada.id_filmu
+                        INNER JOIN Osoby ON Obsada.id_osoby = Osoby.id
+                        WHERE Osoby.id = @id
                         ";
                 command2.Parameters.Add(new SQLiteParameter("@id", id));
                 using (command2)
-                {
+                {                   
                     using (SQLiteDataReader rdr = command2.ExecuteReader())
                     {
                         while (rdr.Read())
                         {
-                            lb_filmy.Items.Add(rdr.GetValue(0).ToString() + " [" + rdr.GetValue(1).ToString() + "]");
+                            string rola = null;
+                            switch (rdr.GetInt32(2))
+                            {
+                                case 1:
+                                    rola = "Reżyser";
+                                    break;
+                                case 2:
+                                    rola = "Scenariusz";
+                                    break;
+                                case 3:
+                                    rola = "Muzyka";
+                                    break;
+                                case 4:
+                                    rola = "Zdjęcia";
+                                    break;
+                                case 5:
+                                    rola = "Aktor";
+                                    break;
+                            }
+                            lb_filmy.Items.Add(rdr.GetValue(0).ToString() + " [" + rdr.GetValue(1).ToString() + "] - " + rola);                            
                         }
                     }
                 }

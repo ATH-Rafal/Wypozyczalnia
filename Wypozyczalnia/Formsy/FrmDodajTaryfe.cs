@@ -55,7 +55,17 @@ namespace Wypozyczalnia.Formsy
 
         private void txt_cena_TextChanged(object sender, EventArgs e)
         {
-            btn_dodaj_control();            
+            btn_dodaj_control();
+
+            string temp = null;
+            foreach (char c in txt_cena.Text)
+            {
+                if (char.IsControl(c) || char.IsNumber(c) || c == '.')
+                {
+                    temp += c;
+                }
+            }
+            txt_cena.Text = temp;
         }
 
         private void txt_dni_KeyPress(object sender, KeyPressEventArgs e)
@@ -114,6 +124,18 @@ namespace Wypozyczalnia.Formsy
         private void txt_cena_za_dzien_TextChanged(object sender, EventArgs e)
         {
             btn_zatwierdz_control();
+            //btn_dodaj_control();
+
+            string temp = null;
+            foreach (char c in txt_cena_za_dzien.Text)
+            {
+                if (char.IsControl(c) || char.IsNumber(c) || c == '.')
+                {
+                    temp += c;
+                }
+            }
+            txt_cena_za_dzien.Text = temp;
+
         }
 
         private void btn_anuluj_Click(object sender, EventArgs e)

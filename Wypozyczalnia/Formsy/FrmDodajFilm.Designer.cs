@@ -60,6 +60,7 @@
             this.txt_dystrybutor = new System.Windows.Forms.TextBox();
             this.txt_tytul_pol = new System.Windows.Forms.TextBox();
             this.txt_tytul_org = new System.Windows.Forms.TextBox();
+            this.btn_obsada = new System.Windows.Forms.Button();
             this.PanelTekst.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -292,6 +293,7 @@
             this.txt_dlugosc.Name = "txt_dlugosc";
             this.txt_dlugosc.Size = new System.Drawing.Size(317, 20);
             this.txt_dlugosc.TabIndex = 7;
+            this.txt_dlugosc.TextChanged += new System.EventHandler(this.txt_dlugosc_TextChanged);
             this.txt_dlugosc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_dlugosc_KeyPress);
             // 
             // cmb_taryfa
@@ -387,12 +389,23 @@
             this.txt_tytul_org.Size = new System.Drawing.Size(317, 20);
             this.txt_tytul_org.TabIndex = 1;
             // 
+            // btn_obsada
+            // 
+            this.btn_obsada.Location = new System.Drawing.Point(748, 252);
+            this.btn_obsada.Name = "btn_obsada";
+            this.btn_obsada.Size = new System.Drawing.Size(136, 46);
+            this.btn_obsada.TabIndex = 58;
+            this.btn_obsada.Text = "OBSADA";
+            this.btn_obsada.UseVisualStyleBackColor = true;
+            this.btn_obsada.Click += new System.EventHandler(this.btn_obsada_Click);
+            // 
             // FrmDodajFilm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
             this.ClientSize = new System.Drawing.Size(897, 377);
+            this.Controls.Add(this.btn_obsada);
             this.Controls.Add(this.txt_dlugosc);
             this.Controls.Add(this.cmb_taryfa);
             this.Controls.Add(this.txt_kraj);
@@ -459,5 +472,6 @@
         private System.Windows.Forms.TextBox txt_tytul_pol;
         private System.Windows.Forms.TextBox txt_tytul_org;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btn_obsada;
     }
 }

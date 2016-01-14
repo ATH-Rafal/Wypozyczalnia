@@ -131,6 +131,7 @@
             this.txt_id_filmu.Size = new System.Drawing.Size(146, 20);
             this.txt_id_filmu.TabIndex = 6;
             this.txt_id_filmu.TextChanged += new System.EventHandler(this.txt_id_filmu_TextChanged);
+            this.txt_id_filmu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_id_filmu_KeyPress);
             // 
             // txt_id_klienta
             // 
@@ -141,6 +142,7 @@
             this.txt_id_klienta.Size = new System.Drawing.Size(146, 20);
             this.txt_id_klienta.TabIndex = 4;
             this.txt_id_klienta.TextChanged += new System.EventHandler(this.txt_id_klienta_TextChanged);
+            this.txt_id_klienta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_id_klienta_KeyPress);
             // 
             // txt_film
             // 

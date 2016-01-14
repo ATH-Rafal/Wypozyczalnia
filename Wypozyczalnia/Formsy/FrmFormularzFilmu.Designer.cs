@@ -61,6 +61,7 @@
             this.lb_status = new System.Windows.Forms.Label();
             this.txt_nosnik = new System.Windows.Forms.TextBox();
             this.txt_taryfa = new System.Windows.Forms.TextBox();
+            this.btn_obsada = new System.Windows.Forms.Button();
             this.PanelTekst.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -363,7 +364,7 @@
             // 
             // btn_wypozycz
             // 
-            this.btn_wypozycz.Location = new System.Drawing.Point(797, 326);
+            this.btn_wypozycz.Location = new System.Drawing.Point(797, 332);
             this.btn_wypozycz.Name = "btn_wypozycz";
             this.btn_wypozycz.Size = new System.Drawing.Size(88, 23);
             this.btn_wypozycz.TabIndex = 15;
@@ -373,7 +374,7 @@
             // 
             // lb_status
             // 
-            this.lb_status.Location = new System.Drawing.Point(645, 275);
+            this.lb_status.Location = new System.Drawing.Point(645, 281);
             this.lb_status.Name = "lb_status";
             this.lb_status.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lb_status.Size = new System.Drawing.Size(243, 48);
@@ -396,12 +397,23 @@
             this.txt_taryfa.Size = new System.Drawing.Size(317, 20);
             this.txt_taryfa.TabIndex = 10;
             // 
+            // btn_obsada
+            // 
+            this.btn_obsada.Location = new System.Drawing.Point(749, 226);
+            this.btn_obsada.Name = "btn_obsada";
+            this.btn_obsada.Size = new System.Drawing.Size(136, 46);
+            this.btn_obsada.TabIndex = 90;
+            this.btn_obsada.Text = "OBSADA";
+            this.btn_obsada.UseVisualStyleBackColor = true;
+            this.btn_obsada.Click += new System.EventHandler(this.btn_obsada_Click);
+            // 
             // FrmFormularzFilmu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
             this.ClientSize = new System.Drawing.Size(897, 419);
+            this.Controls.Add(this.btn_obsada);
             this.Controls.Add(this.txt_taryfa);
             this.Controls.Add(this.txt_nosnik);
             this.Controls.Add(this.lb_status);
@@ -471,5 +483,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txt_nosnik;
         private System.Windows.Forms.TextBox txt_taryfa;
+        private System.Windows.Forms.Button btn_obsada;
     }
 }

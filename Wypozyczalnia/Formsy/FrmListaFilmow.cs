@@ -196,6 +196,14 @@ namespace Wypozyczalnia.Formsy
                         command2.CommandText = "DELETE FROM Wypozyczenia WHERE id_filmu = @id";
                         command2.Parameters.Add(new SQLiteParameter("@id", id));
                         command2.ExecuteNonQuery();
+                        SQLiteCommand command3 = new SQLiteCommand(conn);
+                        command3.CommandText = "DELETE FROM TagiFilmy WHERE id_filmu = @id";
+                        command3.Parameters.Add(new SQLiteParameter("@id", id));
+                        command3.ExecuteNonQuery();
+                        SQLiteCommand command4 = new SQLiteCommand(conn);
+                        command4.CommandText = "DELETE FROM Obsada WHERE id_filmu = @id";
+                        command4.Parameters.Add(new SQLiteParameter("@id", id));
+                        command4.ExecuteNonQuery();
                         conn.Close();
                         odswiez();
                         if (dataGridView1.RowCount != 0)
@@ -214,6 +222,19 @@ namespace Wypozyczalnia.Formsy
 
         private void txt_filtr_TextChanged(object sender, EventArgs e)
         {
+            if (cmb_kolumna.Text == "ID" || cmb_kolumna.Text == "Rok produkcji" || cmb_kolumna.Text == "Długość" || cmb_kolumna.Text == "ID taryfy")
+            {
+                string temp = null;
+                foreach (char c in txt_filtr.Text)
+                {
+                    if (char.IsControl(c) || char.IsNumber(c))
+                    {
+                        temp += c;
+                    }
+                }
+                txt_filtr.Text = temp;
+            }
+
             filtruj();
         }
 
