@@ -121,10 +121,7 @@
             this.lb_aktorzy.Size = new System.Drawing.Size(220, 277);
             this.lb_aktorzy.TabIndex = 64;
             this.lb_aktorzy.SelectedIndexChanged += new System.EventHandler(this.lb_aktorzy_SelectedIndexChanged);
-<<<<<<< HEAD
             this.lb_aktorzy.DoubleClick += new System.EventHandler(this.lb_aktorzy_DoubleClick);
-=======
->>>>>>> origin/master
             // 
             // label1
             // 
@@ -175,10 +172,7 @@
             this.lb_muzyka.Size = new System.Drawing.Size(181, 56);
             this.lb_muzyka.TabIndex = 63;
             this.lb_muzyka.SelectedIndexChanged += new System.EventHandler(this.lb_muzyka_SelectedIndexChanged);
-<<<<<<< HEAD
             this.lb_muzyka.DoubleClick += new System.EventHandler(this.lb_muzyka_DoubleClick);
-=======
->>>>>>> origin/master
             // 
             // btn_usun_scenarzyste
             // 
@@ -209,10 +203,7 @@
             this.lb_scenariusz.Size = new System.Drawing.Size(181, 56);
             this.lb_scenariusz.TabIndex = 61;
             this.lb_scenariusz.SelectedIndexChanged += new System.EventHandler(this.lb_scenariusz_SelectedIndexChanged);
-<<<<<<< HEAD
             this.lb_scenariusz.DoubleClick += new System.EventHandler(this.lb_scenariusz_DoubleClick);
-=======
->>>>>>> origin/master
             // 
             // btn_dodaj_rezysera
             // 
@@ -306,10 +297,7 @@
             this.lb_zdjecia.Size = new System.Drawing.Size(181, 56);
             this.lb_zdjecia.TabIndex = 77;
             this.lb_zdjecia.SelectedIndexChanged += new System.EventHandler(this.lb_zdjecia_SelectedIndexChanged);
-<<<<<<< HEAD
             this.lb_zdjecia.DoubleClick += new System.EventHandler(this.lb_zdjecia_DoubleClick);
-=======
->>>>>>> origin/master
             // 
             // btn_gora
             // 

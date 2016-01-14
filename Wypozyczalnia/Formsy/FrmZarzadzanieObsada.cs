@@ -263,7 +263,6 @@ namespace Wypozyczalnia.Formsy
                 frmFormularzOsoby.ShowDialog();
             }
         }
-<<<<<<< HEAD
 
         private void lb_scenariusz_DoubleClick(object sender, EventArgs e)
         {
@@ -308,7 +307,5 @@ namespace Wypozyczalnia.Formsy
                 frmFormularzOsoby.ShowDialog();
             }
         }
-=======
->>>>>>> origin/master
     }
 }

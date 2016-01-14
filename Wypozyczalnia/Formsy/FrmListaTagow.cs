@@ -63,7 +63,7 @@ namespace Wypozyczalnia.Formsy
                 SQLiteCommand command1 = new SQLiteCommand(conn);
                 command1.CommandText = @"
                                 SELECT Count(*) FROM Tagi
-                                WHERE nazwa=@nazwa
+                                WHERE nazwa LIKE @nazwa
                                 ";
                 command1.Parameters.Add(new SQLiteParameter("@nazwa", txt_nowy.Text));
                 int licz = Int32.Parse(command1.ExecuteScalar().ToString());
@@ -73,7 +73,7 @@ namespace Wypozyczalnia.Formsy
                     int rIndex = -1;
                     foreach (DataGridViewRow r in dataGridView1.Rows)
                     {
-                        if (r.Cells[1].Value.ToString().Equals(txt_nowy.Text))
+                        if (r.Cells[1].Value.ToString().ToUpper().Equals(txt_nowy.Text.ToUpper()))
                         {
                             rIndex = r.Index;
                             break;

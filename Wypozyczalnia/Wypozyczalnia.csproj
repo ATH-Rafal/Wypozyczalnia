@@ -195,15 +195,12 @@
     <Compile Include="Formsy\FrmWypozyczenieFilmu.Designer.cs">
       <DependentUpon>FrmWypozyczenieFilmu.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Formsy\FrmWyswietlanieObsady.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formsy\FrmWyswietlanieObsady.Designer.cs">
       <DependentUpon>FrmWyswietlanieObsady.cs</DependentUpon>
     </Compile>
-=======
->>>>>>> origin/master
     <Compile Include="Formsy\FrmZarzadzanieObsada.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,12 +285,9 @@
     <EmbeddedResource Include="Formsy\FrmWypozyczenieFilmu.resx">
       <DependentUpon>FrmWypozyczenieFilmu.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
     <EmbeddedResource Include="Formsy\FrmWyswietlanieObsady.resx">
       <DependentUpon>FrmWyswietlanieObsady.cs</DependentUpon>
     </EmbeddedResource>
-=======
->>>>>>> origin/master
     <EmbeddedResource Include="Formsy\FrmZarzadzanieObsada.resx">
       <DependentUpon>FrmZarzadzanieObsada.cs</DependentUpon>
     </EmbeddedResource>

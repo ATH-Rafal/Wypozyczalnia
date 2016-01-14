@@ -30,18 +30,11 @@
         {
             this.PanelTekst = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-<<<<<<< HEAD
             this.label1 = new System.Windows.Forms.Label();
-=======
->>>>>>> origin/master
             this.label3 = new System.Windows.Forms.Label();
             this.btn_zamknij = new System.Windows.Forms.Button();
             this.lb_filmy = new System.Windows.Forms.ListBox();
             this.txt_nazwa = new System.Windows.Forms.TextBox();
-<<<<<<< HEAD
-=======
-            this.label1 = new System.Windows.Forms.Label();
->>>>>>> origin/master
             this.txt_id = new System.Windows.Forms.TextBox();
             this.PanelTekst.SuspendLayout();
             this.SuspendLayout();
@@ -68,7 +61,6 @@
             this.label2.TabIndex = 15;
             this.label2.Text = "Imię i nazwisko";
             // 
-<<<<<<< HEAD
             // label1
             // 
             this.label1.AutoSize = true;
@@ -80,8 +72,6 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "ID";
             // 
-=======
->>>>>>> origin/master
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -101,10 +91,7 @@
             this.btn_zamknij.TabIndex = 77;
             this.btn_zamknij.Text = "ZAMKNIJ";
             this.btn_zamknij.UseVisualStyleBackColor = true;
-<<<<<<< HEAD
             this.btn_zamknij.Click += new System.EventHandler(this.btn_zamknij_Click);
-=======
->>>>>>> origin/master
             // 
             // lb_filmy
             // 
@@ -122,20 +109,6 @@
             this.txt_nazwa.Size = new System.Drawing.Size(317, 20);
             this.txt_nazwa.TabIndex = 78;
             // 
-<<<<<<< HEAD
-=======
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
-            this.label1.Location = new System.Drawing.Point(12, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 16);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "ID";
-            // 
->>>>>>> origin/master
             // txt_id
             // 
             this.txt_id.Location = new System.Drawing.Point(159, 12);
