@@ -14,26 +14,25 @@ namespace Wypozyczalnia.Formsy
     public partial class FrmFormularzTaga : Form
     {
         string connString = "Data Source = baza.db; Version = 3";
-        int id;
-        public FrmFormularzTaga(int _id)
+        string nazwa;
+        public FrmFormularzTaga(string _nazwa)
         {
-            id = _id;
+            nazwa = _nazwa;
             InitializeComponent();
             using (SQLiteConnection conn = new SQLiteConnection(connString))
             {
                 conn.Open();
 
                 SQLiteCommand command1 = new SQLiteCommand(conn);
-                command1.CommandText = "SELECT * FROM Tagi WHERE id=@id";
-                command1.Parameters.Add(new SQLiteParameter("@id", id));
+                command1.CommandText = "SELECT * FROM Tagi WHERE nazwa=@nazwa";
+                command1.Parameters.Add(new SQLiteParameter("@nazwa", nazwa));
                 using (command1)
                 {
                     using (SQLiteDataReader rdr = command1.ExecuteReader())
                     {
                         while (rdr.Read())
                         {
-                            txt_id.Text = rdr.GetValue(0).ToString();
-                            txt_nazwa.Text = rdr.GetValue(1).ToString();
+                            txt_nazwa.Text = rdr.GetValue(0).ToString();
                         }
                     }
                 }
@@ -43,10 +42,10 @@ namespace Wypozyczalnia.Formsy
                         SELECT Filmy.tytul_pol, Filmy.id 
                         FROM Filmy
                         INNER JOIN TagiFilmy ON Filmy.id = TagiFilmy.id_filmu
-                        INNER JOIN Tagi ON TagiFilmy.id_taga = Tagi.id
-                        WHERE Tagi.id = @id
+                        INNER JOIN Tagi ON TagiFilmy.tag = Tagi.nazwa
+                        WHERE Tagi.nazwa = @nazwa
                         ";
-                command2.Parameters.Add(new SQLiteParameter("@id", id));
+                command2.Parameters.Add(new SQLiteParameter("@nazwa", nazwa));
                 using (command2)
                 {
                     using (SQLiteDataReader rdr = command2.ExecuteReader())

@@ -21,11 +21,12 @@ namespace Wypozyczalnia.Formsy
         float cena;
         DateTime data_wypozyczenia;
         DateTime termin_zwrotu;
+        DateTime data_zwrotu;
 
         public FrmZwrotFilmu(int _id, string _parent_form)
         {            
             parent_form = _parent_form;
-            if (parent_form == "FrmFormularzKlienta") id = _id;
+            if (parent_form == "FrmFormularzKlienta" || parent_form == "FrmMenu") id = _id;
             else
             {
                 id_filmu = _id;
@@ -52,6 +53,7 @@ namespace Wypozyczalnia.Formsy
                                          Klienci.id, Filmy.tytul_pol, Filmy.id,
                                          Wypozyczenia.data_wypozyczenia, Wypozyczenia.dni,
                                          date(Wypozyczenia.data_wypozyczenia, (Wypozyczenia.dni || ' day')) AS termin_zwrotu,
+                                         Wypozyczenia.data_zwrotu,
                                          Wypozyczenia.cena FROM Klienci                                        
                                          INNER JOIN Wypozyczenia ON Klienci.id = Wypozyczenia.id_klienta 
                                          INNER JOIN Filmy ON Wypozyczenia.id_filmu = Filmy.id
@@ -72,15 +74,29 @@ namespace Wypozyczalnia.Formsy
                             txt_dni.Text = rdr.GetValue(7).ToString();
                             termin_zwrotu = rdr.GetDateTime(8);
                             txt_termin_zwrotu.Text = termin_zwrotu.ToString();
-                            cena = rdr.GetFloat(9);
+                            if (DateTime.TryParse(rdr.GetValue(9).ToString(), out data_zwrotu))
+                            {
+                                data_zwrotu = rdr.GetDateTime(9);
+                                txt_data_zwrotu.Text = data_zwrotu.ToString();
+                            }
+                            cena = rdr.GetFloat(10);
                             label_cena.Text = "CENA: " + cena + "zł";
                         }
                     }
                 }
                 conn.Close();
             }
-            if (DateTime.Now > termin_zwrotu)
-                dni_spoznienia = (DateTime.Now - termin_zwrotu).Days;
+            if (txt_data_zwrotu.Text != "    -  -")
+            {                
+                if (data_zwrotu > termin_zwrotu)
+                    dni_spoznienia = (data_zwrotu - termin_zwrotu).Days;
+            }
+            else
+            {
+                btn_zatwierdz.Enabled = true;
+                if (DateTime.Now > termin_zwrotu)
+                    dni_spoznienia = (DateTime.Now - termin_zwrotu).Days;
+            }
             if (dni_spoznienia > 0)
             {
                 using (SQLiteConnection conn = new SQLiteConnection(connString))
@@ -102,23 +118,26 @@ namespace Wypozyczalnia.Formsy
 
         private void btn_zatwierdz_Click(object sender, EventArgs e)
         {
-            using (SQLiteConnection conn = new SQLiteConnection(connString))
+            DialogResult result = MessageBox.Show("Czy na pewno chcesz sfinalizować wypożyczenie numer " + id + "?\nOperacji nie można cofnąć.", "Ważne", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
             {
-                conn.Open();
-                SQLiteCommand command = new SQLiteCommand(conn);
-                command.CommandText = @"
+                using (SQLiteConnection conn = new SQLiteConnection(connString))
+                {
+                    conn.Open();
+                    SQLiteCommand command = new SQLiteCommand(conn);
+                    command.CommandText = @"
                                 UPDATE Wypozyczenia
                                 SET
-                                data_zwrotu = date('now'),
-                                cena = @cena
+                                data_zwrotu = date('now')
                                 WHERE id = @id
                                 ";
-                command.Parameters.Add(new SQLiteParameter("@id", id));
-                command.Parameters.Add(new SQLiteParameter("@cena", cena));
-                command.ExecuteNonQuery();
-                conn.Close();
+                    command.Parameters.Add(new SQLiteParameter("@id", id));
+                    command.ExecuteNonQuery();
+                    conn.Close();
+                }
+                if (parent_form == "FrmMenu") ((FrmMenu)this.Owner).czy_zwrocono_prop = true;
+                this.Close();
             }
-            this.Close();
         }
 
         private void btn_anuluj_Click(object sender, EventArgs e)

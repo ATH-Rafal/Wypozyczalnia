@@ -127,6 +127,7 @@
             this.lb_zasady.Location = new System.Drawing.Point(159, 103);
             this.lb_zasady.Name = "lb_zasady";
             this.lb_zasady.Size = new System.Drawing.Size(313, 173);
+            this.lb_zasady.Sorted = true;
             this.lb_zasady.TabIndex = 3;
             // 
             // btn_zamknij
@@ -155,7 +156,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmFormularzTaryfy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FORMULARZ TARYFY";
+            this.Text = "PROFIL TARYFY";
             this.PanelTekst.ResumeLayout(false);
             this.PanelTekst.PerformLayout();
             this.ResumeLayout(false);

@@ -9,9 +9,7 @@ namespace Wypozyczalnia.Formsy
     {
         int id;
         bool zwrot = false;
-        string parent_of_parent;
         string connString = "Data Source = baza.db; Version = 3";
-        List<osoba> osoby = new List<osoba>();
 
         private void odswiezStatus()
         {
@@ -30,8 +28,7 @@ namespace Wypozyczalnia.Formsy
 
                 if (command1_output == "0")
                 {
-                    if (parent_of_parent != "FrmWypozyczenieFilmu") btn_wypozycz.Text = "ZWRÓĆ";
-                    else btn_wypozycz.Enabled = false;
+                    btn_wypozycz.Text = "ZWRÓĆ";
                     zwrot = true;
                     lb_status.Text = ":Ten film jest aktualnie wypożyczony klientowi\n";
                     SQLiteCommand command2 = new SQLiteCommand(conn);
@@ -60,18 +57,15 @@ namespace Wypozyczalnia.Formsy
                     zwrot = false;
                 }
 
-
                 conn.Close();
             }
         }
 
-        public FrmFormularzFilmu(int _id, string _parent_of_parent)
+        public FrmFormularzFilmu(int _id)
         {
             id = _id;
-            parent_of_parent = _parent_of_parent;
             InitializeComponent();
 
-            if (parent_of_parent == "FrmWypozyczenieFilmu") btn_wypozycz.Text = "WYBIERZ";
 
             using (SQLiteConnection conn = new SQLiteConnection(connString))
             {
@@ -115,73 +109,66 @@ namespace Wypozyczalnia.Formsy
                     }
                 }
 
-                SQLiteCommand command3 = new SQLiteCommand(conn);
-                command3.CommandText = @"
-                    SELECT Tagi.nazwa, Tagi.id 
-                    FROM Tagi
-                    INNER JOIN TagiFilmy ON Tagi.id = TagiFilmy.id_taga
-                    INNER JOIN Filmy ON TagiFilmy.id_filmu = Filmy.id
-                    WHERE Filmy.id = @id
-                    ";
-                command3.Parameters.Add(new SQLiteParameter("@id", id));
-                using (SQLiteDataReader rdr = command3.ExecuteReader())
-                {
-                    while (rdr.Read())
-                    {
-                        lb_tagi.Items.Add(rdr.GetValue(0).ToString() + " [" + rdr.GetValue(1).ToString() + "]");
-                    }
-                }
-
                 SQLiteCommand command4 = new SQLiteCommand(conn);
                 command4.CommandText = @"
-                    SELECT id_osoby, id_roli
-                    FROM Obsada
-                    WHERE id_filmu = @id
+                    SELECT tag
+                    FROM TagiFilmy
+                    WHERE id_filmu = @id_filmu
                     ";
-                command4.Parameters.Add(new SQLiteParameter("@id", id));
+                command4.Parameters.Add(new SQLiteParameter("@id_filmu", id));
                 using (command4)
                 {
                     using (SQLiteDataReader rdr = command4.ExecuteReader())
                     {
                         while (rdr.Read())
                         {
-                            osoby.Add(new osoba(rdr.GetInt32(0), rdr.GetInt32(1)));
+                            lb_tagi.Items.Add(rdr.GetValue(0).ToString());
                         }
                     }
                 }
-                conn.Close();
 
+                SQLiteCommand command6 = new SQLiteCommand(conn);
+                command6.CommandText = @"
+                    SELECT osoba, id_roli
+                    FROM Obsada
+                    WHERE id_filmu = @id_filmu
+                    ";
+                command6.Parameters.Add(new SQLiteParameter("@id_filmu", id));
+                using (command6)
+                {
+                    using (SQLiteDataReader rdr = command6.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            switch (rdr.GetInt32(1))
+                            {
+                                case 1: lb_rezyseria.Items.Add(rdr.GetValue(0).ToString()); break;
+                                case 2: lb_scenariusz.Items.Add(rdr.GetValue(0).ToString()); break;
+                                case 3: lb_muzyka.Items.Add(rdr.GetValue(0).ToString()); break;
+                                case 4: lb_zdjecia.Items.Add(rdr.GetValue(0).ToString()); break;
+                                case 5: lb_aktorzy.Items.Add(rdr.GetValue(0).ToString()); break;
+                            }
+                        }
+                    }
+                }
                 conn.Close();
             }
 
             odswiezStatus();
         }
 
-        private void btn_Wyjscie_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void lb_tagi_DoubleClick(object sender, EventArgs e)
         {
             if (lb_tagi.SelectedItems.Count > 0)
             {
-                string[] words = lb_tagi.SelectedItem.ToString().Split(' ');
-                string id_taga = words[words.Length - 1].Trim(new Char[] { '[', ']' });
-                FrmFormularzTaga frmFormularzTaga = new FrmFormularzTaga(Int32.Parse(id_taga));
+                FrmFormularzTaga frmFormularzTaga = new FrmFormularzTaga(lb_tagi.SelectedItem.ToString());
                 frmFormularzTaga.ShowDialog();
             }
         }
 
         private void btn_wypozycz_Click(object sender, EventArgs e)
         {
-            if (parent_of_parent == "FrmWypozyczenieFilmu")
-            {
-                ((FrmListaFilmow)this.Owner).czy_wybrano_prop = true;
-                this.Close();
-            }
-            else
-            {
+
                 if (zwrot == false)
                 {
                     FrmWypozyczenieFilmu frmWypozyczenieFilmu = new FrmWypozyczenieFilmu(id, this.Name);
@@ -194,13 +181,62 @@ namespace Wypozyczalnia.Formsy
                     frmZwrotFilmu.ShowDialog();
                     odswiezStatus();
                 }
+            
+        }
+
+        private void btn_zamknij_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void lb_rezyseria_DoubleClick(object sender, EventArgs e)
+        {
+            if (lb_rezyseria.SelectedItems.Count > 0)
+            {
+                FrmFormularzOsoby frmFormularzOsoby = new FrmFormularzOsoby(lb_rezyseria.SelectedItem.ToString());
+                frmFormularzOsoby.ShowDialog();
             }
         }
 
-        private void btn_obsada_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            FrmWyswietlanieObsady frmWyswietlanieObsady = new FrmWyswietlanieObsady(osoby);
-            frmWyswietlanieObsady.ShowDialog(this);
+            this.Close();
+        }
+
+        private void lb_scenariusz_DoubleClick(object sender, EventArgs e)
+        {
+            if (lb_scenariusz.SelectedItems.Count > 0)
+            {
+                FrmFormularzOsoby frmFormularzOsoby = new FrmFormularzOsoby(lb_scenariusz.SelectedItem.ToString());
+                frmFormularzOsoby.ShowDialog();
+            }
+        }
+
+        private void lb_muzyka_DoubleClick(object sender, EventArgs e)
+        {
+            if (lb_muzyka.SelectedItems.Count > 0)
+            {
+                FrmFormularzOsoby frmFormularzOsoby = new FrmFormularzOsoby(lb_muzyka.SelectedItem.ToString());
+                frmFormularzOsoby.ShowDialog();
+            }
+        }
+
+        private void lb_zdjecia_DoubleClick(object sender, EventArgs e)
+        {
+            if (lb_zdjecia.SelectedItems.Count > 0)
+            {
+                FrmFormularzOsoby frmFormularzOsoby = new FrmFormularzOsoby(lb_zdjecia.SelectedItem.ToString());
+                frmFormularzOsoby.ShowDialog();
+            }
+        }
+
+        private void lb_aktorzy_DoubleClick(object sender, EventArgs e)
+        {
+            if (lb_aktorzy.SelectedItems.Count > 0)
+            {
+                FrmFormularzOsoby frmFormularzOsoby = new FrmFormularzOsoby(lb_aktorzy.SelectedItem.ToString());
+                frmFormularzOsoby.ShowDialog();
+            }
         }
     }
 }

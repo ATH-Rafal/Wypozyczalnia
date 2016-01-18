@@ -45,7 +45,7 @@ namespace Wypozyczalnia.Formsy
         {
             if (id_taryfy == null)
             {
-                label_cena.Text = "Cena: ...";
+                label_cena.Text = "CENA: ...";
             }
             else
             {
@@ -111,6 +111,11 @@ namespace Wypozyczalnia.Formsy
                 btn_wybierz_film.Enabled = false;
             }
 
+        }
+
+        public FrmWypozyczenieFilmu()
+        {
+            InitializeComponent();
         }
 
         private void btn_zatwierdz_Click(object sender, EventArgs e)

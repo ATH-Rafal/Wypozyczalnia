@@ -30,12 +30,10 @@
         {
             this.PanelTekst = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_zamknij = new System.Windows.Forms.Button();
             this.lb_filmy = new System.Windows.Forms.ListBox();
             this.txt_nazwa = new System.Windows.Forms.TextBox();
-            this.txt_id = new System.Windows.Forms.TextBox();
             this.PanelTekst.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +41,6 @@
             // 
             this.PanelTekst.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.PanelTekst.Controls.Add(this.label2);
-            this.PanelTekst.Controls.Add(this.label1);
             this.PanelTekst.Controls.Add(this.label3);
             this.PanelTekst.Location = new System.Drawing.Point(0, 0);
             this.PanelTekst.Name = "PanelTekst";
@@ -55,28 +52,17 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
-            this.label2.Location = new System.Drawing.Point(12, 46);
+            this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 16);
             this.label2.TabIndex = 15;
             this.label2.Text = "Imię i nazwisko";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
-            this.label1.Location = new System.Drawing.Point(12, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 16);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "ID";
-            // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(241)))), ((int)(((byte)(199)))));
-            this.label3.Location = new System.Drawing.Point(12, 77);
+            this.label3.Location = new System.Drawing.Point(12, 34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(127, 60);
             this.label3.TabIndex = 4;
@@ -88,7 +74,7 @@
             this.btn_zamknij.Name = "btn_zamknij";
             this.btn_zamknij.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_zamknij.Size = new System.Drawing.Size(88, 47);
-            this.btn_zamknij.TabIndex = 77;
+            this.btn_zamknij.TabIndex = 2;
             this.btn_zamknij.Text = "ZAMKNIJ";
             this.btn_zamknij.UseVisualStyleBackColor = true;
             this.btn_zamknij.Click += new System.EventHandler(this.btn_zamknij_Click);
@@ -96,26 +82,18 @@
             // lb_filmy
             // 
             this.lb_filmy.FormattingEnabled = true;
-            this.lb_filmy.Location = new System.Drawing.Point(159, 77);
+            this.lb_filmy.Location = new System.Drawing.Point(159, 34);
             this.lb_filmy.Name = "lb_filmy";
-            this.lb_filmy.Size = new System.Drawing.Size(317, 225);
-            this.lb_filmy.TabIndex = 76;
+            this.lb_filmy.Size = new System.Drawing.Size(317, 264);
+            this.lb_filmy.TabIndex = 1;
             // 
             // txt_nazwa
             // 
-            this.txt_nazwa.Location = new System.Drawing.Point(159, 45);
+            this.txt_nazwa.Location = new System.Drawing.Point(159, 8);
             this.txt_nazwa.Name = "txt_nazwa";
             this.txt_nazwa.ReadOnly = true;
             this.txt_nazwa.Size = new System.Drawing.Size(317, 20);
-            this.txt_nazwa.TabIndex = 78;
-            // 
-            // txt_id
-            // 
-            this.txt_id.Location = new System.Drawing.Point(159, 12);
-            this.txt_id.Name = "txt_id";
-            this.txt_id.ReadOnly = true;
-            this.txt_id.Size = new System.Drawing.Size(317, 20);
-            this.txt_id.TabIndex = 74;
+            this.txt_nazwa.TabIndex = 0;
             // 
             // FrmFormularzOsoby
             // 
@@ -126,12 +104,11 @@
             this.Controls.Add(this.PanelTekst);
             this.Controls.Add(this.btn_zamknij);
             this.Controls.Add(this.lb_filmy);
-            this.Controls.Add(this.txt_id);
             this.Controls.Add(this.txt_nazwa);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FrmFormularzOsoby";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FORMULARZ OSOBY";
+            this.Text = "SZCZEGÓŁY OSOBY";
             this.PanelTekst.ResumeLayout(false);
             this.PanelTekst.PerformLayout();
             this.ResumeLayout(false);
@@ -147,7 +124,5 @@
         private System.Windows.Forms.Button btn_zamknij;
         private System.Windows.Forms.ListBox lb_filmy;
         private System.Windows.Forms.TextBox txt_nazwa;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txt_id;
     }
 }

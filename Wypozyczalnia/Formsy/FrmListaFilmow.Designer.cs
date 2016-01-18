@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_dodaj_film = new System.Windows.Forms.Button();
-            this.btn_usun_film = new System.Windows.Forms.Button();
-            this.btn_edytuj_film = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btn_pokaz_film = new System.Windows.Forms.Button();
             this.btn_zamknij = new System.Windows.Forms.Button();
@@ -41,36 +38,6 @@
             this.cb_napisy = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btn_dodaj_film
-            // 
-            this.btn_dodaj_film.Location = new System.Drawing.Point(198, 394);
-            this.btn_dodaj_film.Name = "btn_dodaj_film";
-            this.btn_dodaj_film.Size = new System.Drawing.Size(136, 49);
-            this.btn_dodaj_film.TabIndex = 7;
-            this.btn_dodaj_film.Text = "DODAJ FILM";
-            this.btn_dodaj_film.UseVisualStyleBackColor = true;
-            this.btn_dodaj_film.Click += new System.EventHandler(this.btn_dodaj_film_Click);
-            // 
-            // btn_usun_film
-            // 
-            this.btn_usun_film.Location = new System.Drawing.Point(482, 394);
-            this.btn_usun_film.Name = "btn_usun_film";
-            this.btn_usun_film.Size = new System.Drawing.Size(136, 49);
-            this.btn_usun_film.TabIndex = 9;
-            this.btn_usun_film.Text = "USUŃ FILM";
-            this.btn_usun_film.UseVisualStyleBackColor = true;
-            this.btn_usun_film.Click += new System.EventHandler(this.btn_usun_film_Click);
-            // 
-            // btn_edytuj_film
-            // 
-            this.btn_edytuj_film.Location = new System.Drawing.Point(340, 394);
-            this.btn_edytuj_film.Name = "btn_edytuj_film";
-            this.btn_edytuj_film.Size = new System.Drawing.Size(136, 49);
-            this.btn_edytuj_film.TabIndex = 8;
-            this.btn_edytuj_film.Text = "EDYTUJ FILM";
-            this.btn_edytuj_film.UseVisualStyleBackColor = true;
-            this.btn_edytuj_film.Click += new System.EventHandler(this.btn_edytuj_film_Click);
             // 
             // dataGridView1
             // 
@@ -89,11 +56,11 @@
             // 
             // btn_pokaz_film
             // 
-            this.btn_pokaz_film.Location = new System.Drawing.Point(12, 394);
+            this.btn_pokaz_film.Location = new System.Drawing.Point(529, 394);
             this.btn_pokaz_film.Name = "btn_pokaz_film";
             this.btn_pokaz_film.Size = new System.Drawing.Size(180, 49);
             this.btn_pokaz_film.TabIndex = 6;
-            this.btn_pokaz_film.Text = "POKAŻ FILM";
+            this.btn_pokaz_film.Text = "WYBIERZ";
             this.btn_pokaz_film.UseVisualStyleBackColor = true;
             this.btn_pokaz_film.Click += new System.EventHandler(this.btn_pokaz_film_Click);
             // 
@@ -102,7 +69,7 @@
             this.btn_zamknij.Location = new System.Drawing.Point(715, 394);
             this.btn_zamknij.Name = "btn_zamknij";
             this.btn_zamknij.Size = new System.Drawing.Size(136, 49);
-            this.btn_zamknij.TabIndex = 10;
+            this.btn_zamknij.TabIndex = 7;
             this.btn_zamknij.Text = "ZAMKNIJ";
             this.btn_zamknij.UseVisualStyleBackColor = true;
             this.btn_zamknij.Click += new System.EventHandler(this.btn_zamknij_Click);
@@ -188,9 +155,6 @@
             this.Controls.Add(this.btn_zamknij);
             this.Controls.Add(this.btn_pokaz_film);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btn_edytuj_film);
-            this.Controls.Add(this.btn_usun_film);
-            this.Controls.Add(this.btn_dodaj_film);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "FrmListaFilmow";
@@ -203,10 +167,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_dodaj_film;
-        private System.Windows.Forms.Button btn_usun_film;
-        private System.Windows.Forms.Button btn_edytuj_film;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btn_pokaz_film;
         private System.Windows.Forms.Button btn_zamknij;

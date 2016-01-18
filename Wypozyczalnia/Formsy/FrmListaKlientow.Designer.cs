@@ -29,11 +29,8 @@
         private void InitializeComponent()
         {
             this.btn_zamknij = new System.Windows.Forms.Button();
-            this.btn_edytuj_klienta = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btn_pokaz_profil = new System.Windows.Forms.Button();
-            this.btn_dodaj_klienta = new System.Windows.Forms.Button();
-            this.btn_usun_klienta = new System.Windows.Forms.Button();
             this.txt_filtr = new System.Windows.Forms.TextBox();
             this.cmb_kolumna = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -44,20 +41,10 @@
             this.btn_zamknij.Location = new System.Drawing.Point(716, 394);
             this.btn_zamknij.Name = "btn_zamknij";
             this.btn_zamknij.Size = new System.Drawing.Size(135, 49);
-            this.btn_zamknij.TabIndex = 7;
+            this.btn_zamknij.TabIndex = 4;
             this.btn_zamknij.Text = "ZAMKNIJ";
             this.btn_zamknij.UseVisualStyleBackColor = true;
             this.btn_zamknij.Click += new System.EventHandler(this.btn_zamknij_Click);
-            // 
-            // btn_edytuj_klienta
-            // 
-            this.btn_edytuj_klienta.Location = new System.Drawing.Point(340, 394);
-            this.btn_edytuj_klienta.Name = "btn_edytuj_klienta";
-            this.btn_edytuj_klienta.Size = new System.Drawing.Size(136, 49);
-            this.btn_edytuj_klienta.TabIndex = 5;
-            this.btn_edytuj_klienta.Text = "EDYTUJ KLIENTA";
-            this.btn_edytuj_klienta.UseVisualStyleBackColor = true;
-            this.btn_edytuj_klienta.Click += new System.EventHandler(this.btn_edytuj_klienta_Click);
             // 
             // dataGridView1
             // 
@@ -76,33 +63,13 @@
             // 
             // btn_pokaz_profil
             // 
-            this.btn_pokaz_profil.Location = new System.Drawing.Point(12, 394);
+            this.btn_pokaz_profil.Location = new System.Drawing.Point(530, 394);
             this.btn_pokaz_profil.Name = "btn_pokaz_profil";
             this.btn_pokaz_profil.Size = new System.Drawing.Size(180, 49);
             this.btn_pokaz_profil.TabIndex = 3;
-            this.btn_pokaz_profil.Text = "POKAŻ PROFIL";
+            this.btn_pokaz_profil.Text = "WYBIERZ";
             this.btn_pokaz_profil.UseVisualStyleBackColor = true;
             this.btn_pokaz_profil.Click += new System.EventHandler(this.btn_pokaz_profil_Click);
-            // 
-            // btn_dodaj_klienta
-            // 
-            this.btn_dodaj_klienta.Location = new System.Drawing.Point(198, 394);
-            this.btn_dodaj_klienta.Name = "btn_dodaj_klienta";
-            this.btn_dodaj_klienta.Size = new System.Drawing.Size(136, 49);
-            this.btn_dodaj_klienta.TabIndex = 4;
-            this.btn_dodaj_klienta.Text = "DODAJ KLIENTA";
-            this.btn_dodaj_klienta.UseVisualStyleBackColor = true;
-            this.btn_dodaj_klienta.Click += new System.EventHandler(this.btn_dodaj_klienta_Click);
-            // 
-            // btn_usun_klienta
-            // 
-            this.btn_usun_klienta.Location = new System.Drawing.Point(482, 394);
-            this.btn_usun_klienta.Name = "btn_usun_klienta";
-            this.btn_usun_klienta.Size = new System.Drawing.Size(136, 49);
-            this.btn_usun_klienta.TabIndex = 6;
-            this.btn_usun_klienta.Text = "USUŃ KLIENTA";
-            this.btn_usun_klienta.UseVisualStyleBackColor = true;
-            this.btn_usun_klienta.Click += new System.EventHandler(this.btn_usun_klienta_Click);
             // 
             // txt_filtr
             // 
@@ -144,11 +111,8 @@
             this.ClientSize = new System.Drawing.Size(863, 455);
             this.Controls.Add(this.cmb_kolumna);
             this.Controls.Add(this.txt_filtr);
-            this.Controls.Add(this.btn_usun_klienta);
-            this.Controls.Add(this.btn_dodaj_klienta);
             this.Controls.Add(this.btn_pokaz_profil);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btn_edytuj_klienta);
             this.Controls.Add(this.btn_zamknij);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -164,11 +128,8 @@
         #endregion
 
         private System.Windows.Forms.Button btn_zamknij;
-        private System.Windows.Forms.Button btn_edytuj_klienta;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btn_pokaz_profil;
-        private System.Windows.Forms.Button btn_dodaj_klienta;
-        private System.Windows.Forms.Button btn_usun_klienta;
         private System.Windows.Forms.TextBox txt_filtr;
         private System.Windows.Forms.ComboBox cmb_kolumna;
     }

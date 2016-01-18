@@ -14,7 +14,6 @@ C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\bin\Debug\EntityFra
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\bin\Debug\System.Data.SQLite.xml
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\bin\Debug\System.Web.Razor.xml
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.csprojResolveAssemblyReference.cache
-C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.FrmUsuwanieklienta.resources
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Properties.Resources.resources
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.csproj.GenerateResource.Cache
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.exe
@@ -86,8 +85,6 @@ C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozycza
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmEdytujFilm.resources
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmListaFilmow.resources
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmFormularzFilmu.resources
-C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmListaTagow.resources
-C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmZarzadzanieTagami.resources
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmFormularzTaga.resources
 C:\Users\Rafał\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\bin\Debug\Wypozyczalnia.exe.config
 C:\Users\Rafał\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozyczalnia.exe
@@ -126,18 +123,14 @@ C:\Users\Rafał\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozycza
 C:\Users\Rafał\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmWypozyczenieFilmu.resources
 C:\Users\Rafał\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmHistoriaWypozyczen.resources
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmHistoriaWypozyczen.resources
-C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmProfilKlienta.resources
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmWypozyczenieFilmu.resources
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmDodajTaryfe.resources
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmEdyfujTaryfe.resources
 C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmFormularzTaryfy.resources
-C:\Users\Wojciech\Documents\wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmListaTaryf.resources
 C:\Users\Rafał\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmDodajTaryfe.resources
 C:\Users\Rafał\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmEdyfujTaryfe.resources
 C:\Users\Rafał\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmFormularzTaryfy.resources
 C:\Users\Rafał\Documents\GitHub\Wypozyczalnia\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmListaTaryf.resources
-C:\Users\Wojciech\Documents\Wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmZarzadzanieObsada.resources
-C:\Users\Wojciech\Documents\Wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmListaOsob.resources
 C:\Users\Wojciech\Documents\Wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmFormularzOsoby.resources
 C:\Users\Wojciech\Documents\Wypozyczalnia-repo\Wypozyczalnia\obj\Debug\Wypozyczalnia.Formsy.FrmZwrotFilmu.resources
 C:\Users\Rafał\Desktop\Wypozyczalnia-master\Wypozyczalnia-master\Wypozyczalnia\bin\Debug\Wypozyczalnia.exe.config

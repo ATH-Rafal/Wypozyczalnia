@@ -14,26 +14,25 @@ namespace Wypozyczalnia.Formsy
     public partial class FrmFormularzOsoby : Form
     {
         string connString = "Data Source = baza.db; Version = 3";
-        int id;
-        public FrmFormularzOsoby(int _id)
+        string imie_nazwisko;
+        public FrmFormularzOsoby(string _imie_nazwisko)
         {
-            id = _id;
+            imie_nazwisko = _imie_nazwisko;
             InitializeComponent();
             using (SQLiteConnection conn = new SQLiteConnection(connString))
             {
                 conn.Open();
 
                 SQLiteCommand command1 = new SQLiteCommand(conn);
-                command1.CommandText = "SELECT * FROM Osoby WHERE id=@id";
-                command1.Parameters.Add(new SQLiteParameter("@id", id));
+                command1.CommandText = "SELECT * FROM Osoby WHERE imie_nazwisko=@imie_nazwisko";
+                command1.Parameters.Add(new SQLiteParameter("@imie_nazwisko", imie_nazwisko));
                 using (command1)
                 {
                     using (SQLiteDataReader rdr = command1.ExecuteReader())
                     {
                         while (rdr.Read())
                         {
-                            txt_id.Text = rdr.GetValue(0).ToString();
-                            txt_nazwa.Text = rdr.GetValue(1).ToString();
+                            txt_nazwa.Text = rdr.GetValue(0).ToString();
                         }
                     }
                 }
@@ -43,10 +42,10 @@ namespace Wypozyczalnia.Formsy
                         SELECT Filmy.tytul_pol, Filmy.id, Obsada.id_roli
                         FROM Filmy
                         INNER JOIN Obsada ON Filmy.id = Obsada.id_filmu
-                        INNER JOIN Osoby ON Obsada.id_osoby = Osoby.id
-                        WHERE Osoby.id = @id
+                        INNER JOIN Osoby ON Obsada.osoba = Osoby.imie_nazwisko
+                        WHERE Osoby.imie_nazwisko = @imie_nazwisko
                         ";
-                command2.Parameters.Add(new SQLiteParameter("@id", id));
+                command2.Parameters.Add(new SQLiteParameter("@imie_nazwisko", imie_nazwisko));
                 using (command2)
                 {                   
                     using (SQLiteDataReader rdr = command2.ExecuteReader())

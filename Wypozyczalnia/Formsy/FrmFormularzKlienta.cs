@@ -10,7 +10,6 @@ namespace Wypozyczalnia.Formsy
         DataTable table = new DataTable();
         int id;
         int index;
-        string parent_of_parent;
         string connString = "Data Source = baza.db; Version = 3";
 
         private void odswiez()
@@ -32,13 +31,11 @@ namespace Wypozyczalnia.Formsy
             dth_dane_wypozyczenia.DataSource = table;
         }
 
-        public FrmFormularzKlienta(int _id, string _parent_of_parent)
+        public FrmFormularzKlienta(int _id)
         {
             id = _id;
-            parent_of_parent = _parent_of_parent;
             InitializeComponent();
             odswiez();
-            if (parent_of_parent == "FrmWypozyczenieFilmu") { btn_wypozycz.Text = "WYBIERZ"; btn_zwroc.Enabled = false; }     
             using (SQLiteConnection conn = new SQLiteConnection(connString))
             {
                 conn.Open();
@@ -69,22 +66,9 @@ namespace Wypozyczalnia.Formsy
             }
         }
 
-        private void btn_wyjscie_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void btn_wypozycz_Click(object sender, EventArgs e)
         {
 
-
-            if (parent_of_parent == "FrmWypozyczenieFilmu")
-            {
-                ((FrmListaKlientow)this.Owner).czy_wybrano_prop = true;
-                this.Close();
-            }
-            else
-            {
                 int liczba_wierszy = dth_dane_wypozyczenia.RowCount;
                 if (dth_dane_wypozyczenia.RowCount != 0) index = dth_dane_wypozyczenia.SelectedRows[0].Index;
 
@@ -98,7 +82,7 @@ namespace Wypozyczalnia.Formsy
                         dth_dane_wypozyczenia.CurrentCell = dth_dane_wypozyczenia.Rows[dth_dane_wypozyczenia.RowCount - 1].Cells[0];
                     else dth_dane_wypozyczenia.CurrentCell = dth_dane_wypozyczenia.Rows[index].Cells[0];
                 }
-            }
+            
         }
 
         private void btn_zwroc_Click(object sender, EventArgs e)
@@ -109,6 +93,16 @@ namespace Wypozyczalnia.Formsy
                 frmZwrotFilmu.ShowDialog();
                 odswiez();
             }
+        }
+
+        private void btn_zamknij_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

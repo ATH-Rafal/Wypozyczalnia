@@ -97,7 +97,7 @@
             this.btn_zatwierdz.Location = new System.Drawing.Point(242, 239);
             this.btn_zatwierdz.Name = "btn_zatwierdz";
             this.btn_zatwierdz.Size = new System.Drawing.Size(88, 47);
-            this.btn_zatwierdz.TabIndex = 1;
+            this.btn_zatwierdz.TabIndex = 7;
             this.btn_zatwierdz.Text = "ZATWIERDŹ";
             this.btn_zatwierdz.UseVisualStyleBackColor = true;
             this.btn_zatwierdz.Click += new System.EventHandler(this.btn_zatwierdz_Click);
@@ -109,7 +109,7 @@
             this.btn_anuluj.Location = new System.Drawing.Point(336, 239);
             this.btn_anuluj.Name = "btn_anuluj";
             this.btn_anuluj.Size = new System.Drawing.Size(88, 47);
-            this.btn_anuluj.TabIndex = 3;
+            this.btn_anuluj.TabIndex = 8;
             this.btn_anuluj.Text = "ANULUJ";
             this.btn_anuluj.UseVisualStyleBackColor = true;
             this.btn_anuluj.Click += new System.EventHandler(this.btn_anuluj_Click);
@@ -121,7 +121,7 @@
             this.txt_klient.Name = "txt_klient";
             this.txt_klient.ReadOnly = true;
             this.txt_klient.Size = new System.Drawing.Size(265, 20);
-            this.txt_klient.TabIndex = 5;
+            this.txt_klient.TabIndex = 2;
             // 
             // txt_id_filmu
             // 
@@ -129,7 +129,7 @@
             this.txt_id_filmu.Location = new System.Drawing.Point(159, 87);
             this.txt_id_filmu.Name = "txt_id_filmu";
             this.txt_id_filmu.Size = new System.Drawing.Size(146, 20);
-            this.txt_id_filmu.TabIndex = 6;
+            this.txt_id_filmu.TabIndex = 3;
             this.txt_id_filmu.TextChanged += new System.EventHandler(this.txt_id_filmu_TextChanged);
             this.txt_id_filmu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_id_filmu_KeyPress);
             // 
@@ -140,7 +140,7 @@
             this.txt_id_klienta.Multiline = true;
             this.txt_id_klienta.Name = "txt_id_klienta";
             this.txt_id_klienta.Size = new System.Drawing.Size(146, 20);
-            this.txt_id_klienta.TabIndex = 4;
+            this.txt_id_klienta.TabIndex = 0;
             this.txt_id_klienta.TextChanged += new System.EventHandler(this.txt_id_klienta_TextChanged);
             this.txt_id_klienta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_id_klienta_KeyPress);
             // 
@@ -151,14 +151,14 @@
             this.txt_film.Name = "txt_film";
             this.txt_film.ReadOnly = true;
             this.txt_film.Size = new System.Drawing.Size(265, 20);
-            this.txt_film.TabIndex = 7;
+            this.txt_film.TabIndex = 5;
             // 
             // btn_wybierz_klienta
             // 
             this.btn_wybierz_klienta.Location = new System.Drawing.Point(311, 10);
             this.btn_wybierz_klienta.Name = "btn_wybierz_klienta";
             this.btn_wybierz_klienta.Size = new System.Drawing.Size(112, 23);
-            this.btn_wybierz_klienta.TabIndex = 8;
+            this.btn_wybierz_klienta.TabIndex = 1;
             this.btn_wybierz_klienta.Text = "WYBIERZ Z LISTY";
             this.btn_wybierz_klienta.UseVisualStyleBackColor = true;
             this.btn_wybierz_klienta.Click += new System.EventHandler(this.btn_wybierz_klienta_Click);
@@ -168,7 +168,7 @@
             this.btn_wybierz_film.Location = new System.Drawing.Point(311, 85);
             this.btn_wybierz_film.Name = "btn_wybierz_film";
             this.btn_wybierz_film.Size = new System.Drawing.Size(112, 23);
-            this.btn_wybierz_film.TabIndex = 9;
+            this.btn_wybierz_film.TabIndex = 4;
             this.btn_wybierz_film.Text = "WYBIERZ Z LISTY";
             this.btn_wybierz_film.UseVisualStyleBackColor = true;
             this.btn_wybierz_film.Click += new System.EventHandler(this.btn_wybierz_film_Click);
@@ -178,7 +178,7 @@
             this.txt_dni.Location = new System.Drawing.Point(159, 164);
             this.txt_dni.Name = "txt_dni";
             this.txt_dni.Size = new System.Drawing.Size(86, 20);
-            this.txt_dni.TabIndex = 10;
+            this.txt_dni.TabIndex = 6;
             this.txt_dni.Value = new decimal(new int[] {
             1,
             0,

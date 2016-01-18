@@ -77,7 +77,6 @@
             // 
             // btn_dodaj
             // 
-            this.btn_dodaj.Enabled = false;
             this.btn_dodaj.Location = new System.Drawing.Point(373, 247);
             this.btn_dodaj.Name = "btn_dodaj";
             this.btn_dodaj.Size = new System.Drawing.Size(99, 49);
@@ -125,7 +124,6 @@
             this.txt_nazwa.Name = "txt_nazwa";
             this.txt_nazwa.Size = new System.Drawing.Size(313, 20);
             this.txt_nazwa.TabIndex = 0;
-            this.txt_nazwa.TextChanged += new System.EventHandler(this.txt_nazwa_TextChanged);
             // 
             // label4
             // 
@@ -182,7 +180,6 @@
             // 
             // btn_zatwierdz
             // 
-            this.btn_zatwierdz.Enabled = false;
             this.btn_zatwierdz.Location = new System.Drawing.Point(290, 334);
             this.btn_zatwierdz.Name = "btn_zatwierdz";
             this.btn_zatwierdz.Size = new System.Drawing.Size(88, 47);
@@ -193,7 +190,6 @@
             // 
             // btn_usun
             // 
-            this.btn_usun.Enabled = false;
             this.btn_usun.Location = new System.Drawing.Point(373, 302);
             this.btn_usun.Name = "btn_usun";
             this.btn_usun.Size = new System.Drawing.Size(99, 23);

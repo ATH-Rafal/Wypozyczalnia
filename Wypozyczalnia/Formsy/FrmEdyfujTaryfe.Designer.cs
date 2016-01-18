@@ -75,7 +75,6 @@
             this.txt_nazwa.Name = "txt_nazwa";
             this.txt_nazwa.Size = new System.Drawing.Size(313, 20);
             this.txt_nazwa.TabIndex = 1;
-            this.txt_nazwa.TextChanged += new System.EventHandler(this.txt_nazwa_TextChanged);
             // 
             // label4
             // 
@@ -162,7 +161,6 @@
             // 
             // btn_usun
             // 
-            this.btn_usun.Enabled = false;
             this.btn_usun.Location = new System.Drawing.Point(373, 334);
             this.btn_usun.Name = "btn_usun";
             this.btn_usun.Size = new System.Drawing.Size(99, 23);
@@ -182,7 +180,6 @@
             // 
             // btn_dodaj
             // 
-            this.btn_dodaj.Enabled = false;
             this.btn_dodaj.Location = new System.Drawing.Point(373, 279);
             this.btn_dodaj.Name = "btn_dodaj";
             this.btn_dodaj.Size = new System.Drawing.Size(99, 49);
