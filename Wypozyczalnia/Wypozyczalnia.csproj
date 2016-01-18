@@ -123,12 +123,6 @@
     <Compile Include="Formsy\FrmFormularzTaryfy.Designer.cs">
       <DependentUpon>FrmFormularzTaryfy.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formsy\FrmHistoriaWypozyczen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formsy\FrmHistoriaWypozyczen.Designer.cs">
-      <DependentUpon>FrmHistoriaWypozyczen.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formsy\FrmListaFilmow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,9 +196,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formsy\FrmFormularzTaryfy.resx">
       <DependentUpon>FrmFormularzTaryfy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formsy\FrmHistoriaWypozyczen.resx">
-      <DependentUpon>FrmHistoriaWypozyczen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formsy\FrmListaFilmow.resx">
       <DependentUpon>FrmListaFilmow.cs</DependentUpon>
