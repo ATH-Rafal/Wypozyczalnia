@@ -248,7 +248,7 @@
             this.btn_dodaj.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_dodaj.Size = new System.Drawing.Size(88, 47);
             this.btn_dodaj.TabIndex = 10;
-            this.btn_dodaj.Text = "DODAJ";
+            this.btn_dodaj.Text = "DODAJ KLIENTA";
             this.btn_dodaj.UseVisualStyleBackColor = true;
             this.btn_dodaj.Click += new System.EventHandler(this.btn_dodaj_Click);
             // 
@@ -283,6 +283,8 @@
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(317, 20);
             this.txt_email.TabIndex = 5;
+            this.txt_email.TextChanged += new System.EventHandler(this.txt_email_TextChanged);
+            this.txt_email.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_email_KeyPress);
             // 
             // txt_nr_telefonu
             // 

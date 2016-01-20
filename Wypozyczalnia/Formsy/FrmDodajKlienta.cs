@@ -26,32 +26,32 @@ namespace Wypozyczalnia.Formsy
             }
             else
             {
-                
-                    using (SQLiteConnection conn = new SQLiteConnection(connString))
-                    {
-                        conn.Open();
-                        SQLiteCommand command = new SQLiteCommand(conn);
-                        command.CommandText = @"
+
+                using (SQLiteConnection conn = new SQLiteConnection(connString))
+                {
+                    conn.Open();
+                    SQLiteCommand command = new SQLiteCommand(conn);
+                    command.CommandText = @"
                                 INSERT INTO Klienci (imie, nazwisko, pesel, nr_dowodu, nr_telefonu, email, miejscowosc, kod_pocztowy, ulica, nr_domu)
                                 VALUES (@imie, @nazwisko, @pesel, @nr_dowodu, @nr_telefonu, @email, @miejscowosc, @kod_pocztowy, @ulica, @nr_domu)
                                 ";
 
-                        command.Parameters.Add(new SQLiteParameter("@imie", txt_imie.Text));
-                        command.Parameters.Add(new SQLiteParameter("@nazwisko", txt_nazwisko.Text));
-                        command.Parameters.Add(new SQLiteParameter("@pesel", txt_pesel.Text));
-                        command.Parameters.Add(new SQLiteParameter("@nr_dowodu", txt_nr_dowodu.Text));
-                        command.Parameters.Add(new SQLiteParameter("@nr_telefonu", txt_nr_telefonu.Text));
-                        command.Parameters.Add(new SQLiteParameter("@email", txt_email.Text));
-                        command.Parameters.Add(new SQLiteParameter("@miejscowosc", txt_miejscowosc.Text));
-                        command.Parameters.Add(new SQLiteParameter("@kod_pocztowy", txt_kod_pocztowy.Text));
-                        command.Parameters.Add(new SQLiteParameter("@ulica", txt_ulica.Text));
-                        command.Parameters.Add(new SQLiteParameter("@nr_domu", txt_nr_domu.Text));
+                    command.Parameters.Add(new SQLiteParameter("@imie", txt_imie.Text.Trim()));
+                    command.Parameters.Add(new SQLiteParameter("@nazwisko", txt_nazwisko.Text.Trim()));
+                    command.Parameters.Add(new SQLiteParameter("@pesel", txt_pesel.Text));
+                    command.Parameters.Add(new SQLiteParameter("@nr_dowodu", txt_nr_dowodu.Text));
+                    command.Parameters.Add(new SQLiteParameter("@nr_telefonu", txt_nr_telefonu.Text));
+                    command.Parameters.Add(new SQLiteParameter("@email", txt_email.Text));
+                    command.Parameters.Add(new SQLiteParameter("@miejscowosc", txt_miejscowosc.Text.Trim()));
+                    command.Parameters.Add(new SQLiteParameter("@kod_pocztowy", txt_kod_pocztowy.Text));
+                    command.Parameters.Add(new SQLiteParameter("@ulica", txt_ulica.Text.Trim()));
+                    command.Parameters.Add(new SQLiteParameter("@nr_domu", txt_nr_domu.Text.Trim()));
 
-                        command.ExecuteNonQuery();
-                        conn.Close();
+                    command.ExecuteNonQuery();
+                    conn.Close();
 
-                        this.Close();
-                    
+                    this.Close();
+
                 }
             }
         }
@@ -82,5 +82,25 @@ namespace Wypozyczalnia.Formsy
             txt_nr_telefonu.Text = temp;
         }
 
+        private void txt_email_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsSymbol(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar) && e.KeyChar == ' ')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_email_TextChanged(object sender, EventArgs e)
+        {
+            string temp = null;
+            foreach (char c in txt_email.Text)
+            {
+                if (char.IsControl(c) || char.IsSymbol(c) || char.IsLetterOrDigit(c) || c != ' ')
+                {
+                    temp += c;
+                }
+            }
+            txt_email.Text = temp;
+        }
     }
 }

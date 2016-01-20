@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Wypozyczalnia.Formsy
-{   
+{
     public partial class FrmFormularzTaga : Form
     {
         string connString = "Data Source = baza.db; Version = 3";
@@ -23,20 +23,7 @@ namespace Wypozyczalnia.Formsy
             {
                 conn.Open();
 
-                SQLiteCommand command1 = new SQLiteCommand(conn);
-                command1.CommandText = "SELECT * FROM Tagi WHERE nazwa=@nazwa";
-                command1.Parameters.Add(new SQLiteParameter("@nazwa", nazwa));
-                using (command1)
-                {
-                    using (SQLiteDataReader rdr = command1.ExecuteReader())
-                    {
-                        while (rdr.Read())
-                        {
-                            txt_nazwa.Text = rdr.GetValue(0).ToString();
-                        }
-                    }
-                }
-
+                txt_nazwa.Text = nazwa;
                 SQLiteCommand command2 = new SQLiteCommand(conn);
                 command2.CommandText = @"
                         SELECT Filmy.tytul_pol, Filmy.id 

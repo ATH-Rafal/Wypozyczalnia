@@ -184,7 +184,7 @@
             this.btn_zatwierdz.Name = "btn_zatwierdz";
             this.btn_zatwierdz.Size = new System.Drawing.Size(88, 47);
             this.btn_zatwierdz.TabIndex = 7;
-            this.btn_zatwierdz.Text = "ZATWIERDŹ";
+            this.btn_zatwierdz.Text = "DODAJ TARYFĘ";
             this.btn_zatwierdz.UseVisualStyleBackColor = true;
             this.btn_zatwierdz.Click += new System.EventHandler(this.btn_zatwierdz_Click);
             // 

@@ -49,7 +49,7 @@ namespace Wypozyczalnia.Formsy
                         while (rdr.Read())
                         {
                             txt_id.Text = rdr.GetValue(0).ToString();
-                            txt_nazwa.Text = rdr.GetValue(1).ToString();
+                            txt_nazwa.Text = rdr.GetValue(1).ToString().Trim();
                             txt_cena_za_dzien.Text = rdr.GetValue(2).ToString().Replace(',','.');                           
                         }
                     }

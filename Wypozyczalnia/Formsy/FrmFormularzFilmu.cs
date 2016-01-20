@@ -238,5 +238,35 @@ namespace Wypozyczalnia.Formsy
                 frmFormularzOsoby.ShowDialog();
             }
         }
+
+        private void lb_rezyseria_Leave(object sender, EventArgs e)
+        {
+            lb_rezyseria.SelectedIndex = -1;
+        }
+
+        private void lb_scenariusz_Leave(object sender, EventArgs e)
+        {
+            lb_scenariusz.SelectedIndex = -1;
+        }
+
+        private void lb_muzyka_Leave(object sender, EventArgs e)
+        {
+            lb_muzyka.SelectedIndex = -1;
+        }
+
+        private void lb_zdjecia_Leave(object sender, EventArgs e)
+        {
+            lb_zdjecia.SelectedIndex = -1;
+        }
+
+        private void lb_aktorzy_Leave(object sender, EventArgs e)
+        {
+            lb_aktorzy.SelectedIndex = -1;
+        }
+
+        private void lb_tagi_Leave(object sender, EventArgs e)
+        {
+            lb_tagi.SelectedIndex = -1;
+        }
     }
 }

@@ -217,6 +217,8 @@
             this.lb_tagi.Name = "lb_tagi";
             this.lb_tagi.Size = new System.Drawing.Size(235, 121);
             this.lb_tagi.TabIndex = 14;
+            this.lb_tagi.DoubleClick += new System.EventHandler(this.lb_tagi_DoubleClick);
+            this.lb_tagi.Leave += new System.EventHandler(this.lb_tagi_Leave);
             // 
             // txt_kraj
             // 
@@ -766,6 +768,8 @@
             this.lb_zdjecia.Name = "lb_zdjecia";
             this.lb_zdjecia.Size = new System.Drawing.Size(262, 56);
             this.lb_zdjecia.TabIndex = 12;
+            this.lb_zdjecia.DoubleClick += new System.EventHandler(this.lb_zdjecia_DoubleClick);
+            this.lb_zdjecia.Leave += new System.EventHandler(this.lb_zdjecia_Leave);
             // 
             // btn_usun_kompozytora
             // 
@@ -854,6 +858,8 @@
             this.lb_scenariusz.Name = "lb_scenariusz";
             this.lb_scenariusz.Size = new System.Drawing.Size(262, 56);
             this.lb_scenariusz.TabIndex = 4;
+            this.lb_scenariusz.DoubleClick += new System.EventHandler(this.lb_scenariusz_DoubleClick);
+            this.lb_scenariusz.Leave += new System.EventHandler(this.lb_scenariusz_Leave);
             // 
             // lb_rezyseria
             // 
@@ -862,6 +868,8 @@
             this.lb_rezyseria.Name = "lb_rezyseria";
             this.lb_rezyseria.Size = new System.Drawing.Size(262, 56);
             this.lb_rezyseria.TabIndex = 0;
+            this.lb_rezyseria.DoubleClick += new System.EventHandler(this.lb_rezyseria_DoubleClick);
+            this.lb_rezyseria.Leave += new System.EventHandler(this.lb_rezyseria_Leave);
             // 
             // panel2
             // 
@@ -890,6 +898,8 @@
             this.lb_aktorzy.Name = "lb_aktorzy";
             this.lb_aktorzy.Size = new System.Drawing.Size(262, 277);
             this.lb_aktorzy.TabIndex = 16;
+            this.lb_aktorzy.DoubleClick += new System.EventHandler(this.lb_aktorzy_DoubleClick);
+            this.lb_aktorzy.Leave += new System.EventHandler(this.lb_aktorzy_Leave);
             // 
             // lb_muzyka
             // 
@@ -898,6 +908,8 @@
             this.lb_muzyka.Name = "lb_muzyka";
             this.lb_muzyka.Size = new System.Drawing.Size(262, 56);
             this.lb_muzyka.TabIndex = 8;
+            this.lb_muzyka.DoubleClick += new System.EventHandler(this.lb_muzyka_DoubleClick);
+            this.lb_muzyka.Leave += new System.EventHandler(this.lb_muzyka_Leave);
             // 
             // panel3
             // 

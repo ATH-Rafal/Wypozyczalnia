@@ -28,13 +28,13 @@ namespace Wypozyczalnia.Formsy
                                 ;
                                 SELECT last_insert_rowid()";
 
-                    command1.Parameters.Add(new SQLiteParameter("@tytul_pol", txt_tytul_pol.Text));
-                    command1.Parameters.Add(new SQLiteParameter("@tytul_org", txt_tytul_org.Text));
+                    command1.Parameters.Add(new SQLiteParameter("@tytul_pol", txt_tytul_pol.Text.Trim()));
+                    command1.Parameters.Add(new SQLiteParameter("@tytul_org", txt_tytul_org.Text.Trim()));
                     command1.Parameters.Add(new SQLiteParameter("@rok_produkcji", txt_rok_produkcji.Text));
-                    command1.Parameters.Add(new SQLiteParameter("@gatunek", txt_gatunek.Text));
-                    command1.Parameters.Add(new SQLiteParameter("@gatunek2", txt_gatunek2.Text));
-                    command1.Parameters.Add(new SQLiteParameter("@dystrybutor", txt_dystrybutor.Text));
-                    command1.Parameters.Add(new SQLiteParameter("@kraj", txt_kraj.Text));
+                    command1.Parameters.Add(new SQLiteParameter("@gatunek", txt_gatunek.Text.Trim()));
+                    command1.Parameters.Add(new SQLiteParameter("@gatunek2", txt_gatunek2.Text.Trim()));
+                    command1.Parameters.Add(new SQLiteParameter("@dystrybutor", txt_dystrybutor.Text.Trim()));
+                    command1.Parameters.Add(new SQLiteParameter("@kraj", txt_kraj.Text.Trim()));
                     command1.Parameters.Add(new SQLiteParameter("@dlugosc", txt_dlugosc.Text));
                     command1.Parameters.Add(new SQLiteParameter("@nosnik", cmb_nosnik.Text));
                     command1.Parameters.Add(new SQLiteParameter("@id_taryfy", words1[words1.Length - 1].Trim(new Char[] { '[', ']' })));
@@ -316,9 +316,9 @@ namespace Wypozyczalnia.Formsy
         {
             if (!string.IsNullOrWhiteSpace(txt_dodaj_tag.Text))
             {
-                if (!lb_tagi.Items.Contains(txt_dodaj_tag.Text.ToLower()))
+                if (!lb_tagi.Items.Contains(txt_dodaj_tag.Text.ToLower().Trim()))
                 {
-                    lb_tagi.Items.Add(txt_dodaj_tag.Text.ToLower());
+                    lb_tagi.Items.Add(txt_dodaj_tag.Text.ToLower().Trim());
                 }
                 txt_dodaj_tag.Text = "";
             }
@@ -345,9 +345,9 @@ namespace Wypozyczalnia.Formsy
                     else str += Char.ToLower(txt_dodaj_rezysera.Text[i]);
                 }
 
-                if (!lb_rezyseria.Items.Contains(str))
+                if (!lb_rezyseria.Items.Contains(str.Trim()))
                 {
-                    lb_rezyseria.Items.Add(str);
+                    lb_rezyseria.Items.Add(str.Trim());
                 }
                 txt_dodaj_rezysera.Text = "";
             }
@@ -372,9 +372,9 @@ namespace Wypozyczalnia.Formsy
                     else str += Char.ToLower(txt_dodaj_scenarzyste.Text[i]);
                 }
 
-                if (!lb_scenariusz.Items.Contains(str))
+                if (!lb_scenariusz.Items.Contains(str.Trim()))
                 {
-                    lb_scenariusz.Items.Add(str);
+                    lb_scenariusz.Items.Add(str.Trim());
                 }
                 txt_dodaj_scenarzyste.Text = "";
             }
@@ -399,9 +399,9 @@ namespace Wypozyczalnia.Formsy
                     else str += Char.ToLower(txt_dodaj_kompozytora.Text[i]);
                 }
 
-                if (!lb_muzyka.Items.Contains(str))
+                if (!lb_muzyka.Items.Contains(str.Trim()))
                 {
-                    lb_muzyka.Items.Add(str);
+                    lb_muzyka.Items.Add(str.Trim());
                 }
                 txt_dodaj_kompozytora.Text = "";
             }
@@ -426,9 +426,9 @@ namespace Wypozyczalnia.Formsy
                     else str += Char.ToLower(txt_dodaj_zdjeciowca.Text[i]);
                 }
 
-                if (!lb_zdjecia.Items.Contains(str))
+                if (!lb_zdjecia.Items.Contains(str.Trim()))
                 {
-                    lb_zdjecia.Items.Add(str);
+                    lb_zdjecia.Items.Add(str.Trim());
                 }
                 txt_dodaj_zdjeciowca.Text = "";
             }
@@ -453,9 +453,9 @@ namespace Wypozyczalnia.Formsy
                     else str += Char.ToLower(txt_dodaj_aktora.Text[i]);
                 }
 
-                if (!lb_aktorzy.Items.Contains(str))
+                if (!lb_aktorzy.Items.Contains(str.Trim()))
                 {
-                    lb_aktorzy.Items.Add(str);
+                    lb_aktorzy.Items.Add(str.Trim());
                 }
                 txt_dodaj_aktora.Text = "";
             }
@@ -525,6 +525,96 @@ namespace Wypozyczalnia.Formsy
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void lb_tagi_DoubleClick(object sender, EventArgs e)
+        {
+            if (lb_tagi.SelectedItems.Count > 0)
+            {
+                FrmFormularzTaga frmFormularzTaga = new FrmFormularzTaga(lb_tagi.SelectedItem.ToString());
+                frmFormularzTaga.ShowDialog();
+            }
+        }
+
+        private void lb_rezyseria_DoubleClick(object sender, EventArgs e)
+        {
+            if (lb_rezyseria.SelectedItems.Count > 0)
+            {
+                FrmFormularzOsoby frmFormularzOsoby = new FrmFormularzOsoby(lb_rezyseria.SelectedItem.ToString());
+                frmFormularzOsoby.ShowDialog();
+            }
+        }
+
+        private void lb_scenariusz_DoubleClick(object sender, EventArgs e)
+        {
+            if (lb_scenariusz.SelectedItems.Count > 0)
+            {
+                FrmFormularzOsoby frmFormularzOsoby = new FrmFormularzOsoby(lb_scenariusz.SelectedItem.ToString());
+                frmFormularzOsoby.ShowDialog();
+            }
+        }
+
+        private void lb_muzyka_DoubleClick(object sender, EventArgs e)
+        {
+            if (lb_muzyka.SelectedItems.Count > 0)
+            {
+                FrmFormularzOsoby frmFormularzOsoby = new FrmFormularzOsoby(lb_muzyka.SelectedItem.ToString());
+                frmFormularzOsoby.ShowDialog();
+            }
+        }
+
+        private void lb_zdjecia_DoubleClick(object sender, EventArgs e)
+        {
+            if (lb_zdjecia.SelectedItems.Count > 0)
+            {
+                FrmFormularzOsoby frmFormularzOsoby = new FrmFormularzOsoby(lb_zdjecia.SelectedItem.ToString());
+                frmFormularzOsoby.ShowDialog();
+            }
+        }
+
+        private void lb_aktorzy_DoubleClick(object sender, EventArgs e)
+        {
+            if (lb_aktorzy.SelectedItems.Count > 0)
+            {
+                FrmFormularzOsoby frmFormularzOsoby = new FrmFormularzOsoby(lb_aktorzy.SelectedItem.ToString());
+                frmFormularzOsoby.ShowDialog();
+            }
+        }
+
+        private void lb_rezyseria_Leave(object sender, EventArgs e)
+        {
+            if (!btn_usun_rezysera.Focused)
+                lb_rezyseria.SelectedIndex = -1;
+        }
+
+        private void lb_scenariusz_Leave(object sender, EventArgs e)
+        {
+            if (!btn_usun_scenarzyste.Focused)
+                lb_scenariusz.SelectedIndex = -1;
+        }
+
+        private void lb_muzyka_Leave(object sender, EventArgs e)
+        {
+            if (!btn_usun_kompozytora.Focused)
+                lb_muzyka.SelectedIndex = -1;
+        }
+
+        private void lb_zdjecia_Leave(object sender, EventArgs e)
+        {
+            if (!btn_usun_zdjeciowca.Focused)
+                lb_zdjecia.SelectedIndex = -1;
+        }
+
+        private void lb_aktorzy_Leave(object sender, EventArgs e)
+        {
+            if (!btn_usun_aktora.Focused && !btn_gora_aktorzy.Focused && !btn_dol_aktorzy.Focused)
+                lb_aktorzy.SelectedIndex = -1;
+        }
+
+        private void lb_tagi_Leave(object sender, EventArgs e)
+        {
+            if (!btn_usun_tag.Focused && !btn_gora_tag.Focused && !btn_dol_tag.Focused)
+                lb_tagi.SelectedIndex = -1;
         }
     }
 }

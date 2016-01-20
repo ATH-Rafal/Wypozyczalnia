@@ -140,7 +140,7 @@ namespace Wypozyczalnia.Formsy
                                 VALUES (@nazwa, @cena_za_dzien);
                                 SELECT last_insert_rowid()";
 
-                    command1.Parameters.Add(new SQLiteParameter("@nazwa", txt_nazwa.Text));
+                    command1.Parameters.Add(new SQLiteParameter("@nazwa", txt_nazwa.Text.Trim()));
                     command1.Parameters.Add(new SQLiteParameter("@cena_za_dzien", txt_cena_za_dzien.Text));
                     string id = command1.ExecuteScalar().ToString();
 

@@ -303,6 +303,8 @@
             this.lb_tagi.Name = "lb_tagi";
             this.lb_tagi.Size = new System.Drawing.Size(243, 121);
             this.lb_tagi.TabIndex = 13;
+            this.lb_tagi.DoubleClick += new System.EventHandler(this.lb_tagi_DoubleClick);
+            this.lb_tagi.Leave += new System.EventHandler(this.lb_tagi_Leave);
             // 
             // txt_uwagi
             // 
@@ -319,7 +321,7 @@
             this.btn_dodaj.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_dodaj.Size = new System.Drawing.Size(88, 47);
             this.btn_dodaj.TabIndex = 19;
-            this.btn_dodaj.Text = "DODAJ";
+            this.btn_dodaj.Text = "DODAJ FILM";
             this.btn_dodaj.UseVisualStyleBackColor = true;
             this.btn_dodaj.Click += new System.EventHandler(this.btn_dodaj_Click);
             // 
@@ -556,7 +558,7 @@
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button1.Size = new System.Drawing.Size(88, 47);
             this.button1.TabIndex = 22;
-            this.button1.Text = "DODAJ";
+            this.button1.Text = "DODAJ FILM";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -685,6 +687,8 @@
             this.lb_zdjecia.Name = "lb_zdjecia";
             this.lb_zdjecia.Size = new System.Drawing.Size(262, 56);
             this.lb_zdjecia.TabIndex = 12;
+            this.lb_zdjecia.DoubleClick += new System.EventHandler(this.lb_zdjecia_DoubleClick);
+            this.lb_zdjecia.Leave += new System.EventHandler(this.lb_zdjecia_Leave);
             // 
             // btn_usun_kompozytora
             // 
@@ -773,6 +777,8 @@
             this.lb_scenariusz.Name = "lb_scenariusz";
             this.lb_scenariusz.Size = new System.Drawing.Size(262, 56);
             this.lb_scenariusz.TabIndex = 4;
+            this.lb_scenariusz.DoubleClick += new System.EventHandler(this.lb_scenariusz_DoubleClick);
+            this.lb_scenariusz.Leave += new System.EventHandler(this.lb_scenariusz_Leave);
             // 
             // lb_rezyseria
             // 
@@ -781,6 +787,8 @@
             this.lb_rezyseria.Name = "lb_rezyseria";
             this.lb_rezyseria.Size = new System.Drawing.Size(262, 56);
             this.lb_rezyseria.TabIndex = 0;
+            this.lb_rezyseria.DoubleClick += new System.EventHandler(this.lb_rezyseria_DoubleClick);
+            this.lb_rezyseria.Leave += new System.EventHandler(this.lb_rezyseria_Leave);
             // 
             // lb_aktorzy
             // 
@@ -789,6 +797,8 @@
             this.lb_aktorzy.Name = "lb_aktorzy";
             this.lb_aktorzy.Size = new System.Drawing.Size(262, 277);
             this.lb_aktorzy.TabIndex = 16;
+            this.lb_aktorzy.DoubleClick += new System.EventHandler(this.lb_aktorzy_DoubleClick);
+            this.lb_aktorzy.Leave += new System.EventHandler(this.lb_aktorzy_Leave);
             // 
             // lb_muzyka
             // 
@@ -797,6 +807,8 @@
             this.lb_muzyka.Name = "lb_muzyka";
             this.lb_muzyka.Size = new System.Drawing.Size(262, 56);
             this.lb_muzyka.TabIndex = 8;
+            this.lb_muzyka.DoubleClick += new System.EventHandler(this.lb_muzyka_DoubleClick);
+            this.lb_muzyka.Leave += new System.EventHandler(this.lb_muzyka_Leave);
             // 
             // panel3
             // 

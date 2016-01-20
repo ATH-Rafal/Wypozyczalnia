@@ -23,20 +23,7 @@ namespace Wypozyczalnia.Formsy
             {
                 conn.Open();
 
-                SQLiteCommand command1 = new SQLiteCommand(conn);
-                command1.CommandText = "SELECT * FROM Osoby WHERE imie_nazwisko=@imie_nazwisko";
-                command1.Parameters.Add(new SQLiteParameter("@imie_nazwisko", imie_nazwisko));
-                using (command1)
-                {
-                    using (SQLiteDataReader rdr = command1.ExecuteReader())
-                    {
-                        while (rdr.Read())
-                        {
-                            txt_nazwa.Text = rdr.GetValue(0).ToString();
-                        }
-                    }
-                }
-
+                txt_nazwa.Text = imie_nazwisko;
                 SQLiteCommand command2 = new SQLiteCommand(conn);
                 command2.CommandText = @"
                         SELECT Filmy.tytul_pol, Filmy.id, Obsada.id_roli
@@ -47,7 +34,7 @@ namespace Wypozyczalnia.Formsy
                         ";
                 command2.Parameters.Add(new SQLiteParameter("@imie_nazwisko", imie_nazwisko));
                 using (command2)
-                {                   
+                {
                     using (SQLiteDataReader rdr = command2.ExecuteReader())
                     {
                         while (rdr.Read())
@@ -71,7 +58,7 @@ namespace Wypozyczalnia.Formsy
                                     rola = "Aktor";
                                     break;
                             }
-                            lb_filmy.Items.Add(rdr.GetValue(0).ToString() + " [" + rdr.GetValue(1).ToString() + "] - " + rola);                            
+                            lb_filmy.Items.Add(rdr.GetValue(0).ToString() + " [" + rdr.GetValue(1).ToString() + "] - " + rola);
                         }
                     }
                 }
